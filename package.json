@@ -1,0 +1,28 @@
+{
+  "name": "@caish-cloud-llc/react-cookies-consent",
+  "version": "1.0.0",
+  "description": "This is a React component that provides an easy-to-implement solution for handling cookie consent in your web application.",
+  "main": "index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caish-cloud-llc/react-cookies-consent.git"
+  },
+  "keywords": [
+    "react",
+    "cookies",
+    "consent",
+    "modal",
+    "alert",
+    "component",
+    "chakraui",
+    "chakra-ui",
+    "chakra ui",
+    "typescript"
+  ],
+  "author": "Caish Cloud, LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caish-cloud-llc/react-cookies-consent/issues"
+  },
+  "homepage": "https://github.com/caish-cloud-llc/react-cookies-consent"
+}
