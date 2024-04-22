@@ -1,2 +1,2 @@
-export * from './components/CookiesConsentAlert';
-export * from './components/CookiesConsentModal';
+export * from './components/alert';
+export * from './components/modal';
