@@ -31,6 +31,11 @@ export type AlertButtonProps = {
   hoverAnimationEnabled?: boolean;
 
   /**
+   * The function to call when the button is clicked.
+   */
+  onClick: () => void;
+
+  /**
    * The styles for the button text.
    */
   textStyle?: ThemeStyles;
@@ -58,6 +63,7 @@ export function AlertButton(props: AlertButtonProps) {
 
   return (
     <motion.div
+      onClick={props.onClick}
       whileHover={{ opacity: hoverAnimationEnabled ? 0.8 : 1 }}
       whileTap={{ scale: clickAnimationEnabled ? 0.95 : 1 }}
     >
