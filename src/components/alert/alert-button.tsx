@@ -46,19 +46,25 @@ export type AlertButtonProps = {
  * @param props - The properties to pass to the component.
  */
 export function AlertButton(props: AlertButtonProps) {
+  // Variables
   const clickAnimationEnabled = props.clickAnimationEnabled ?? true;
   const hoverAnimationEnabled = props.hoverAnimationEnabled ?? true;
 
+  // Styles
   const commonContainerStyle: React.CSSProperties = {
     backgroundColor: props.buttonColor ?? '#0082ba'
   };
+  const commonTextStyle: React.CSSProperties = {
+    color: 'white'
+  };
+
   const defaultContainerStyle: ThemeStyles = {
     dark: commonContainerStyle,
     light: commonContainerStyle
   };
   const defaultTextStyle: ThemeStyles = {
-    dark: { color: 'white' },
-    light: { color: 'white' }
+    dark: commonTextStyle,
+    light: commonTextStyle
   };
 
   return (
