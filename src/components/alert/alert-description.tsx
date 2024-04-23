@@ -5,14 +5,14 @@ import { AlertText } from './alert-text';
 
 export type AlertDescriptionProps = {
   /**
-   * The text to display as the description.
-   */
-  children: string;
-
-  /**
    * The styles for the container of the description.
    */
   containerStyle?: ThemeStyles;
+
+  /**
+   * The text to display as the description.
+   */
+  text: string;
 
   /**
    * The styles for the description text.
@@ -35,7 +35,7 @@ export function AlertDescription(props: AlertDescriptionProps) {
         fontSize={{ base: 'sm', lg: 'md' }}
         userDefinedStyle={props.textStyle}
       >
-        {props.children}
+        {props.text}
       </AlertText>
     </AlertContainer>
   );

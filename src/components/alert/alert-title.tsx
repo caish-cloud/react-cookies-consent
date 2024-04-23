@@ -5,14 +5,14 @@ import { AlertText } from './alert-text';
 
 export type AlertTitleProps = {
   /**
-   * The text to display as the title.
-   */
-  children: string;
-
-  /**
    * The styles for the container of the title.
    */
   containerStyle?: ThemeStyles;
+
+  /**
+   * The text to display as the title.
+   */
+  text: string;
 
   /**
    * The styles for the title text.
@@ -36,7 +36,7 @@ export function AlertTitle(props: AlertTitleProps) {
         fontWeight="semibold"
         userDefinedStyle={props.textStyle}
       >
-        {props.children}
+        {props.text}
       </AlertText>
     </AlertContainer>
   );

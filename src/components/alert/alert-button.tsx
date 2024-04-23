@@ -16,11 +16,6 @@ export type AlertButtonProps = {
   clickAnimationEnabled?: boolean;
 
   /**
-   * The text to display in the button.
-   */
-  children: string;
-
-  /**
    * The styles for the container of the button.
    */
   containerStyle?: ThemeStyles;
@@ -34,6 +29,11 @@ export type AlertButtonProps = {
    * The function to call when the button is clicked.
    */
   onClick: () => void;
+
+  /**
+   * The text to display in the button.
+   */
+  text: string;
 
   /**
    * The styles for the button text.
@@ -89,7 +89,7 @@ export function AlertButton(props: AlertButtonProps) {
           fontWeight="semibold"
           userDefinedStyle={props.textStyle}
         >
-          {props.children}
+          {props.text}
         </AlertText>
       </AlertContainer>
     </motion.div>
