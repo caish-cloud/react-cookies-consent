@@ -27,12 +27,12 @@ export type AlertTitleProps = {
 export function AlertTitle(props: AlertTitleProps) {
   return (
     <AlertContainer
-      containerStyle={props.containerStyle}
-      defaultContainerStyle={defaultContainerStyle}
+      defaultStyle={defaultContainerStyle}
+      userDefinedStyle={props.containerStyle}
     >
       <AlertText
-        defaultTextStyle={defaultTextStyle}
-        textStyle={props.textStyle}
+        defaultStyle={defaultTextStyle}
+        userDefinedStyle={props.textStyle}
       >
         {props.children}
       </AlertText>

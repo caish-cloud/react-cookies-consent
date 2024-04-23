@@ -1,3 +1,4 @@
+import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
 import { AlertContainer } from './alert-container';
@@ -39,18 +40,28 @@ export function AlertRoot(props: AlertRootProps) {
   const theme = props.theme ?? 'light';
 
   return (
-    <AlertContext.Provider value={{ theme }}>
-      <AlertContainer
-        containerStyle={props.containerStyle}
-        defaultContainerStyle={defaultContainerStyle}
-      >
-        {props.children}
-      </AlertContainer>
-    </AlertContext.Provider>
+    <ChakraProvider>
+      <AlertContext.Provider value={{ theme }}>
+        <AlertContainer
+          bottom={8}
+          defaultStyle={defaultContainerStyle}
+          left={{ base: '2.5%', lg: '25%' }}
+          position="absolute"
+          right={{ base: '2.5%', lg: '25%' }}
+          userDefinedStyle={props.containerStyle}
+        >
+          {props.children}
+        </AlertContainer>
+      </AlertContext.Provider>
+    </ChakraProvider>
   );
 }
 
 const defaultContainerStyle: ThemeStyles = {
   dark: {},
-  light: {}
+  light: {
+    backgroundColor: '#fff',
+    padding: '4px',
+    borderRadius: '12px'
+  }
 };

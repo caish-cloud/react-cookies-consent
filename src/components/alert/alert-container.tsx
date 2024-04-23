@@ -1,29 +1,31 @@
+import { Box, ChakraProps } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
 import { AlertContext } from './alert-context';
 
-type AlertContainerProps = {
+interface AlertContainerProps extends ChakraProps {
   /**
    * The children of the container.
    */
   children: React.ReactNode;
 
   /**
-   * The styles for the container.
-   */
-  containerStyle?: ThemeStyles;
-
-  /**
    * The default styles for the container.
    */
-  defaultContainerStyle: ThemeStyles;
-};
+  defaultStyle: ThemeStyles;
+
+  /**
+   * The user-defined styles for the container.
+   */
+  userDefinedStyle?: ThemeStyles;
+}
 
 /**
  * A basic container for any components used within the Alert component.
  * @param props - The properties to pass to the component.
  */
 export function AlertContainer(props: AlertContainerProps) {
+  const { defaultStyle, userDefinedStyle, ...rest } = props;
   const theme = React.useContext(AlertContext).theme;
 
   /**
@@ -31,18 +33,22 @@ export function AlertContainer(props: AlertContainerProps) {
    * @returns The styles for the container.
    */
   function getContainerStyle(): React.CSSProperties | undefined {
-    let defaultContainerStyle: React.CSSProperties = {
-      ...props.defaultContainerStyle[theme]
+    let tempStyle: React.CSSProperties = {
+      ...defaultStyle[theme]
     };
 
-    if (props.containerStyle) {
-      defaultContainerStyle = {
-        ...(props.containerStyle[theme] ?? {})
+    if (userDefinedStyle) {
+      tempStyle = {
+        ...(userDefinedStyle[theme] ?? {})
       };
     }
 
-    return defaultContainerStyle;
+    return tempStyle;
   }
 
-  return <div style={getContainerStyle()}>{props.children}</div>;
+  return (
+    <Box {...rest} style={getContainerStyle()}>
+      {props.children}
+    </Box>
+  );
 }

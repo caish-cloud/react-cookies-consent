@@ -1,8 +1,9 @@
+import { ChakraProps, Text } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
 import { AlertContext } from './alert-context';
 
-type AlertTextProps = {
+interface AlertTextProps extends ChakraProps {
   /**
    * The text.
    */
@@ -11,19 +12,20 @@ type AlertTextProps = {
   /**
    * The default styles for the text.
    */
-  defaultTextStyle: ThemeStyles;
+  defaultStyle: ThemeStyles;
 
   /**
-   * The styles for the text.
+   * The user-defined styles for the text.
    */
-  textStyle?: ThemeStyles;
-};
+  userDefinedStyle?: ThemeStyles;
+}
 
 /**
  * A basic text component for use within the Alert component.
  * @param props - The properties to pass to the component.
  */
 export function AlertText(props: AlertTextProps) {
+  const { defaultStyle, userDefinedStyle, ...rest } = props;
   const theme = React.useContext(AlertContext).theme;
 
   /**
@@ -31,18 +33,22 @@ export function AlertText(props: AlertTextProps) {
    * @returns The styles for the text.
    */
   function getTextStyle(): React.CSSProperties | undefined {
-    let defaultTextStyle: React.CSSProperties = {
-      ...props.defaultTextStyle[theme]
+    let tempStyle: React.CSSProperties = {
+      ...defaultStyle[theme]
     };
 
-    if (props.textStyle) {
-      defaultTextStyle = {
-        ...(props.textStyle[theme] ?? {})
+    if (userDefinedStyle) {
+      tempStyle = {
+        ...(userDefinedStyle[theme] ?? {})
       };
     }
 
-    return defaultTextStyle;
+    return tempStyle;
   }
 
-  return <p style={getTextStyle()}>{props.children}</p>;
+  return (
+    <Text {...rest} style={getTextStyle()}>
+      {props.children}
+    </Text>
+  );
 }

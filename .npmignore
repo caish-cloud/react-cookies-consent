@@ -1,7 +1,6 @@
 .gitignore
 .prettierrc
 eslint.config.js
-node_modules
 package-lock.json
 tsconfig.json
 src
