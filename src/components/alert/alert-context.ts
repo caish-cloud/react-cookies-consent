@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const AlertContext = React.createContext<{ theme: 'dark' | 'light' }>({
+type AlertContextType = { theme: 'dark' | 'light' };
+
+export const AlertContext = React.createContext<AlertContextType>({
   theme: 'light'
 });
