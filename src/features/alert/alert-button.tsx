@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import React from 'react';
+import { MotionBox } from '../../components/MotionBox';
 import { ThemeStyles } from '../../constants/types';
 import { AlertContainer } from './alert-container';
 import { AlertText } from './alert-text';
@@ -68,7 +68,7 @@ export function AlertButton(props: AlertButtonProps) {
   };
 
   return (
-    <motion.div
+    <MotionBox
       onClick={props.onClick}
       whileHover={{ opacity: hoverAnimationEnabled ? 0.8 : 1 }}
       whileTap={{ scale: clickAnimationEnabled ? 0.95 : 1 }}
@@ -92,6 +92,6 @@ export function AlertButton(props: AlertButtonProps) {
           {props.text}
         </AlertText>
       </AlertContainer>
-    </motion.div>
+    </MotionBox>
   );
 }
