@@ -48,6 +48,6 @@ const defaultTextStyle: ThemeStyles = {
     color: 'white'
   },
   light: {
-    color: 'black'
+    color: '#2D3748'
   }
 };

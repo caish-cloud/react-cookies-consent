@@ -22,7 +22,9 @@ export function AlertActions(props: AlertActionsProps) {
   return (
     <AlertContainer
       defaultStyle={defaultContainerStyle}
-      flexDirection="column"
+      flexBasis={{ base: 0, lg: '215px' }}
+      flexDirection={{ base: 'row', lg: 'column' }}
+      gap={2}
       userDefinedStyle={props.containerStyle}
     >
       {props.children}

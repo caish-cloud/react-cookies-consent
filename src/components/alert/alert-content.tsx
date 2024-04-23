@@ -23,6 +23,7 @@ export function AlertContent(props: AlertContentProps) {
     <AlertContainer
       defaultStyle={defaultContainerStyle}
       flexDirection="column"
+      flexGrow={1}
       userDefinedStyle={props.containerStyle}
     >
       {props.children}

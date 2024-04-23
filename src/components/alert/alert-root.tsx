@@ -46,6 +46,8 @@ export function AlertRoot(props: AlertRootProps) {
           borderRadius={8}
           bottom={8}
           defaultStyle={defaultContainerStyle}
+          flexDirection={{ base: 'column', lg: 'row' }}
+          gap={4}
           left={{ base: '2.5%', lg: '25%' }}
           padding={3}
           position="absolute"
@@ -61,7 +63,7 @@ export function AlertRoot(props: AlertRootProps) {
 
 const defaultContainerStyle: ThemeStyles = {
   dark: {
-    backgroundColor: 'black'
+    backgroundColor: '#2D3748'
   },
   light: {
     backgroundColor: 'white'
