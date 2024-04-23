@@ -32,7 +32,7 @@ export type AlertRootProps = {
    * The placement of the alert on the screen.
    * Defaults to 'bottom-center' if not provided.
    */
-  placement?: 'center' | 'left' | 'right';
+  placement?: 'bottom-center' | 'bottom-left' | 'bottom-right';
 
   /**
    * The theme for the alert.
@@ -50,7 +50,7 @@ export function AlertRoot({
   containerStyle,
   enterExitAnimation = 'from-bottom',
   enterExitAnimationEnabled = true,
-  placement = 'center',
+  placement = 'bottom-center',
   theme = 'light'
 }: AlertRootProps) {
   /**
@@ -143,14 +143,14 @@ export function AlertRoot({
         >
           {/* This container cannot be modified, and is only used for modifying
               the placement of the alert. */}
-          <Flex justifyContent={placement} w="100%">
+          <Flex justifyContent={placement.split('-')[1]} w="100%">
             <AlertContainer
               borderRadius={8}
               bottom={6}
               defaultStyle={defaultContainerStyle}
               flexDirection={{ base: 'column', lg: 'row' }}
               gap={4}
-              mx={{ base: 4, lg: placement !== 'center' ? 4 : 0 }}
+              mx={{ base: 4, lg: placement !== 'bottom-center' ? 4 : 0 }}
               padding={3}
               position="absolute"
               w={{ base: 'auto', lg: '50%' }}
