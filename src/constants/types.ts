@@ -6,7 +6,6 @@ export type ThemeStyles = {
 
   /**
    * The light theme styles for the container.
-   * This will be the default theme if no theme is provided to the parent.
    */
   light: React.CSSProperties;
 };
