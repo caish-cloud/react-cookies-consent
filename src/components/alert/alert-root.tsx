@@ -1,6 +1,6 @@
-import { AlertContainer } from '@/components/alert/alert-container';
-import { ThemeStyles } from '@/constants/types';
 import React from 'react';
+import { ThemeStyles } from '../../constants/types';
+import { AlertContainer } from './alert-container';
 import { AlertContext } from './alert-context';
 
 export type AlertRootProps = {

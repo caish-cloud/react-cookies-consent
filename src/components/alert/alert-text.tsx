@@ -1,6 +1,6 @@
-import { AlertContext } from '@/components/alert/alert-context';
-import { ThemeStyles } from '@/constants/types';
 import React from 'react';
+import { ThemeStyles } from '../../constants/types';
+import { AlertContext } from './alert-context';
 
 type AlertTextProps = {
   /**
