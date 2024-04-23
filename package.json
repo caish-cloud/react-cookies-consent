@@ -11,7 +11,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rm -rf dist && npx tsc",
+    "build": "rimraf dist && npx tsc",
     "publish": "npm run build && npm publish"
   },
   "publishConfig": {
