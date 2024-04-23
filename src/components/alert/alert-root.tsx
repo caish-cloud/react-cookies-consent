@@ -1,3 +1,5 @@
+import { AlertContainer } from '@/components/alert/alert-container';
+import { ThemeStyles } from '@/constants/types';
 import React from 'react';
 import { AlertContext } from './alert-context';
 
@@ -11,18 +13,7 @@ export type AlertRootProps = {
   /**
    * The styles for the container of the alert.
    */
-  containerStyle?: {
-    /**
-     * The dark theme styles for the container of the alert.
-     */
-    dark?: React.CSSProperties;
-
-    /**
-     * The light theme styles for the container of the alert.
-     */
-    light: React.CSSProperties;
-  };
-  // description: string;
+  containerStyle?: ThemeStyles;
   // learnMoreButton?: {
   //   onClick: () => void;
   //   style?: React.CSSProperties;
@@ -47,26 +38,16 @@ export type AlertRootProps = {
 export function AlertRoot(props: AlertRootProps) {
   const theme = props.theme ?? 'light';
 
-  /**
-   * Gets the styles for the container of the alert based on the theme.
-   * @returns The styles for the container of the alert.
-   */
-  function getContainerStyle(): React.CSSProperties | undefined {
-    let defaultContainerStyle: React.CSSProperties = {};
-
-    if (props.containerStyle) {
-      defaultContainerStyle = {
-        ...defaultContainerStyle,
-        ...(props.containerStyle[theme] ?? {})
-      };
-    }
-
-    return defaultContainerStyle;
-  }
-
   return (
     <AlertContext.Provider value={{ theme }}>
-      <div style={getContainerStyle()}>{props.children}</div>
+      <AlertContainer
+        containerStyle={props.containerStyle}
+        defaultContainerStyle={defaultContainerStyle}
+      >
+        {props.children}
+      </AlertContainer>
     </AlertContext.Provider>
   );
 }
+
+const defaultContainerStyle: React.CSSProperties = {};
