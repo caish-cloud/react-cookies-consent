@@ -32,6 +32,8 @@ export function AlertTitle(props: AlertTitleProps) {
     >
       <AlertText
         defaultStyle={defaultTextStyle}
+        fontSize={{ base: 'md', lg: 'lg' }}
+        fontWeight="semibold"
         userDefinedStyle={props.textStyle}
       >
         {props.children}
@@ -42,4 +44,11 @@ export function AlertTitle(props: AlertTitleProps) {
 
 const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };
 
-const defaultTextStyle: ThemeStyles = { dark: {}, light: {} };
+const defaultTextStyle: ThemeStyles = {
+  dark: {
+    color: 'white'
+  },
+  light: {
+    color: 'black'
+  }
+};

@@ -43,9 +43,11 @@ export function AlertRoot(props: AlertRootProps) {
     <ChakraProvider>
       <AlertContext.Provider value={{ theme }}>
         <AlertContainer
+          borderRadius={8}
           bottom={8}
           defaultStyle={defaultContainerStyle}
           left={{ base: '2.5%', lg: '25%' }}
+          padding={3}
           position="absolute"
           right={{ base: '2.5%', lg: '25%' }}
           userDefinedStyle={props.containerStyle}
@@ -58,10 +60,10 @@ export function AlertRoot(props: AlertRootProps) {
 }
 
 const defaultContainerStyle: ThemeStyles = {
-  dark: {},
+  dark: {
+    backgroundColor: 'black'
+  },
   light: {
-    backgroundColor: '#fff',
-    padding: '4px',
-    borderRadius: '12px'
+    backgroundColor: 'white'
   }
 };

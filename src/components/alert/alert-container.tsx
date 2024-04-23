@@ -1,4 +1,4 @@
-import { Box, ChakraProps } from '@chakra-ui/react';
+import { ChakraProps, Flex } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
 import { AlertContext } from './alert-context';
@@ -47,8 +47,8 @@ export function AlertContainer(props: AlertContainerProps) {
   }
 
   return (
-    <Box {...rest} style={getContainerStyle()}>
+    <Flex {...rest} style={getContainerStyle()}>
       {props.children}
-    </Box>
+    </Flex>
   );
 }

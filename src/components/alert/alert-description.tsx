@@ -32,6 +32,7 @@ export function AlertDescription(props: AlertDescriptionProps) {
     >
       <AlertText
         defaultStyle={defaultTextStyle}
+        fontSize={{ base: 'sm', lg: 'md' }}
         userDefinedStyle={props.textStyle}
       >
         {props.children}
@@ -42,4 +43,11 @@ export function AlertDescription(props: AlertDescriptionProps) {
 
 const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };
 
-const defaultTextStyle: ThemeStyles = { dark: {}, light: {} };
+const defaultTextStyle: ThemeStyles = {
+  dark: {
+    color: 'white'
+  },
+  light: {
+    color: 'black'
+  }
+};
