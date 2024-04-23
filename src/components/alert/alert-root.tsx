@@ -50,4 +50,7 @@ export function AlertRoot(props: AlertRootProps) {
   );
 }
 
-const defaultContainerStyle: React.CSSProperties = {};
+const defaultContainerStyle: ThemeStyles = {
+  dark: {},
+  light: {}
+};

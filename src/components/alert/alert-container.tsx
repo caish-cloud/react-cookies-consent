@@ -16,7 +16,7 @@ type AlertContainerProps = {
   /**
    * The default styles for the container.
    */
-  defaultContainerStyle: React.CSSProperties;
+  defaultContainerStyle: ThemeStyles;
 };
 
 /**
@@ -31,11 +31,11 @@ export function AlertContainer(props: AlertContainerProps) {
    * @returns The styles for the container.
    */
   function getContainerStyle(): React.CSSProperties | undefined {
-    let defaultContainerStyle = props.defaultContainerStyle;
+    let defaultContainerStyle: React.CSSProperties = {};
 
     if (props.containerStyle) {
       defaultContainerStyle = {
-        ...props.defaultContainerStyle,
+        ...props.defaultContainerStyle[theme],
         ...(props.containerStyle[theme] ?? {})
       };
     }

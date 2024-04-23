@@ -11,7 +11,7 @@ type AlertTextProps = {
   /**
    * The default styles for the text.
    */
-  defaultTextStyle: React.CSSProperties;
+  defaultTextStyle: ThemeStyles;
 
   /**
    * The styles for the text.
@@ -31,11 +31,11 @@ export function AlertText(props: AlertTextProps) {
    * @returns The styles for the text.
    */
   function getTextStyle(): React.CSSProperties | undefined {
-    let defaultTextStyle: React.CSSProperties = props.defaultTextStyle;
+    let defaultTextStyle: React.CSSProperties = {};
 
     if (props.textStyle) {
       defaultTextStyle = {
-        ...defaultTextStyle,
+        ...props.defaultTextStyle[theme],
         ...(props.textStyle[theme] ?? {})
       };
     }

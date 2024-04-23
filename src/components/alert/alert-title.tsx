@@ -40,6 +40,6 @@ export function AlertTitle(props: AlertTitleProps) {
   );
 }
 
-const defaultContainerStyle: React.CSSProperties = {};
+const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };
 
-const defaultTextStyle: React.CSSProperties = {};
+const defaultTextStyle: ThemeStyles = { dark: {}, light: {} };
