@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
 import { AlertContainer } from './alert-container';
@@ -10,6 +11,11 @@ export type AlertButtonProps = {
   buttonColor?: string;
 
   /**
+   * Whether the button should have click animations.
+   */
+  clickAnimationEnabled?: boolean;
+
+  /**
    * The text to display in the button.
    */
   children: string;
@@ -18,6 +24,11 @@ export type AlertButtonProps = {
    * The styles for the container of the button.
    */
   containerStyle?: ThemeStyles;
+
+  /**
+   * Whether the button should have hover animations.
+   */
+  hoverAnimationEnabled?: boolean;
 
   /**
    * The styles for the button text.
@@ -30,8 +41,11 @@ export type AlertButtonProps = {
  * @param props - The properties to pass to the component.
  */
 export function AlertButton(props: AlertButtonProps) {
+  const clickAnimationEnabled = props.clickAnimationEnabled ?? true;
+  const hoverAnimationEnabled = props.hoverAnimationEnabled ?? true;
+
   const commonContainerStyle: React.CSSProperties = {
-    backgroundColor: props.buttonColor ?? '#0193d5'
+    backgroundColor: props.buttonColor ?? '#0082ba'
   };
   const defaultContainerStyle: ThemeStyles = {
     dark: commonContainerStyle,
@@ -43,24 +57,29 @@ export function AlertButton(props: AlertButtonProps) {
   };
 
   return (
-    <AlertContainer
-      alignItems="center"
-      borderRadius={4}
-      cursor="pointer"
-      defaultStyle={defaultContainerStyle}
-      justifyContent="center"
-      minW="150px"
-      padding={2}
-      userDefinedStyle={props.containerStyle}
+    <motion.div
+      whileHover={{ opacity: hoverAnimationEnabled ? 0.8 : 1 }}
+      whileTap={{ scale: clickAnimationEnabled ? 0.95 : 1 }}
     >
-      <AlertText
-        defaultStyle={defaultTextStyle}
-        fontSize={{ base: 'sm', lg: 'md' }}
-        fontWeight="semibold"
-        userDefinedStyle={props.textStyle}
+      <AlertContainer
+        alignItems="center"
+        borderRadius={4}
+        cursor="pointer"
+        defaultStyle={defaultContainerStyle}
+        justifyContent="center"
+        minW="150px"
+        padding={2}
+        userDefinedStyle={props.containerStyle}
       >
-        {props.children}
-      </AlertText>
-    </AlertContainer>
+        <AlertText
+          defaultStyle={defaultTextStyle}
+          fontSize={{ base: 'sm', lg: 'md' }}
+          fontWeight="semibold"
+          userDefinedStyle={props.textStyle}
+        >
+          {props.children}
+        </AlertText>
+      </AlertContainer>
+    </motion.div>
   );
 }
