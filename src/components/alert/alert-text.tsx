@@ -31,11 +31,12 @@ export function AlertText(props: AlertTextProps) {
    * @returns The styles for the text.
    */
   function getTextStyle(): React.CSSProperties | undefined {
-    let defaultTextStyle: React.CSSProperties = {};
+    let defaultTextStyle: React.CSSProperties = {
+      ...props.defaultTextStyle[theme]
+    };
 
     if (props.textStyle) {
       defaultTextStyle = {
-        ...props.defaultTextStyle[theme],
         ...(props.textStyle[theme] ?? {})
       };
     }

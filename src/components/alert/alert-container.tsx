@@ -31,11 +31,12 @@ export function AlertContainer(props: AlertContainerProps) {
    * @returns The styles for the container.
    */
   function getContainerStyle(): React.CSSProperties | undefined {
-    let defaultContainerStyle: React.CSSProperties = {};
+    let defaultContainerStyle: React.CSSProperties = {
+      ...props.defaultContainerStyle[theme]
+    };
 
     if (props.containerStyle) {
       defaultContainerStyle = {
-        ...props.defaultContainerStyle[theme],
         ...(props.containerStyle[theme] ?? {})
       };
     }
