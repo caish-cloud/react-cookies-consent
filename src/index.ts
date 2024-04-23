@@ -1,2 +1,2 @@
-export * from './components/alert';
-export * from './components/modal';
+export * from './features/alert';
+export * from './features/modal';
