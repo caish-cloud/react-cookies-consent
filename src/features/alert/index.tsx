@@ -11,7 +11,10 @@ export type { AlertActionsProps as CookiesConsentAlertActionsProps } from './ale
 export type { AlertButtonProps as CookiesConsentAlertButtonProps } from './alert-button';
 export type { AlertContentProps as CookiesConsentAlertContentProps } from './alert-content';
 export type { AlertDescription as CookiesConsentAlertDescriptionProps } from './alert-description';
-export type { AlertRootProps as CookiesConsentAlertProps } from './alert-root';
+export type {
+  AlertRootProps as CookiesConsentAlertProps,
+  AlertRootRef as CookiesConsentAlertRef
+} from './alert-root';
 export type { AlertTitleProps as CookiesConsentAlertTitleProps } from './alert-title';
 
 // Components
