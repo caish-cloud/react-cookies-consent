@@ -45,14 +45,18 @@ export type AlertButtonProps = {
  * A button to be used within the alert.
  * @param props - The properties to pass to the component.
  */
-export function AlertButton(props: AlertButtonProps) {
-  // Variables
-  const clickAnimationEnabled = props.clickAnimationEnabled ?? true;
-  const hoverAnimationEnabled = props.hoverAnimationEnabled ?? true;
-
+export function AlertButton({
+  buttonColor = '#0082ba',
+  clickAnimationEnabled = true,
+  containerStyle,
+  hoverAnimationEnabled = true,
+  onClick,
+  text,
+  textStyle
+}: AlertButtonProps) {
   // Styles
   const commonContainerStyle: React.CSSProperties = {
-    backgroundColor: props.buttonColor ?? '#0082ba'
+    backgroundColor: buttonColor
   };
   const commonTextStyle: React.CSSProperties = {
     color: 'white'
@@ -69,7 +73,7 @@ export function AlertButton(props: AlertButtonProps) {
 
   return (
     <MotionBox
-      onClick={props.onClick}
+      onClick={onClick}
       whileHover={{ opacity: hoverAnimationEnabled ? 0.8 : 1 }}
       whileTap={{ scale: clickAnimationEnabled ? 0.95 : 1 }}
     >
@@ -81,15 +85,15 @@ export function AlertButton(props: AlertButtonProps) {
         justifyContent="center"
         minW="150px"
         padding={2}
-        userDefinedStyle={props.containerStyle}
+        userDefinedStyle={containerStyle}
       >
         <AlertText
           defaultStyle={defaultTextStyle}
           fontSize={{ base: 'sm', lg: 'md' }}
           fontWeight="semibold"
-          userDefinedStyle={props.textStyle}
+          userDefinedStyle={textStyle}
         >
-          {props.text}
+          {text}
         </AlertText>
       </AlertContainer>
     </MotionBox>
