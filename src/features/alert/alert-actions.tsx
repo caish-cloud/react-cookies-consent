@@ -24,6 +24,7 @@ export function AlertActions(props: AlertActionsProps) {
       defaultStyle={defaultContainerStyle}
       flexBasis={{ base: 0, lg: '215px' }}
       flexDirection={{ base: 'row', lg: 'column' }}
+      justifyContent={{ base: 'left', lg: 'center' }}
       gap={2}
       userDefinedStyle={props.containerStyle}
     >
