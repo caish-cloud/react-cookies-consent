@@ -147,6 +147,7 @@ export function AlertRoot({
             <AlertContainer
               borderRadius={8}
               bottom={6}
+              boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
               defaultStyle={defaultContainerStyle}
               flexDirection={{ base: 'column', lg: 'row' }}
               gap={4}
