@@ -67,7 +67,6 @@ export type AlertRootProps = {
 
 /**
  * The root of the alert. This component should wrap all other alert components.
- * @param props - The properties to pass to the component.
  */
 export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
   (

@@ -73,7 +73,6 @@ export type AlertButtonProps = {
 
 /**
  * A button to be used within the alert.
- * @param props - The properties to pass to the component.
  */
 export function AlertButton({
   clickAnimationEnabled = true,
@@ -106,8 +105,11 @@ export function AlertButton({
     light: commonContainerStyle__Text
   };
 
-  // Returns the text component for the alert button.
-  // This is in its own function to avoid code duplication.
+  /**
+   * Creates the text component for the alert button.
+   * This is in its own function to avoid code duplication.
+   * @returns The text component for the alert button.
+   */
   function getAlertTextComponent() {
     let defaultTextStyle: ThemeStyles;
 
