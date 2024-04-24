@@ -6,6 +6,7 @@ Write about these things:
 - The ref and actions you can perform on the alert root component
 - Light/dark theme
 - The use of local storage
+- Responsiveness for desktop and mobile
 
 ### Requirements
 ```
