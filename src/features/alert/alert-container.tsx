@@ -1,7 +1,7 @@
 import { ChakraProps, Flex } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
-import { AlertContext } from './alert-context';
+import { useStore } from '../../services/zustand/store';
 
 interface AlertContainerProps extends ChakraProps {
   /**
@@ -26,7 +26,8 @@ interface AlertContainerProps extends ChakraProps {
  */
 export function AlertContainer(props: AlertContainerProps) {
   const { defaultStyle, userDefinedStyle, ...rest } = props;
-  const theme = React.useContext(AlertContext).theme;
+
+  const store = useStore();
 
   /**
    * Gets the styles for the container based on the theme.
@@ -34,12 +35,12 @@ export function AlertContainer(props: AlertContainerProps) {
    */
   function getContainerStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultStyle[theme]
+      ...defaultStyle[store.theme]
     };
 
     if (userDefinedStyle) {
       tempStyle = {
-        ...(userDefinedStyle[theme] ?? {})
+        ...(userDefinedStyle[store.theme] ?? {})
       };
     }
 

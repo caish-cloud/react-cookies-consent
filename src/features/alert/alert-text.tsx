@@ -1,7 +1,7 @@
 import { ChakraProps, Text } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
-import { AlertContext } from './alert-context';
+import { useStore } from '../../services/zustand/store';
 
 interface AlertTextProps extends ChakraProps {
   /**
@@ -26,7 +26,8 @@ interface AlertTextProps extends ChakraProps {
  */
 export function AlertText(props: AlertTextProps) {
   const { defaultStyle, userDefinedStyle, ...rest } = props;
-  const theme = React.useContext(AlertContext).theme;
+
+  const store = useStore();
 
   /**
    * Gets the styles for the text based on the theme.
@@ -34,12 +35,12 @@ export function AlertText(props: AlertTextProps) {
    */
   function getTextStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultStyle[theme]
+      ...defaultStyle[store.theme]
     };
 
     if (userDefinedStyle) {
       tempStyle = {
-        ...(userDefinedStyle[theme] ?? {})
+        ...(userDefinedStyle[store.theme] ?? {})
       };
     }
 

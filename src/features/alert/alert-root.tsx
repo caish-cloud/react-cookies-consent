@@ -5,7 +5,6 @@ import { MotionBox } from '../../components/MotionBox';
 import { ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
 import { AlertContainer } from './alert-container';
-import { AlertContext } from './alert-context';
 
 export type AlertRootProps = {
   /**
@@ -55,6 +54,11 @@ export function AlertRoot({
   theme = 'light'
 }: AlertRootProps) {
   const store = useStore();
+
+  // Set the theme in the store when the component mounts.
+  React.useEffect(() => {
+    store.setTheme(theme);
+  }, []);
 
   /**
    * Get the animation variants for the alert based on the user's preference in
@@ -129,46 +133,44 @@ export function AlertRoot({
 
   return (
     <ChakraProvider>
-      <AlertContext.Provider value={{ theme }}>
-        <AnimatePresence>
-          {!store.alertDismissed && (
-            <MotionBox
-              animate={enterExitAnimationEnabled ? 'visible' : 'disabled'}
-              bottom={6}
-              display="flex"
-              exit={enterExitAnimationEnabled ? 'hidden' : 'disabled'}
-              flex={1}
-              initial={enterExitAnimationEnabled ? 'hidden' : 'disabled'}
-              justifyContent={placement.split('-')[1]}
-              position="absolute"
-              transition={{
-                damping: 20,
-                duration: 0.5,
-                ease: 'easeInOut',
-                mass: 1,
-                stiffness: 200,
-                type: 'spring'
-              }}
-              variants={getAnimationVariants()}
-              w="100%"
+      <AnimatePresence>
+        {!store.alertDismissed && (
+          <MotionBox
+            animate={enterExitAnimationEnabled ? 'visible' : 'disabled'}
+            bottom={6}
+            display="flex"
+            exit={enterExitAnimationEnabled ? 'hidden' : 'disabled'}
+            flex={1}
+            initial={enterExitAnimationEnabled ? 'hidden' : 'disabled'}
+            justifyContent={placement.split('-')[1]}
+            position="absolute"
+            transition={{
+              damping: 20,
+              duration: 0.5,
+              ease: 'easeInOut',
+              mass: 1,
+              stiffness: 200,
+              type: 'spring'
+            }}
+            variants={getAnimationVariants()}
+            w="100%"
+          >
+            <AlertContainer
+              borderRadius={8}
+              boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+              defaultStyle={defaultContainerStyle}
+              flexDirection={{ base: 'column', lg: 'row' }}
+              gap={4}
+              mx={{ base: 4, lg: placement !== 'bottom-center' ? 4 : 0 }}
+              padding={3}
+              w={{ base: 'auto', lg: '50%' }}
+              userDefinedStyle={containerStyle}
             >
-              <AlertContainer
-                borderRadius={8}
-                boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
-                defaultStyle={defaultContainerStyle}
-                flexDirection={{ base: 'column', lg: 'row' }}
-                gap={4}
-                mx={{ base: 4, lg: placement !== 'bottom-center' ? 4 : 0 }}
-                padding={3}
-                w={{ base: 'auto', lg: '50%' }}
-                userDefinedStyle={containerStyle}
-              >
-                {children}
-              </AlertContainer>
-            </MotionBox>
-          )}
-        </AnimatePresence>
-      </AlertContext.Provider>
+              {children}
+            </AlertContainer>
+          </MotionBox>
+        )}
+      </AnimatePresence>
     </ChakraProvider>
   );
 }
