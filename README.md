@@ -18,11 +18,39 @@ Bugs:
 - When changing the theme, styles do not update
 - Lots of rerenders? Test performance of components via profiler
 
-### Requirements
+## Requirements
 
 ```
 html {
   height: 100%;
   width: 100%;
 }
+```
+
+## Examples
+
+### Alert
+
+```tsx
+<CookiesConsentAlert>
+  <CookiesConsentAlert.Content>
+    <CookiesConsentAlert.Title text="About cookies on this site" />
+    <CookiesConsentAlert.Description text="This website uses cookies to ensure you get the best experience on our website." />
+    <CookiesConsentAlert.Button
+      onClick={() => null}
+      text="Learn more"
+      variant="text"
+    />
+  </CookiesConsentAlert.Content>
+
+  <CookiesConsentAlert.Actions>
+    <CookiesConsentAlert.Button onClick={() => null} text="Accept cookies" />
+
+    <CookiesConsentAlert.Button
+      onClick={() => null}
+      regularButtonColor="#2D3748"
+      text="Cookie settings"
+    />
+  </CookiesConsentAlert.Actions>
+</CookiesConsentAlert>
 ```
