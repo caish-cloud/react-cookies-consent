@@ -41,6 +41,12 @@ export type AlertButtonProps = {
   shouldDismissAlert?: boolean;
 
   /**
+   * Whether the modal should be shown when the button is clicked.
+   * @default false
+   */
+  shouldShowModal?: boolean;
+
+  /**
    * The text to display in the button.
    */
   text: string;
@@ -62,6 +68,7 @@ export function AlertButton({
   hoverAnimationEnabled = true,
   onClick,
   shouldDismissAlert = true,
+  shouldShowModal = false,
   text,
   textStyle
 }: AlertButtonProps) {
@@ -91,6 +98,7 @@ export function AlertButton({
 
     // Dismiss the alert if the user chose to do so
     shouldDismissAlert && store.setAlertDismissed(true);
+    shouldShowModal && store.setModalShown(true);
   }
 
   return (
