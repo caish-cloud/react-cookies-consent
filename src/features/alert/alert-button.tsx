@@ -135,7 +135,7 @@ export function AlertButton({
 
     return (
       <AlertText
-        cursor={variant === 'text' ? 'pointer' : 'default'}
+        cursor="pointer"
         defaultStyle={defaultTextStyle}
         fontSize={{ base: 'sm', lg: 'md' }}
         fontWeight="semibold"
