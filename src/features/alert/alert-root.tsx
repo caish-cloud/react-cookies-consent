@@ -11,6 +11,21 @@ export type AlertRootRef = {
    * Dismisses the alert.
    */
   dismissAlert: () => void;
+
+  /**
+   * Dismisses the modal.
+   */
+  dismissModal: () => void;
+
+  /**
+   * Shows the alert.
+   */
+  showAlert: () => void;
+
+  /**
+   * Shows the modal.
+   */
+  showModal: () => void;
 };
 
 export type AlertRootProps = {
@@ -80,6 +95,18 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
       () => ({
         dismissAlert: () => {
           store.setAlertDismissed(true);
+        },
+
+        dismissModal: () => {
+          store.setModalShown(false);
+        },
+
+        showAlert: () => {
+          store.setAlertDismissed(false);
+        },
+
+        showModal: () => {
+          store.setModalShown(true);
         }
       }),
       []
