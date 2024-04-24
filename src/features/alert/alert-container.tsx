@@ -40,6 +40,7 @@ export function AlertContainer(props: AlertContainerProps) {
 
     if (userDefinedStyle) {
       tempStyle = {
+        ...tempStyle,
         ...(userDefinedStyle[store.theme] ?? {})
       };
     }

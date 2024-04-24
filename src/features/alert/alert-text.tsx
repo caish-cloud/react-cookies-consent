@@ -40,6 +40,7 @@ export function AlertText(props: AlertTextProps) {
 
     if (userDefinedStyle) {
       tempStyle = {
+        ...tempStyle,
         ...(userDefinedStyle[store.theme] ?? {})
       };
     }
