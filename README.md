@@ -10,6 +10,7 @@ Write about these things:
 - The use of local storage
 - Responsiveness for desktop and mobile
 - The libraries we use, such as Chakra UI, Zustand, and Framer Motion
+- Alert button click animation is disabled on text variant
 
 ### Requirements
 

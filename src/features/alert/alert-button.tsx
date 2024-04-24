@@ -7,12 +7,6 @@ import { AlertText } from './alert-text';
 
 export type AlertButtonProps = {
   /**
-   * The color of the button.
-   * @default '#0082ba'
-   */
-  buttonColor?: string;
-
-  /**
    * Whether the button should have click animations.
    * @default true
    */
@@ -35,6 +29,12 @@ export type AlertButtonProps = {
   onClick: () => void;
 
   /**
+   * The color of the regular variant button.
+   * @default '#0082ba'
+   */
+  regularButtonColor?: string;
+
+  /**
    * Whether the alert should be dismissed when the button is clicked.
    * @default true
    */
@@ -52,9 +52,23 @@ export type AlertButtonProps = {
   text: string;
 
   /**
+   * The color of the text variant button.
+   * @default '#0082ba'
+   */
+  textButtonColor?: string;
+
+  /**
    * The styles for the button text.
    */
   textStyle?: ThemeStyles;
+
+  /**
+   * The type of button to render.
+   * 'regular' - A regular looking button.
+   * 'text' - A button that looks like a text link.
+   * @default 'regular'
+   */
+  variant?: 'regular' | 'text';
 };
 
 /**
@@ -62,34 +76,73 @@ export type AlertButtonProps = {
  * @param props - The properties to pass to the component.
  */
 export function AlertButton({
-  buttonColor = '#0082ba',
   clickAnimationEnabled = true,
   containerStyle,
   hoverAnimationEnabled = true,
   onClick,
+  regularButtonColor = '#0082ba',
   shouldDismissAlert = true,
   shouldShowModal = false,
   text,
-  textStyle
+  textButtonColor = '#0082ba',
+  textStyle,
+  variant = 'regular'
 }: AlertButtonProps) {
   const store = useStore();
 
-  // Styles
-  const commonContainerStyle: React.CSSProperties = {
-    backgroundColor: buttonColor
+  // Common default styles for the button
+  const commonContainerStyle__Regular: React.CSSProperties = {
+    backgroundColor: regularButtonColor
   };
-  const commonTextStyle: React.CSSProperties = {
-    color: 'white'
+  const commonContainerStyle__Text: React.CSSProperties = {};
+
+  // Default styles for the button
+  const defaultContainerStyle__Regular: ThemeStyles = {
+    dark: commonContainerStyle__Regular,
+    light: commonContainerStyle__Regular
+  };
+  const defaultContainerStyle__Text: ThemeStyles = {
+    dark: commonContainerStyle__Text,
+    light: commonContainerStyle__Text
   };
 
-  const defaultContainerStyle: ThemeStyles = {
-    dark: commonContainerStyle,
-    light: commonContainerStyle
-  };
-  const defaultTextStyle: ThemeStyles = {
-    dark: commonTextStyle,
-    light: commonTextStyle
-  };
+  // Returns the text component for the alert button.
+  // This is in its own function to avoid code duplication.
+  function getAlertTextComponent() {
+    let defaultTextStyle: ThemeStyles;
+
+    if (variant === 'regular') {
+      const commonTextStyle: React.CSSProperties = {
+        color: 'white'
+      };
+
+      defaultTextStyle = {
+        dark: commonTextStyle,
+        light: commonTextStyle
+      };
+    } else {
+      const commonTextStyle: React.CSSProperties = {
+        color: textButtonColor
+      };
+
+      defaultTextStyle = {
+        dark: commonTextStyle,
+        light: commonTextStyle
+      };
+    }
+
+    return (
+      <AlertText
+        cursor={variant === 'text' ? 'pointer' : 'default'}
+        defaultStyle={defaultTextStyle}
+        fontSize={{ base: 'sm', lg: 'md' }}
+        fontWeight="semibold"
+        userDefinedStyle={textStyle}
+      >
+        {text}
+      </AlertText>
+    );
+  }
 
   // Handles what happens when the button is clicked.
   function handleOnClick() {
@@ -105,27 +158,31 @@ export function AlertButton({
     <MotionBox
       onClick={handleOnClick}
       whileHover={{ opacity: hoverAnimationEnabled ? 0.8 : 1 }}
-      whileTap={{ scale: clickAnimationEnabled ? 0.95 : 1 }}
+      whileTap={{
+        scale: clickAnimationEnabled && variant === 'regular' ? 0.95 : 1
+      }}
     >
-      <AlertContainer
-        alignItems="center"
-        borderRadius={4}
-        cursor="pointer"
-        defaultStyle={defaultContainerStyle}
-        justifyContent="center"
-        minW="150px"
-        padding={2}
-        userDefinedStyle={containerStyle}
-      >
-        <AlertText
-          defaultStyle={defaultTextStyle}
-          fontSize={{ base: 'sm', lg: 'md' }}
-          fontWeight="semibold"
-          userDefinedStyle={textStyle}
+      {variant === 'regular' ? (
+        <AlertContainer
+          alignItems="center"
+          borderRadius={4}
+          cursor="pointer"
+          defaultStyle={defaultContainerStyle__Regular}
+          justifyContent="center"
+          minW="150px"
+          padding={2}
+          userDefinedStyle={containerStyle}
         >
-          {text}
-        </AlertText>
-      </AlertContainer>
+          {getAlertTextComponent()}
+        </AlertContainer>
+      ) : (
+        <AlertContainer
+          defaultStyle={defaultContainerStyle__Text}
+          userDefinedStyle={containerStyle}
+        >
+          {getAlertTextComponent()}
+        </AlertContainer>
+      )}
     </MotionBox>
   );
 }
