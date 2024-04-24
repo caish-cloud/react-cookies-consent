@@ -12,7 +12,10 @@ export type ZustandStore = {
 export const useStore = create<ZustandStore>()((set) => ({
   alertDismissed:
     localStorage.getItem(LocalStorageKeys.AlertDismissed) === 'true',
-  setAlertDismissed: (dismissed) => set({ alertDismissed: dismissed }),
+  setAlertDismissed: (dismissed) => {
+    localStorage.setItem(LocalStorageKeys.AlertDismissed, String(dismissed));
+    set({ alertDismissed: dismissed });
+  },
 
   theme: 'light',
   setTheme: (theme) => set({ theme })
