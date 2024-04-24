@@ -54,3 +54,5 @@ html {
   </CookiesConsentAlert.Actions>
 </CookiesConsentAlert>
 ```
+
+![alert](https://github.com/caish-cloud-llc/react-cookies-consent/assets/77754475/e189964f-1774-4d28-ba39-a47cb8461163)
