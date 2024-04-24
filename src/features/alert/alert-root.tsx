@@ -1,4 +1,4 @@
-import { ChakraProvider, Flex } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { Variants } from 'framer-motion';
 import React from 'react';
 import { MotionBox } from '../../components/MotionBox';
@@ -80,11 +80,11 @@ export function AlertRoot({
           ...variants,
           hidden: {
             ...variants['hidden'],
-            y: 300
+            y: '100vh'
           },
           visible: {
             ...variants['visible'],
-            y: 50
+            y: 0
           }
         };
         break;
@@ -94,7 +94,7 @@ export function AlertRoot({
           ...variants,
           hidden: {
             ...variants['hidden'],
-            x: '-100%'
+            x: '-100vw'
           },
           visible: {
             ...variants['visible'],
@@ -108,7 +108,7 @@ export function AlertRoot({
           ...variants,
           hidden: {
             ...variants['hidden'],
-            x: '100%'
+            x: '100vw'
           },
           visible: {
             ...variants['visible'],
@@ -129,8 +129,13 @@ export function AlertRoot({
       <AlertContext.Provider value={{ theme }}>
         <MotionBox
           animate={enterExitAnimationEnabled ? 'visible' : 'disabled'}
+          bottom={6}
+          display="flex"
           exit={enterExitAnimationEnabled ? 'hidden' : 'disabled'}
+          flex={1}
           initial={enterExitAnimationEnabled ? 'hidden' : 'disabled'}
+          justifyContent={placement.split('-')[1]}
+          position="absolute"
           transition={{
             damping: 20,
             duration: 0.5,
@@ -140,26 +145,21 @@ export function AlertRoot({
             type: 'spring'
           }}
           variants={getAnimationVariants()}
+          w="100%"
         >
-          {/* This container cannot be modified, and is only used for modifying
-              the placement of the alert. */}
-          <Flex justifyContent={placement.split('-')[1]} w="100%">
-            <AlertContainer
-              borderRadius={8}
-              bottom={6}
-              boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
-              defaultStyle={defaultContainerStyle}
-              flexDirection={{ base: 'column', lg: 'row' }}
-              gap={4}
-              mx={{ base: 4, lg: placement !== 'bottom-center' ? 4 : 0 }}
-              padding={3}
-              position="absolute"
-              w={{ base: 'auto', lg: '50%' }}
-              userDefinedStyle={containerStyle}
-            >
-              {children}
-            </AlertContainer>
-          </Flex>
+          <AlertContainer
+            borderRadius={8}
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+            defaultStyle={defaultContainerStyle}
+            flexDirection={{ base: 'column', lg: 'row' }}
+            gap={4}
+            mx={{ base: 4, lg: placement !== 'bottom-center' ? 4 : 0 }}
+            padding={3}
+            w={{ base: 'auto', lg: '50%' }}
+            userDefinedStyle={containerStyle}
+          >
+            {children}
+          </AlertContainer>
         </MotionBox>
       </AlertContext.Provider>
     </ChakraProvider>
