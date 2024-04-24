@@ -20,23 +20,25 @@ export type AlertRootProps = {
 
   /**
    * How the alert should enter the screen.
+   * @default 'from-bottom'
    */
   enterExitAnimation?: 'from-bottom' | 'from-left' | 'from-right';
 
   /**
    * Whether the enter/exit animations for the alert is enabled.
+   * @default true
    */
   enterExitAnimationEnabled?: boolean;
 
   /**
    * The placement of the alert on the screen.
-   * Defaults to 'bottom-center' if not provided.
+   * @default 'bottom-center'
    */
   placement?: 'bottom-center' | 'bottom-left' | 'bottom-right';
 
   /**
    * The theme for the alert.
-   * Defaults to 'light' if not provided.
+   * @default 'light'
    */
   theme?: 'dark' | 'light';
 };
