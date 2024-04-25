@@ -12,6 +12,8 @@ Write about these things:
 - The libraries we use, such as Chakra UI, Zustand, and Framer Motion
 - Alert button click animation is disabled on text variant
 - For testing, to reset the alert to show again, change the `react-cookies-consent/alert-dismissed` local storage key value to be `false`
+- Modal body is required
+- Most all components can accept Chakra UI attributes
 
 Bugs:
 
