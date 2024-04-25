@@ -151,8 +151,9 @@ export function AlertButton({
     // Call the user-defined onClick handler first
     onClick();
 
-    // Dismiss the alert if the user chose to do so
-    shouldDismissAlert && store.setAlertDismissed(true);
+    // Only dismiss the alert if the user chooses to and we're not showing the
+    // modal
+    !shouldShowModal && shouldDismissAlert && store.setAlertDismissed(true);
     shouldShowModal && store.setModalShown(true);
   }
 

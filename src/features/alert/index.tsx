@@ -1,4 +1,3 @@
-// export { AlertRoot as CookiesConsentAlert } from './alert-root';
 import { AlertActions } from './alert-actions';
 import { AlertButton } from './alert-button';
 import { AlertContent } from './alert-content';
