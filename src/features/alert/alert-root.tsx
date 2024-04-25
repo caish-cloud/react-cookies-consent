@@ -8,24 +8,14 @@ import { AlertContainer } from './alert-container';
 
 export type AlertRootRef = {
   /**
-   * Dismisses the alert.
+   * Hides the alert.
    */
-  dismissAlert: () => void;
-
-  /**
-   * Dismisses the modal.
-   */
-  dismissModal: () => void;
+  hide: () => void;
 
   /**
    * Shows the alert.
    */
-  showAlert: () => void;
-
-  /**
-   * Shows the modal.
-   */
-  showModal: () => void;
+  show: () => void;
 };
 
 export type AlertRootProps = {
@@ -92,20 +82,12 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
     React.useImperativeHandle(
       ref,
       () => ({
-        dismissAlert: () => {
+        hide: () => {
           store.setAlertDismissed(true);
         },
 
-        dismissModal: () => {
-          store.setModalShown(false);
-        },
-
-        showAlert: () => {
+        show: () => {
           store.setAlertDismissed(false);
-        },
-
-        showModal: () => {
-          store.setModalShown(true);
         }
       }),
       []
