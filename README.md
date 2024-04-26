@@ -13,7 +13,9 @@ Write about these things:
 - Alert button click animation is disabled on text variant
 - For testing, to reset the alert to show again, change the `react-cookies-consent/alert-dismissed` local storage key value to be `false`
 - Modal body is required
-- Most all components can accept Chakra UI attributes
+- Check which components can accept Chakra UI attributes and note that
+- Design concepts came from the design of BugSnag's cookies consent alert and
+  modal (https://docs.bugsnag.com/)
 
 Bugs:
 
