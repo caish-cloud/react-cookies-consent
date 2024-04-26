@@ -3,7 +3,7 @@ import { Button, ButtonProps } from '../../components/Button';
 import { ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
 
-export interface AlertButtonProps extends ButtonProps {
+export interface ModalButtonProps extends ButtonProps {
   /**
    * Whether the alert should be dismissed when the button is clicked.
    * @default true
@@ -11,21 +11,21 @@ export interface AlertButtonProps extends ButtonProps {
   shouldDismissAlert?: boolean;
 
   /**
-   * Whether the modal should be shown when the button is clicked.
-   * @default false
+   * Whether the modal should be hidden when the button is clicked.
+   * @default true
    */
-  shouldShowModal?: boolean;
+  shouldHideModal?: boolean;
 }
 
 /**
- * A button to be used within the alert.
+ * A button to be used within the modal.
  */
-export function AlertButton(props: AlertButtonProps) {
+export function ModalButton(props: ModalButtonProps) {
   const {
     containerStyle,
     onClick,
     shouldDismissAlert = true,
-    shouldShowModal = false,
+    shouldHideModal = true,
     variant = 'regular',
     ...rest
   } = props;
@@ -57,10 +57,9 @@ export function AlertButton(props: AlertButtonProps) {
     // Call the user-defined onClick handler first
     onClick();
 
-    // Only dismiss the alert if the user chooses to and we're not showing the
-    // modal
-    !shouldShowModal && shouldDismissAlert && store.setAlertDismissed(true);
-    shouldShowModal && store.setModalShown(true);
+    // Dismiss the alert and hide the modal if the user chooses to
+    shouldDismissAlert && store.setAlertDismissed(true);
+    shouldHideModal && store.setModalShown(false);
   }
 
   return (
@@ -74,6 +73,5 @@ export function AlertButton(props: AlertButtonProps) {
 }
 
 const commonRegularContainerStyle: React.CSSProperties = {
-  minWidth: '150px',
-  padding: '8px'
+  padding: '6px 12px'
 };

@@ -15,6 +15,11 @@ interface ContainerProps extends ChakraProps {
   defaultStyle: ThemeStyles;
 
   /**
+   * The function to call when the container is clicked.
+   */
+  onClick?: () => void;
+
+  /**
    * The user-defined styles for the container.
    */
   userDefinedStyle?: ThemeStyles;
@@ -26,7 +31,7 @@ interface ContainerProps extends ChakraProps {
  * @param props - The properties to pass to the component.
  */
 export function Container(props: ContainerProps) {
-  const { defaultStyle, userDefinedStyle, ...rest } = props;
+  const { defaultStyle, onClick, userDefinedStyle, ...rest } = props;
 
   const store = useStore();
 
@@ -50,7 +55,7 @@ export function Container(props: ContainerProps) {
   }
 
   return (
-    <Flex {...rest} style={getContainerStyle()}>
+    <Flex {...rest} onClick={onClick} style={getContainerStyle()}>
       {props.children}
     </Flex>
   );

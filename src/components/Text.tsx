@@ -15,6 +15,11 @@ interface TextProps extends ChakraProps {
   defaultStyle: ThemeStyles;
 
   /**
+   * The function to call when the text is clicked.
+   */
+  onClick?: () => void;
+
+  /**
    * The user-defined styles for the text.
    */
   userDefinedStyle?: ThemeStyles;
@@ -25,7 +30,7 @@ interface TextProps extends ChakraProps {
  * @param props - The properties to pass to the component.
  */
 export function Text(props: TextProps) {
-  const { defaultStyle, userDefinedStyle, ...rest } = props;
+  const { defaultStyle, onClick, userDefinedStyle, ...rest } = props;
 
   const store = useStore();
 
@@ -49,7 +54,7 @@ export function Text(props: TextProps) {
   }
 
   return (
-    <ChakraUiText {...rest} style={getTextStyle()}>
+    <ChakraUiText {...rest} onClick={onClick} style={getTextStyle()}>
       {props.children}
     </ChakraUiText>
   );
