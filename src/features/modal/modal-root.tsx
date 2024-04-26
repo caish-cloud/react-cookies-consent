@@ -147,10 +147,11 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
           isCentered={placement === 'center'}
           isOpen={store.modalShown}
           onClose={() => store.setModalShown(false)}
+          size="xl"
         >
           {shouldShowOverlay && <ModalOverlay />}
 
-          <ModalContent style={getContainerStyle()}>
+          <ModalContent mx={{ base: 2, md: 0 }} style={getContainerStyle()}>
             {shouldShowCloseButton && (
               <ModalCloseButton style={getCloseButtonStyle()} />
             )}
