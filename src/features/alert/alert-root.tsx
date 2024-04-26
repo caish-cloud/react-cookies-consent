@@ -1,10 +1,10 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { AnimatePresence, Variants } from 'framer-motion';
 import React from 'react';
+import { Container } from '../../components/Container';
 import { MotionBox } from '../../components/MotionBox';
 import { ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
-import { AlertContainer } from './alert-container';
 
 export type AlertRootRef = {
   /**
@@ -188,7 +188,7 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
               variants={getAnimationVariants()}
               w="100%"
             >
-              <AlertContainer
+              <Container
                 borderRadius={8}
                 boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
                 defaultStyle={defaultContainerStyle}
@@ -200,7 +200,7 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
                 userDefinedStyle={containerStyle}
               >
                 {children}
-              </AlertContainer>
+              </Container>
             </MotionBox>
           )}
         </AnimatePresence>

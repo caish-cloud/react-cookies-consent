@@ -1,7 +1,7 @@
 import React from 'react';
+import { Container } from '../../components/Container';
+import { Text } from '../../components/Text';
 import { ThemeStyles } from '../../constants/types';
-import { AlertContainer } from './alert-container';
-import { AlertText } from './alert-text';
 
 export type AlertTitleProps = {
   /**
@@ -26,19 +26,19 @@ export type AlertTitleProps = {
  */
 export function AlertTitle(props: AlertTitleProps) {
   return (
-    <AlertContainer
+    <Container
       defaultStyle={defaultContainerStyle}
       userDefinedStyle={props.containerStyle}
     >
-      <AlertText
+      <Text
         defaultStyle={defaultTextStyle}
         fontSize={{ base: 'md', lg: 'lg' }}
         fontWeight="semibold"
         userDefinedStyle={props.textStyle}
       >
         {props.text}
-      </AlertText>
-    </AlertContainer>
+      </Text>
+    </Container>
   );
 }
 

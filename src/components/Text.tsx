@@ -1,9 +1,9 @@
-import { ChakraProps, Text } from '@chakra-ui/react';
+import { ChakraProps, Text as ChakraUiText } from '@chakra-ui/react';
 import React from 'react';
-import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { ThemeStyles } from '../constants/types';
+import { useStore } from '../services/zustand/store';
 
-interface AlertTextProps extends ChakraProps {
+interface TextProps extends ChakraProps {
   /**
    * The text.
    */
@@ -21,10 +21,10 @@ interface AlertTextProps extends ChakraProps {
 }
 
 /**
- * A basic text component for use within the Alert component.
+ * A basic text component for use within the Alert or Modal components.
  * @param props - The properties to pass to the component.
  */
-export function AlertText(props: AlertTextProps) {
+export function Text(props: TextProps) {
   const { defaultStyle, userDefinedStyle, ...rest } = props;
 
   const store = useStore();
@@ -49,8 +49,8 @@ export function AlertText(props: AlertTextProps) {
   }
 
   return (
-    <Text {...rest} style={getTextStyle()}>
+    <ChakraUiText {...rest} style={getTextStyle()}>
       {props.children}
-    </Text>
+    </ChakraUiText>
   );
 }

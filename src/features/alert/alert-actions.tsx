@@ -1,6 +1,6 @@
 import React from 'react';
+import { Container } from '../../components/Container';
 import { ThemeStyles } from '../../constants/types';
-import { AlertContainer } from './alert-container';
 
 export type AlertActionsProps = {
   /**
@@ -20,7 +20,7 @@ export type AlertActionsProps = {
  */
 export function AlertActions(props: AlertActionsProps) {
   return (
-    <AlertContainer
+    <Container
       defaultStyle={defaultContainerStyle}
       flexBasis={{ base: 0, lg: '215px' }}
       flexDirection={{ base: 'row', lg: 'column' }}
@@ -29,7 +29,7 @@ export function AlertActions(props: AlertActionsProps) {
       userDefinedStyle={props.containerStyle}
     >
       {props.children}
-    </AlertContainer>
+    </Container>
   );
 }
 

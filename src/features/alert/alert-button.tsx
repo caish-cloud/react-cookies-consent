@@ -1,9 +1,9 @@
 import React from 'react';
+import { Container } from '../../components/Container';
 import { MotionBox } from '../../components/MotionBox';
+import { Text } from '../../components/Text';
 import { ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
-import { AlertContainer } from './alert-container';
-import { AlertText } from './alert-text';
 
 export type AlertButtonProps = {
   /**
@@ -134,7 +134,7 @@ export function AlertButton({
     }
 
     return (
-      <AlertText
+      <Text
         cursor="pointer"
         defaultStyle={defaultTextStyle}
         fontSize={{ base: 'sm', lg: 'md' }}
@@ -142,7 +142,7 @@ export function AlertButton({
         userDefinedStyle={textStyle}
       >
         {text}
-      </AlertText>
+      </Text>
     );
   }
 
@@ -166,7 +166,7 @@ export function AlertButton({
       }}
     >
       {variant === 'regular' ? (
-        <AlertContainer
+        <Container
           alignItems="center"
           borderRadius={4}
           cursor="pointer"
@@ -177,14 +177,14 @@ export function AlertButton({
           userDefinedStyle={containerStyle}
         >
           {getAlertTextComponent()}
-        </AlertContainer>
+        </Container>
       ) : (
-        <AlertContainer
+        <Container
           defaultStyle={defaultContainerStyle__Text}
           userDefinedStyle={containerStyle}
         >
           {getAlertTextComponent()}
-        </AlertContainer>
+        </Container>
       )}
     </MotionBox>
   );

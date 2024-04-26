@@ -1,9 +1,9 @@
 import { ChakraProps, Flex } from '@chakra-ui/react';
 import React from 'react';
-import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { ThemeStyles } from '../constants/types';
+import { useStore } from '../services/zustand/store';
 
-interface AlertContainerProps extends ChakraProps {
+interface ContainerProps extends ChakraProps {
   /**
    * The children of the container.
    */
@@ -21,10 +21,11 @@ interface AlertContainerProps extends ChakraProps {
 }
 
 /**
- * A basic container for any components used within the Alert component.
+ * A basic container for any components used within the Alert or Modal
+ * components.
  * @param props - The properties to pass to the component.
  */
-export function AlertContainer(props: AlertContainerProps) {
+export function Container(props: ContainerProps) {
   const { defaultStyle, userDefinedStyle, ...rest } = props;
 
   const store = useStore();
