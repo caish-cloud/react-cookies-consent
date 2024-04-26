@@ -59,7 +59,7 @@ export function ModalHeader(props: ModalHeaderProps) {
         ...(textStyles[store.theme] ?? {})
       };
     }
-    console.log(tempStyle);
+
     return tempStyle;
   }
 

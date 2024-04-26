@@ -156,8 +156,6 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
             )}
 
             {children}
-
-            {/* <ModalFooter></ModalFooter> */}
           </ModalContent>
         </Modal>
       </ChakraProvider>
