@@ -6,7 +6,7 @@ import {
   ModalOverlay
 } from '@chakra-ui/react';
 import React from 'react';
-import { ThemeStyles } from '../../constants/types';
+import { Theme, ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
 
 export type ModalRootRef = {
@@ -60,7 +60,7 @@ export type ModalRootProps = {
    * The theme for the modal.
    * @default 'light'
    */
-  theme?: 'dark' | 'light';
+  theme?: Theme;
 };
 
 /**

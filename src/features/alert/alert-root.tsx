@@ -3,7 +3,7 @@ import { AnimatePresence, Variants } from 'framer-motion';
 import React from 'react';
 import { Container } from '../../components/Container';
 import { MotionBox } from '../../components/MotionBox';
-import { ThemeStyles } from '../../constants/types';
+import { Theme, ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
 
 export type AlertRootRef = {
@@ -52,7 +52,7 @@ export type AlertRootProps = {
    * The theme for the alert.
    * @default 'light'
    */
-  theme?: 'dark' | 'light';
+  theme?: Theme;
 };
 
 /**
