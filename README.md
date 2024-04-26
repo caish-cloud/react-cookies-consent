@@ -33,6 +33,8 @@ html {
 
 ### Alert
 
+#### Light Theme
+
 ```tsx
 <CookiesConsentAlert>
   <CookiesConsentAlert.Content>
@@ -58,3 +60,30 @@ html {
 ```
 
 ![alert](https://github.com/caish-cloud-llc/react-cookies-consent/assets/77754475/e189964f-1774-4d28-ba39-a47cb8461163)
+
+#### Dark Theme
+
+```tsx
+<CookiesConsentAlert theme="dark">
+  <CookiesConsentAlert.Content>
+    <CookiesConsentAlert.Title text="About cookies on this site" />
+    <CookiesConsentAlert.Description text="This website uses cookies to ensure you get the best experience on our website." />
+    <CookiesConsentAlert.Button
+      onClick={() => null}
+      text="Learn more"
+      variant="text"
+    />
+  </CookiesConsentAlert.Content>
+
+  <CookiesConsentAlert.Actions>
+    <CookiesConsentAlert.Button onClick={() => null} text="Accept cookies" />
+
+    <CookiesConsentAlert.Button
+      onClick={() => null}
+      regularButtonColor="grey"
+      shouldShowModal={true}
+      text="Cookie settings"
+    />
+  </CookiesConsentAlert.Actions>
+</CookiesConsentAlert>
+```

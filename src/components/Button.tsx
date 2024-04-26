@@ -73,7 +73,7 @@ export function Button({
   onClick,
   regularButtonColor = '#0082ba',
   text,
-  textButtonColor = '#0082ba',
+  textButtonColor = '#00a2e8',
   textStyle,
   theme,
   variant = 'regular'
