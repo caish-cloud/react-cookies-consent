@@ -59,7 +59,7 @@ html {
 </CookiesConsentAlert>
 ```
 
-![alert](https://github.com/caish-cloud-llc/react-cookies-consent/assets/77754475/e189964f-1774-4d28-ba39-a47cb8461163)
+![alert - light theme](https://github.com/caish-cloud-llc/react-cookies-consent/assets/77754475/e189964f-1774-4d28-ba39-a47cb8461163)
 
 #### Dark Theme
 
@@ -87,3 +87,5 @@ html {
   </CookiesConsentAlert.Actions>
 </CookiesConsentAlert>
 ```
+
+![alert - dark theme](https://github.com/caish-cloud-llc/react-cookies-consent/assets/77754475/8b10b141-e8b3-4893-9681-104fe44a19d7)
