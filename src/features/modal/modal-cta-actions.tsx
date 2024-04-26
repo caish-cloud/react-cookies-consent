@@ -3,23 +3,24 @@ import { Container } from '../../components/Container';
 import { ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
 
-export type ModalActionsProps = {
+export type ModalCtaActionsProps = {
   /**
-   * The children of the modal actions.
+   * The children of the modal CTA actions.
    */
   children: React.ReactNode;
 
   /**
-   * The styles for the container of the modal actions.
+   * The styles for the container of the modal CTA actions.
    */
   containerStyle?: ThemeStyles;
 };
 
 /**
- * The modal actions container that contains the CTA buttons.
+ * The modal actions container that contains the CTA buttons, such as for
+ * accepting or rejecting all cookies.
  * @param props - The properties to pass to the component.
  */
-export function ModalActions(props: ModalActionsProps) {
+export function ModalCtaActions(props: ModalCtaActionsProps) {
   const store = useStore();
 
   return (
