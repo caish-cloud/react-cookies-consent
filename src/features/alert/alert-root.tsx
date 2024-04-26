@@ -74,7 +74,7 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
 
     // Set the theme in the store when the component mounts.
     React.useEffect(() => {
-      store.setTheme(theme);
+      store.setAlertTheme(theme);
     }, []);
 
     // Create an imperative handle to handle actions the user can perform
@@ -196,8 +196,9 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
                 gap={4}
                 mx={{ base: 4, lg: placement !== 'bottom-center' ? 4 : 0 }}
                 padding={3}
-                w={{ base: 'auto', lg: '50%' }}
+                theme={theme}
                 userDefinedStyle={containerStyle}
+                w={{ base: 'auto', lg: '50%' }}
               >
                 {children}
               </Container>

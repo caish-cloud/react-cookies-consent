@@ -1,3 +1,5 @@
+export type Theme = 'dark' | 'light';
+
 export type ThemeStyles = {
   /**
    * The dark theme styles for the container.

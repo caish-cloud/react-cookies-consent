@@ -1,7 +1,6 @@
 import { ChakraProps, Flex } from '@chakra-ui/react';
 import React from 'react';
-import { ThemeStyles } from '../constants/types';
-import { useStore } from '../services/zustand/store';
+import { Theme, ThemeStyles } from '../constants/types';
 
 interface ContainerProps extends ChakraProps {
   /**
@@ -20,6 +19,11 @@ interface ContainerProps extends ChakraProps {
   onClick?: () => void;
 
   /**
+   * The theme of the container.
+   */
+  theme: Theme;
+
+  /**
    * The user-defined styles for the container.
    */
   userDefinedStyle?: ThemeStyles;
@@ -31,9 +35,7 @@ interface ContainerProps extends ChakraProps {
  * @param props - The properties to pass to the component.
  */
 export function Container(props: ContainerProps) {
-  const { defaultStyle, onClick, userDefinedStyle, ...rest } = props;
-
-  const store = useStore();
+  const { defaultStyle, onClick, theme, userDefinedStyle, ...rest } = props;
 
   /**
    * Gets the styles for the container based on the theme.
@@ -41,13 +43,13 @@ export function Container(props: ContainerProps) {
    */
   function getContainerStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultStyle[store.theme]
+      ...defaultStyle[theme]
     };
 
     if (userDefinedStyle) {
       tempStyle = {
         ...tempStyle,
-        ...(userDefinedStyle[store.theme] ?? {})
+        ...(userDefinedStyle[theme] ?? {})
       };
     }
 

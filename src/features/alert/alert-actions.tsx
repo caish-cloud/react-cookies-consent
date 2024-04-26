@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../../components/Container';
 import { ThemeStyles } from '../../constants/types';
+import { useStore } from '../../services/zustand/store';
 
 export type AlertActionsProps = {
   /**
@@ -19,6 +20,8 @@ export type AlertActionsProps = {
  * @param props - The properties to pass to the component.
  */
 export function AlertActions(props: AlertActionsProps) {
+  const store = useStore();
+
   return (
     <Container
       defaultStyle={defaultContainerStyle}
@@ -26,6 +29,7 @@ export function AlertActions(props: AlertActionsProps) {
       flexDirection={{ base: 'row', lg: 'column' }}
       justifyContent={{ base: 'left', lg: 'center' }}
       gap={2}
+      theme={store.alertTheme}
       userDefinedStyle={props.containerStyle}
     >
       {props.children}

@@ -67,6 +67,7 @@ export function ModalButton(props: ModalButtonProps) {
       {...rest}
       containerStyle={getContainerStyle()}
       onClick={handleOnClick}
+      theme={store.modalTheme}
       variant={variant}
     />
   );

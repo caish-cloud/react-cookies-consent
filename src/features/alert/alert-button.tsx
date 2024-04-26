@@ -68,6 +68,7 @@ export function AlertButton(props: AlertButtonProps) {
       {...rest}
       containerStyle={getContainerStyle()}
       onClick={handleOnClick}
+      theme={store.alertTheme}
       variant={variant}
     />
   );

@@ -42,21 +42,21 @@ export function ModalHeader(props: ModalHeaderProps) {
    */
   function getContainerAndTextStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultContainerStyle[store.theme],
-      ...defaultTextStyle[store.theme]
+      ...defaultContainerStyle[store.modalTheme],
+      ...defaultTextStyle[store.modalTheme]
     };
 
     if (containerStyles) {
       tempStyle = {
         ...tempStyle,
-        ...(containerStyles[store.theme] ?? {})
+        ...(containerStyles[store.modalTheme] ?? {})
       };
     }
 
     if (textStyles) {
       tempStyle = {
         ...tempStyle,
-        ...(textStyles[store.theme] ?? {})
+        ...(textStyles[store.modalTheme] ?? {})
       };
     }
 

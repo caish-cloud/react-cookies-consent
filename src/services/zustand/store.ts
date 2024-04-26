@@ -1,15 +1,19 @@
 import { create } from 'zustand';
 import { LocalStorageKeys } from '../../constants/settings';
+import { Theme } from '../../constants/types';
 
 export type ZustandStore = {
   alertDismissed: boolean;
   setAlertDismissed: (dismissed: boolean) => void;
 
+  alertTheme: Theme;
+  setAlertTheme: (theme: Theme) => void;
+
   modalShown: boolean;
   setModalShown: (shown: boolean) => void;
 
-  theme: 'dark' | 'light';
-  setTheme: (theme: 'dark' | 'light') => void;
+  modalTheme: Theme;
+  setModalTheme: (theme: Theme) => void;
 };
 
 export const useStore = create<ZustandStore>()((set) => ({
@@ -20,9 +24,12 @@ export const useStore = create<ZustandStore>()((set) => ({
     set({ alertDismissed: dismissed });
   },
 
+  alertTheme: 'light',
+  setAlertTheme: (theme) => set({ alertTheme: theme }),
+
   modalShown: false,
   setModalShown: (shown) => set({ modalShown: shown }),
 
-  theme: 'light',
-  setTheme: (theme) => set({ theme })
+  modalTheme: 'light',
+  setModalTheme: (theme) => set({ modalTheme: theme })
 }));

@@ -84,7 +84,7 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
 
     // Set the theme in the store when the component mounts.
     React.useEffect(() => {
-      store.setTheme(theme);
+      store.setModalTheme(theme);
     }, []);
 
     // Create an imperative handle to handle actions the user can perform
@@ -109,13 +109,13 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
      */
     function getCloseButtonStyle(): React.CSSProperties | undefined {
       let tempStyle: React.CSSProperties = {
-        ...defaultCloseButtonStyle[store.theme]
+        ...defaultCloseButtonStyle[store.modalTheme]
       };
 
       if (closeButtonStyle) {
         tempStyle = {
           ...tempStyle,
-          ...(closeButtonStyle[store.theme] ?? {})
+          ...(closeButtonStyle[store.modalTheme] ?? {})
         };
       }
 
@@ -128,13 +128,13 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
      */
     function getContainerStyle(): React.CSSProperties | undefined {
       let tempStyle: React.CSSProperties = {
-        ...defaultContainerStyle[store.theme]
+        ...defaultContainerStyle[store.modalTheme]
       };
 
       if (containerStyle) {
         tempStyle = {
           ...tempStyle,
-          ...(containerStyle[store.theme] ?? {})
+          ...(containerStyle[store.modalTheme] ?? {})
         };
       }
 

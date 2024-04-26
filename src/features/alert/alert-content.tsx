@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../../components/Container';
 import { ThemeStyles } from '../../constants/types';
+import { useStore } from '../../services/zustand/store';
 
 export type AlertContentProps = {
   /**
@@ -19,11 +20,14 @@ export type AlertContentProps = {
  * @param props - The properties to pass to the component.
  */
 export function AlertContent(props: AlertContentProps) {
+  const store = useStore();
+
   return (
     <Container
       defaultStyle={defaultContainerStyle}
       flexDirection="column"
       flexGrow={1}
+      theme={store.alertTheme}
       userDefinedStyle={props.containerStyle}
     >
       {props.children}

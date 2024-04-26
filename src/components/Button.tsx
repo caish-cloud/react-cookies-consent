@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeStyles } from '../constants/types';
+import { Theme, ThemeStyles } from '../constants/types';
 import { Container } from './Container';
 import { MotionBox } from './MotionBox';
 import { Text } from './Text';
@@ -50,6 +50,11 @@ export interface ButtonProps {
   textStyle?: ThemeStyles;
 
   /**
+   * The theme for the button.
+   */
+  theme: Theme;
+
+  /**
    * The type of button to render.
    * 'regular' - A regular looking button.
    * 'text' - A button that looks like a text link.
@@ -70,6 +75,7 @@ export function Button({
   text,
   textButtonColor = '#0082ba',
   textStyle,
+  theme,
   variant = 'regular'
 }: ButtonProps) {
   // Common default styles for the button
@@ -123,6 +129,7 @@ export function Button({
         fontSize={{ base: 'sm', lg: 'md' }}
         fontWeight="semibold"
         onClick={variant === 'text' ? onClick : undefined}
+        theme={theme}
         userDefinedStyle={textStyle}
       >
         {text}
@@ -145,6 +152,7 @@ export function Button({
           defaultStyle={defaultContainerStyle__Regular}
           justifyContent="center"
           onClick={onClick}
+          theme={theme}
           userDefinedStyle={containerStyle}
         >
           {getTextComponent()}
@@ -152,6 +160,7 @@ export function Button({
       ) : (
         <Container
           defaultStyle={defaultContainerStyle__Text}
+          theme={theme}
           userDefinedStyle={containerStyle}
         >
           {getTextComponent()}

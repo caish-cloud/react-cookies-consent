@@ -33,13 +33,13 @@ export function ModalBody(props: ModalBodyProps) {
    */
   function getContainerStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultContainerStyle[store.theme]
+      ...defaultContainerStyle[store.modalTheme]
     };
 
     if (containerStyle) {
       tempStyle = {
         ...tempStyle,
-        ...(containerStyle[store.theme] ?? {})
+        ...(containerStyle[store.modalTheme] ?? {})
       };
     }
 
