@@ -39,6 +39,11 @@ export type ModalRootProps = {
   containerStyle?: ThemeStyles;
 
   /**
+   * Handles what happens when the modal is closed.
+   */
+  onModalClose?: () => void;
+
+  /**
    * The placement of the modal on the screen.
    * @default 'center'
    */
@@ -139,12 +144,22 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
       return tempStyle;
     }
 
+    /**
+     * Handles what happens when the modal is closed.
+     */
+    function handleOnModalClose() {
+      store.setModalShown(false);
+
+      // Handle the user's custom on close event
+      props.onModalClose && props.onModalClose();
+    }
+
     return (
       <ChakraProvider>
         <Modal
           isCentered={placement === 'center'}
           isOpen={store.modalShown}
-          onClose={() => store.setModalShown(false)}
+          onClose={handleOnModalClose}
           size="xl"
         >
           {shouldShowOverlay && <ModalOverlay />}
