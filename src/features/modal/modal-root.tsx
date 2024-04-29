@@ -44,6 +44,24 @@ export type ModalRootProps = {
   onModalClose?: () => void;
 
   /**
+   * The amount of blur for the overlay.
+   * @default 4
+   */
+  overlayBlurAmount?: number;
+
+  /**
+   * Whether the overlay should be blurred.
+   * @default true
+   */
+  overlayBlurEnabled?: boolean;
+
+  /**
+   * The color of the overlay.
+   * @default 'rgba(0, 0, 0, 0.5)'
+   */
+  overlayColor?: string;
+
+  /**
    * The placement of the modal on the screen.
    * @default 'center'
    */
@@ -75,6 +93,9 @@ export type ModalRootProps = {
 export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
   (
     {
+      overlayBlurAmount = 4,
+      overlayColor = 'rgba(0, 0, 0, 0.5)',
+      overlayBlurEnabled = true,
       placement = 'center',
       shouldShowCloseButton = true,
       shouldShowOverlay = true,
@@ -162,7 +183,14 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
           onClose={handleOnModalClose}
           size="xl"
         >
-          {shouldShowOverlay && <ModalOverlay />}
+          {shouldShowOverlay && (
+            <ModalOverlay
+              backdropFilter={
+                overlayBlurEnabled ? `blur(${overlayBlurAmount}px)` : 'none'
+              }
+              bg={overlayBlurEnabled ? 'none' : overlayColor}
+            />
+          )}
 
           <ModalContent mx={{ base: 2, md: 0 }} style={getContainerStyle()}>
             {shouldShowCloseButton && (
