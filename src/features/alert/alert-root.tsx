@@ -61,12 +61,11 @@ export type AlertRootProps = {
 export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
   (
     {
-      children,
-      containerStyle,
       enterExitAnimation = 'from-bottom',
       enterExitAnimationEnabled = true,
       placement = 'bottom-center',
-      theme = 'light'
+      theme = 'light',
+      ...props
     },
     ref
   ) => {
@@ -197,10 +196,10 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
                 mx={{ base: 4, lg: placement !== 'bottom-center' ? 4 : 0 }}
                 padding={3}
                 theme={theme}
-                userDefinedStyle={containerStyle}
+                userDefinedStyle={props.containerStyle}
                 w={{ base: 'auto', lg: '50%' }}
               >
-                {children}
+                {props.children}
               </Container>
             </MotionBox>
           )}

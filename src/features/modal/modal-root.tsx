@@ -70,13 +70,11 @@ export type ModalRootProps = {
 export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
   (
     {
-      children,
-      closeButtonStyle,
-      containerStyle,
       placement = 'center',
       shouldShowCloseButton = true,
       shouldShowOverlay = true,
-      theme = 'light'
+      theme = 'light',
+      ...props
     },
     ref
   ) => {
@@ -112,10 +110,10 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
         ...defaultCloseButtonStyle[store.modalTheme]
       };
 
-      if (closeButtonStyle) {
+      if (props.closeButtonStyle) {
         tempStyle = {
           ...tempStyle,
-          ...(closeButtonStyle[store.modalTheme] ?? {})
+          ...(props.closeButtonStyle[store.modalTheme] ?? {})
         };
       }
 
@@ -131,10 +129,10 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
         ...defaultContainerStyle[store.modalTheme]
       };
 
-      if (containerStyle) {
+      if (props.containerStyle) {
         tempStyle = {
           ...tempStyle,
-          ...(containerStyle[store.modalTheme] ?? {})
+          ...(props.containerStyle[store.modalTheme] ?? {})
         };
       }
 
@@ -156,7 +154,7 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
               <ModalCloseButton style={getCloseButtonStyle()} />
             )}
 
-            {children}
+            {props.children}
           </ModalContent>
         </Modal>
       </ChakraProvider>

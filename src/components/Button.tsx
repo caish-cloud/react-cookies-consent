@@ -68,15 +68,11 @@ export interface ButtonProps {
  */
 export function Button({
   clickAnimationEnabled = true,
-  containerStyle,
   hoverAnimationEnabled = true,
-  onClick,
   regularButtonColor = '#0082ba',
-  text,
   textButtonColor = '#00a2e8',
-  textStyle,
-  theme,
-  variant = 'regular'
+  variant = 'regular',
+  ...props
 }: ButtonProps) {
   // Common default styles for the button
   const commonContainerStyle__Regular: React.CSSProperties = {
@@ -128,11 +124,11 @@ export function Button({
         defaultStyle={defaultTextStyle}
         fontSize={{ base: 'sm', lg: 'md' }}
         fontWeight="semibold"
-        onClick={variant === 'text' ? onClick : undefined}
-        theme={theme}
-        userDefinedStyle={textStyle}
+        onClick={variant === 'text' ? props.onClick : undefined}
+        theme={props.theme}
+        userDefinedStyle={props.textStyle}
       >
-        {text}
+        {props.text}
       </Text>
     );
   }
@@ -151,17 +147,17 @@ export function Button({
           cursor="pointer"
           defaultStyle={defaultContainerStyle__Regular}
           justifyContent="center"
-          onClick={onClick}
-          theme={theme}
-          userDefinedStyle={containerStyle}
+          onClick={props.onClick}
+          theme={props.theme}
+          userDefinedStyle={props.containerStyle}
         >
           {getTextComponent()}
         </Container>
       ) : (
         <Container
           defaultStyle={defaultContainerStyle__Text}
-          theme={theme}
-          userDefinedStyle={containerStyle}
+          theme={props.theme}
+          userDefinedStyle={props.containerStyle}
         >
           {getTextComponent()}
         </Container>
