@@ -6,6 +6,7 @@ import { ModalCtaActions } from './modal-cta-actions';
 import { ModalFooter } from './modal-footer';
 import { ModalHeader } from './modal-header';
 import { ModalRoot } from './modal-root';
+import { ModalText } from './modal-text';
 
 // Types
 export type { ModalBodyProps as CookiesConsentModalBodyProps } from './modal-body';
@@ -19,6 +20,7 @@ export type {
   ModalRootProps as CookiesConsentModalProps,
   ModalRootRef as CookiesConsentModalRef
 } from './modal-root';
+export type { ModalTextProps as CookiesConsentModalTextProps } from './modal-text';
 
 // Components
 const CookiesConsentModalBody = ModalBody;
@@ -28,6 +30,7 @@ const CookiesConsentModalCookieActions = ModalCookieActions;
 const CookiesConsentModalCtaActions = ModalCtaActions;
 const CookiesConsentModalFooter = ModalFooter;
 const CookiesConsentModalHeader = ModalHeader;
+const CookiesConsentModalText = ModalText;
 
 export const CookiesConsentModal = ModalRoot as typeof ModalRoot & {
   Body: typeof CookiesConsentModalBody;
@@ -37,6 +40,7 @@ export const CookiesConsentModal = ModalRoot as typeof ModalRoot & {
   CtaActions: typeof CookiesConsentModalCtaActions;
   Footer: typeof CookiesConsentModalFooter;
   Header: typeof CookiesConsentModalHeader;
+  Text: typeof CookiesConsentModalText;
 };
 
 CookiesConsentModal.Body = CookiesConsentModalBody;
@@ -46,3 +50,4 @@ CookiesConsentModal.CookieActions = CookiesConsentModalCookieActions;
 CookiesConsentModal.CtaActions = CookiesConsentModalCtaActions;
 CookiesConsentModal.Footer = CookiesConsentModalFooter;
 CookiesConsentModal.Header = CookiesConsentModalHeader;
+CookiesConsentModal.Text = CookiesConsentModalText;
