@@ -21,10 +21,28 @@ export type ModalCookieActionProps = {
   descriptionStyle?: ThemeStyles;
 
   /**
+   * The function to call when the switch is toggled.
+   * @param isSwitchOn - Whether the switch is on.
+   */
+  onSwitchToggle?: (isSwitchOn: boolean) => void;
+
+  /**
+   * Whether the switch is disabled.
+   * @default false
+   */
+  switchDisabled?: boolean;
+
+  /**
    * The color of the switch when it is off.
    * @default '#CBD5E0'
    */
   switchToggledOffColor?: string;
+
+  /**
+   * Whether the switch is toggled on.
+   * @default true
+   */
+  switchToggledOn?: boolean;
 
   /**
    * The color of the switch when it is on.
@@ -49,11 +67,15 @@ export type ModalCookieActionProps = {
  * @param props - The properties to pass to the component.
  */
 export function ModalCookieAction({
+  switchDisabled = false,
   switchToggledOffColor = '#CBD5E0',
+  switchToggledOn = true,
   switchToggledOnColor = '#0082ba',
   ...props
 }: ModalCookieActionProps) {
   const store = useStore();
+
+  const [isSwitchOn, setIsSwitchOn] = React.useState(false);
 
   /**
    * Gets the styles for the modal cookie action container based on the theme.
@@ -74,9 +96,23 @@ export function ModalCookieAction({
     return tempStyle;
   }
 
+  /**
+   * Handles what happens when the switch is toggled.
+   * @param event - The event that triggered the switch toggle.
+   */
+  function handleOnSwitchChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setIsSwitchOn(event.currentTarget.checked);
+
+    // Handle the user's custom toggle handler
+    props.onSwitchToggle && props.onSwitchToggle(event.currentTarget.checked);
+  }
+
   return (
     <Flex align="center" gap={4} style={getContainerStyle()}>
       <Switch
+        defaultChecked={switchToggledOn ? switchToggledOn : isSwitchOn}
+        isDisabled={switchDisabled}
+        onChange={handleOnSwitchChange}
         sx={{
           'span.chakra-switch__track[data-checked]': {
             backgroundColor: switchToggledOnColor
@@ -91,7 +127,7 @@ export function ModalCookieAction({
       <Flex align="start" direction="column">
         <Text
           defaultStyle={defaultTitleStyle}
-          fontSize="md"
+          fontSize={{ base: 'sm', lg: 'md' }}
           fontWeight="semibold"
           theme={store.modalTheme}
           userDefinedStyle={props.titleStyle}
@@ -102,7 +138,7 @@ export function ModalCookieAction({
         {props.description && (
           <Text
             defaultStyle={defaultDescriptionStyle}
-            fontSize="sm"
+            fontSize={{ base: 'xs', lg: 'sm' }}
             userDefinedStyle={props.descriptionStyle}
             theme={store.modalTheme}
           >
