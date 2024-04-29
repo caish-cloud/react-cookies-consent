@@ -73,7 +73,9 @@ html {
 </CookiesConsentAlert>
 ```
 
-![alert - light theme](https://github.com/caish-cloud-llc/react-cookies-consent/assets/77754475/e189964f-1774-4d28-ba39-a47cb8461163)
+<div style="display: flex; flex: 1; justify-content: center">
+  <img src="./assets/alert-light.png" style="border-radius: 6px" />
+</div>
 
 #### Dark Theme
 
@@ -113,4 +115,160 @@ html {
 </CookiesConsentAlert>
 ```
 
-![alert - dark theme](https://github.com/caish-cloud-llc/react-cookies-consent/assets/77754475/8b10b141-e8b3-4893-9681-104fe44a19d7)
+<div style="display: flex; flex: 1; justify-content: center">
+  <img src="./assets/alert-dark.png" style="border-radius: 6px" />
+</div>
+
+### Modal
+
+#### Light Theme
+
+```tsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Header text="Cookie Settings" />
+
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.Text text="This website uses cookies to ensure you get the best experience on our website." />
+
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button
+        onClick={() => {
+          // Handle what happens when user accepts all cookies
+        }}
+        regularButtonColor="#2D3748"
+        text="Accept all"
+      />
+
+      <CookiesConsentModal.Button
+        onClick={() => {
+          // Handle what happens when user rejects all cookies
+        }}
+        regularButtonColor="#2D3748"
+        text="Reject all"
+      />
+    </CookiesConsentModal.CtaActions>
+
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction
+        description="Some cookies are required to provide core functionality. The website won't function properly without these cookies and they are enabled by default."
+        switchDisabled={true}
+        switchToggledOn={true}
+        title="Necessary cookies"
+      />
+
+      <CookiesConsentModal.CookieAction
+        description="Preference cookies enables the web site to remember information to customize how the web site looks or behaves for each user. This may include storing selected currency, region, language or color theme."
+        onSwitchToggle={(isSwitchOn) => {
+          // Handle what happens when user toggles preferences cookies
+        }}
+        title="Preferences"
+      />
+
+      <CookiesConsentModal.CookieAction
+        description="Analytical cookies help us improve our website by collecting and reporting information on its usage."
+        onSwitchToggle={(isSwitchOn) => {
+          // Handle what happens when user toggles analytics cookies
+        }}
+        title="Analytics"
+      />
+
+      <CookiesConsentModal.CookieAction
+        description="Marketing cookies are used to track visitors across websites to allow publishers to display relevant and engaging advertisements. By enabling marketing cookies, you grant permission for personalized advertising across various platforms."
+        onSwitchToggle={(isSwitchOn) => {
+          // Handle what happens when user toggles marketing cookies
+        }}
+        title="Marketing"
+      />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+
+  <CookiesConsentModal.Footer>
+    <CookiesConsentModal.Button
+      onClick={() => {
+        // Handle what happens when user saves their cookie settings
+      }}
+      text="Save settings"
+    />
+  </CookiesConsentModal.Footer>
+</CookiesConsentModal>
+```
+
+<div style="display: flex; flex: 1; justify-content: center">
+  <img src="./assets/modal-light.png" style="border-radius: 6px" />
+</div>
+
+#### Dark Theme
+
+```tsx
+<CookiesConsentModal theme="dark">
+  <CookiesConsentModal.Header text="Cookie Settings" />
+
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.Text text="This website uses cookies to ensure you get the best experience on our website." />
+
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button
+        onClick={() => {
+          // Handle what happens when user accepts all cookies
+        }}
+        regularButtonColor="grey"
+        text="Accept all"
+      />
+
+      <CookiesConsentModal.Button
+        onClick={() => {
+          // Handle what happens when user rejects all cookies
+        }}
+        regularButtonColor="grey"
+        text="Reject all"
+      />
+    </CookiesConsentModal.CtaActions>
+
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction
+        description="Some cookies are required to provide core functionality. The website won't function properly without these cookies and they are enabled by default."
+        switchDisabled={true}
+        switchToggledOn={true}
+        title="Necessary cookies"
+      />
+
+      <CookiesConsentModal.CookieAction
+        description="Preference cookies enables the web site to remember information to customize how the web site looks or behaves for each user. This may include storing selected currency, region, language or color theme."
+        onSwitchToggle={(isSwitchOn) => {
+          // Handle what happens when user toggles preferences cookies
+        }}
+        title="Preferences"
+      />
+
+      <CookiesConsentModal.CookieAction
+        description="Analytical cookies help us improve our website by collecting and reporting information on its usage."
+        onSwitchToggle={(isSwitchOn) => {
+          // Handle what happens when user toggles analytics cookies
+        }}
+        title="Analytics"
+      />
+
+      <CookiesConsentModal.CookieAction
+        description="Marketing cookies are used to track visitors across websites to allow publishers to display relevant and engaging advertisements. By enabling marketing cookies, you grant permission for personalized advertising across various platforms."
+        onSwitchToggle={(isSwitchOn) => {
+          // Handle what happens when user toggles marketing cookies
+        }}
+        title="Marketing"
+      />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+
+  <CookiesConsentModal.Footer>
+    <CookiesConsentModal.Button
+      onClick={() => {
+        // Handle what happens when user saves their cookie settings
+      }}
+      text="Save settings"
+    />
+  </CookiesConsentModal.Footer>
+</CookiesConsentModal>
+```
+
+<div style="display: flex; flex: 1; justify-content: center">
+  <img src="./assets/modal-dark.png" style="border-radius: 6px" />
+</div>

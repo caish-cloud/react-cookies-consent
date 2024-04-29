@@ -1,6 +1,0 @@
-.gitignore
-.prettierrc
-eslint.config.js
-package-lock.json
-tsconfig.json
-src
