@@ -74,7 +74,7 @@ html {
 ```
 
 <div style="display: flex; flex: 1; justify-content: center">
-  <img src="./assets/alert-light.png" style="border-radius: 6px" />
+  <img src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/7bfdbb7a-2e37-4e76-bf1a-b9e8e7f16bac" style="border-radius: 6px" />
 </div>
 
 #### Dark Theme
@@ -116,7 +116,7 @@ html {
 ```
 
 <div style="display: flex; flex: 1; justify-content: center">
-  <img src="./assets/alert-dark.png" style="border-radius: 6px" />
+  <img src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/b07d70db-10c3-4775-869b-fbc69d03dc4c" style="border-radius: 6px" />
 </div>
 
 ### Modal
@@ -194,7 +194,7 @@ html {
 ```
 
 <div style="display: flex; flex: 1; justify-content: center">
-  <img src="./assets/modal-light.png" style="border-radius: 6px" />
+  <img src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/0de6ed18-9298-4e7b-b280-be6060625147" style="border-radius: 6px" />
 </div>
 
 #### Dark Theme
@@ -270,5 +270,5 @@ html {
 ```
 
 <div style="display: flex; flex: 1; justify-content: center">
-  <img src="./assets/modal-dark.png" style="border-radius: 6px" />
+  <img src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/aac05d91-9da7-420e-9169-a1fd0cd59a0a" style="border-radius: 6px" />
 </div>
