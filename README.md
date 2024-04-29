@@ -88,6 +88,8 @@ anymore.
 This component lives at the bottom of the screen, and will animate in (if chosen
 to) to alert the user of their ability to choose their cookie preferences.
 
+The best place to put this is at the root of your project, such as your providers file, `App.js`, or `layout.js` (for Next.js developers). This is because we want this alert to display on any page the user navigates to if not the home page.
+
 #### Light Theme
 
 <div style="display: flex; flex: 1; justify-content: center">
