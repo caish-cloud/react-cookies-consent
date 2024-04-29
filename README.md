@@ -15,7 +15,17 @@ Whether you are looking to ensure compliance, improve user experience, or both, 
 
 ## Prerequisites
 
-This one and only prerequisite is only for the `<CookiesConsentAlert />` component
+### Storing User Preferences
+
+This library is only for saving you the time for developing the components
+necessary to give the user control over their cookie preferences. You will have
+to manage the actual preferences of the user by storing in your database,
+local storage, etc. So please be sure you already have this in place or will
+plan to!
+
+### Styling
+
+This prerequisite is only for the `<CookiesConsentAlert />` component
 due to it being absolutely positioned in the DOM.
 
 Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
@@ -68,7 +78,15 @@ yarn add @caish-cloud/react-cookies-consent
 The usage examples below will get you started with using the alert component
 in conjunction with the modal component.
 
+While testing, if you can't get the alert to display again, you will need to go
+into your browser's local storage settings, find the `react-cookies-consent/alert-dismissed` key, and change the value to `false`. This is how we keep track
+of when the user saved their preferences and do not need to be shown the alert
+anymore.
+
 ### Alert
+
+This component lives at the bottom of the screen, and will animate in (if chosen
+to) to alert the user of their ability to choose their cookie preferences.
 
 #### Light Theme
 
