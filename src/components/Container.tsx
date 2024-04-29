@@ -14,7 +14,7 @@ interface ContainerProps extends ChakraProps {
   defaultStyle: ThemeStyles;
 
   /**
-   * The function to call when the container is clicked.
+   * Handles what happens when the container is clicked.
    */
   onClick?: () => void;
 

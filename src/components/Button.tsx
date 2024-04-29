@@ -23,7 +23,7 @@ export interface ButtonProps {
   hoverAnimationEnabled?: boolean;
 
   /**
-   * The function to call when the button is clicked.
+   * Handles what happens when the button is clicked.
    */
   onClick: () => void;
 

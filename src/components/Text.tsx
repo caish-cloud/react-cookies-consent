@@ -14,7 +14,7 @@ interface TextProps extends ChakraProps {
   defaultStyle: ThemeStyles;
 
   /**
-   * The function to call when the text is clicked.
+   * Handles what happens when the text is clicked.
    */
   onClick?: () => void;
 

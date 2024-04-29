@@ -21,8 +21,8 @@ export type ModalCookieActionProps = {
   descriptionStyle?: ThemeStyles;
 
   /**
-   * The function to call when the switch is toggled.
-   * @param isSwitchOn - Whether the switch is on.
+   * Handles what happens when the switch is toggled.
+   * @param isSwitchOn - Whether the switch is off or on.
    */
   onSwitchToggle?: (isSwitchOn: boolean) => void;
 
