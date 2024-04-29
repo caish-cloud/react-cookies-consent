@@ -1,7 +1,29 @@
 {
-  "name": "@caish-cloud-llc/react-cookies-consent",
+  "name": "@caish-cloud/react-cookies-consent",
   "version": "1.0.0",
-  "description": "This is a React UI component that provides an easy-to-implement solution for handling cookie consent in your web application.",
+  "author": "Caish Cloud, LLC",
+  "license": "MIT",
+  "description": "This is a React UI component that provides an easy-to-implement solution for handling cookies consent in your web application 🍪",
+  "keywords": [
+    "react",
+    "cookies",
+    "consent",
+    "modal",
+    "alert",
+    "component",
+    "typescript"
+  ],
+  "homepage": "https://github.com/caish-cloud/react-cookies-consent",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caish-cloud/react-cookies-consent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/caish-cloud/react-cookies-consent/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,32 +36,6 @@
     "build": "rimraf dist && npx tsc",
     "publish": "npm run build && npm publish"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/caish-cloud-llc/react-cookies-consent.git"
-  },
-  "keywords": [
-    "react",
-    "cookies",
-    "consent",
-    "modal",
-    "alert",
-    "component",
-    "typescript"
-  ],
-  "author": "Caish Cloud, LLC",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/caish-cloud-llc/react-cookies-consent/issues"
-  },
-  "homepage": "https://github.com/caish-cloud-llc/react-cookies-consent",
-  "devDependencies": {
-    "@types/react": "^18.2.79",
-    "typescript": "^5.4.5"
-  },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
@@ -48,5 +44,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.79",
+    "typescript": "^5.4.5"
   }
 }
