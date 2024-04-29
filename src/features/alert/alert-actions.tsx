@@ -24,7 +24,6 @@ export function AlertActions(props: AlertActionsProps) {
 
   return (
     <Container
-      defaultStyle={defaultContainerStyle}
       flexBasis={{ base: 0, lg: '215px' }}
       flexDirection={{ base: 'row', lg: 'column' }}
       justifyContent={{ base: 'left', lg: 'center' }}
@@ -36,5 +35,3 @@ export function AlertActions(props: AlertActionsProps) {
     </Container>
   );
 }
-
-const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };

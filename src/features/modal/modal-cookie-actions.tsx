@@ -25,7 +25,6 @@ export function ModalCookieActions(props: ModalCookieActionsProps) {
 
   return (
     <Container
-      defaultStyle={defaultContainerStyle}
       flexDirection="column"
       gap={4}
       mb={4}
@@ -37,5 +36,3 @@ export function ModalCookieActions(props: ModalCookieActionsProps) {
     </Container>
   );
 }
-
-const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };

@@ -25,7 +25,6 @@ export function ModalCtaActions(props: ModalCtaActionsProps) {
 
   return (
     <Container
-      defaultStyle={defaultContainerStyle}
       gap={2}
       my={2}
       theme={store.modalTheme}
@@ -35,5 +34,3 @@ export function ModalCtaActions(props: ModalCtaActionsProps) {
     </Container>
   );
 }
-
-const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };

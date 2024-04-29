@@ -11,7 +11,7 @@ interface TextProps extends ChakraProps {
   /**
    * The default styles for the text.
    */
-  defaultStyle: ThemeStyles;
+  defaultStyle?: ThemeStyles;
 
   /**
    * Handles what happens when the text is clicked.
@@ -42,7 +42,7 @@ export function Text(props: TextProps) {
    */
   function getTextStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultStyle[theme]
+      ...(defaultStyle ? defaultStyle[theme] : defaultTextStyle[theme])
     };
 
     if (userDefinedStyle) {
@@ -61,3 +61,12 @@ export function Text(props: TextProps) {
     </ChakraUiText>
   );
 }
+
+const defaultTextStyle: ThemeStyles = {
+  dark: {
+    color: 'white'
+  },
+  light: {
+    color: '#2D3748'
+  }
+};

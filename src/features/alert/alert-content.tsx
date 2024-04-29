@@ -24,7 +24,6 @@ export function AlertContent(props: AlertContentProps) {
 
   return (
     <Container
-      defaultStyle={defaultContainerStyle}
       flexDirection="column"
       flexGrow={1}
       theme={store.alertTheme}
@@ -34,5 +33,3 @@ export function AlertContent(props: AlertContentProps) {
     </Container>
   );
 }
-
-const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };

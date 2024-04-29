@@ -126,7 +126,6 @@ export function ModalCookieAction({
 
       <Flex align="start" direction="column">
         <Text
-          defaultStyle={defaultTitleStyle}
           fontSize={{ base: 'sm', lg: 'md' }}
           fontWeight="semibold"
           theme={store.modalTheme}
@@ -137,7 +136,6 @@ export function ModalCookieAction({
 
         {props.description && (
           <Text
-            defaultStyle={defaultDescriptionStyle}
             fontSize={{ base: 'xs', lg: 'sm' }}
             userDefinedStyle={props.descriptionStyle}
             theme={store.modalTheme}
@@ -151,5 +149,3 @@ export function ModalCookieAction({
 }
 
 const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };
-const defaultDescriptionStyle: ThemeStyles = { dark: {}, light: {} };
-const defaultTitleStyle: ThemeStyles = { dark: {}, light: {} };

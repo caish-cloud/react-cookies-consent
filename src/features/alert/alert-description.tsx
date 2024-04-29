@@ -29,13 +29,8 @@ export function AlertDescription(props: AlertDescriptionProps) {
   const store = useStore();
 
   return (
-    <Container
-      defaultStyle={defaultContainerStyle}
-      theme={store.alertTheme}
-      userDefinedStyle={props.containerStyle}
-    >
+    <Container theme={store.alertTheme} userDefinedStyle={props.containerStyle}>
       <Text
-        defaultStyle={defaultTextStyle}
         fontSize={{ base: 'sm', lg: 'md' }}
         theme={store.alertTheme}
         userDefinedStyle={props.textStyle}
@@ -45,14 +40,3 @@ export function AlertDescription(props: AlertDescriptionProps) {
     </Container>
   );
 }
-
-const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };
-
-const defaultTextStyle: ThemeStyles = {
-  dark: {
-    color: 'white'
-  },
-  light: {
-    color: '#2D3748'
-  }
-};

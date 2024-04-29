@@ -41,20 +41,32 @@ html {
 <CookiesConsentAlert>
   <CookiesConsentAlert.Content>
     <CookiesConsentAlert.Title text="About cookies on this site" />
+
     <CookiesConsentAlert.Description text="This website uses cookies to ensure you get the best experience on our website." />
+
     <CookiesConsentAlert.Button
-      onClick={() => null}
+      onClick={() => {
+        // Handle what happens when user clicks on "Learn more" button
+      }}
       text="Learn more"
       variant="text"
     />
   </CookiesConsentAlert.Content>
 
   <CookiesConsentAlert.Actions>
-    <CookiesConsentAlert.Button onClick={() => null} text="Accept cookies" />
+    <CookiesConsentAlert.Button
+      onClick={() => {
+        // Handle what happens when user accepts all cookies
+      }}
+      text="Accept cookies"
+    />
 
     <CookiesConsentAlert.Button
-      onClick={() => null}
+      onClick={() => {
+        // Handle what happens when user rejects all cookies
+      }}
       regularButtonColor="#2D3748"
+      shouldShowModal={true}
       text="Cookie settings"
     />
   </CookiesConsentAlert.Actions>
@@ -66,22 +78,33 @@ html {
 #### Dark Theme
 
 ```tsx
-<CookiesConsentAlert theme="dark">
+<CookiesConsentAlert theme="dark>
   <CookiesConsentAlert.Content>
     <CookiesConsentAlert.Title text="About cookies on this site" />
+
     <CookiesConsentAlert.Description text="This website uses cookies to ensure you get the best experience on our website." />
+
     <CookiesConsentAlert.Button
-      onClick={() => null}
+      onClick={() => {
+        // Handle what happens when user clicks on "Learn more" button
+      }}
       text="Learn more"
       variant="text"
     />
   </CookiesConsentAlert.Content>
 
   <CookiesConsentAlert.Actions>
-    <CookiesConsentAlert.Button onClick={() => null} text="Accept cookies" />
+    <CookiesConsentAlert.Button
+      onClick={() => {
+        // Handle what happens when user accepts all cookies
+      }}
+      text="Accept cookies"
+    />
 
     <CookiesConsentAlert.Button
-      onClick={() => null}
+      onClick={() => {
+        // Handle what happens when user rejects all cookies
+      }}
       regularButtonColor="grey"
       shouldShowModal={true}
       text="Cookie settings"

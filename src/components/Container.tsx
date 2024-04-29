@@ -11,7 +11,7 @@ interface ContainerProps extends ChakraProps {
   /**
    * The default styles for the container.
    */
-  defaultStyle: ThemeStyles;
+  defaultStyle?: ThemeStyles;
 
   /**
    * Handles what happens when the container is clicked.
@@ -43,7 +43,7 @@ export function Container(props: ContainerProps) {
    */
   function getContainerStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultStyle[theme]
+      ...(defaultStyle ? defaultStyle[theme] : defaultContainerStyle[theme])
     };
 
     if (userDefinedStyle) {
@@ -62,3 +62,5 @@ export function Container(props: ContainerProps) {
     </Flex>
   );
 }
+
+const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };

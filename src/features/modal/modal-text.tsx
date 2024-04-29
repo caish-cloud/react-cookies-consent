@@ -29,13 +29,8 @@ export function ModalText(props: ModalTextProps) {
   const store = useStore();
 
   return (
-    <Container
-      defaultStyle={defaultContainerStyle}
-      theme={store.modalTheme}
-      userDefinedStyle={props.containerStyle}
-    >
+    <Container theme={store.modalTheme} userDefinedStyle={props.containerStyle}>
       <Text
-        defaultStyle={defaultTextStyle}
         fontSize={{ base: 'sm', lg: 'md' }}
         theme={store.modalTheme}
         userDefinedStyle={props.textStyle}
@@ -45,14 +40,3 @@ export function ModalText(props: ModalTextProps) {
     </Container>
   );
 }
-
-const defaultContainerStyle: ThemeStyles = { dark: {}, light: {} };
-
-const defaultTextStyle: ThemeStyles = {
-  dark: {
-    color: 'white'
-  },
-  light: {
-    color: '#2D3748'
-  }
-};
