@@ -34,7 +34,7 @@
   ],
   "scripts": {
     "build": "rimraf dist && npx tsc",
-    "publish": "npm run build && npm publish"
+    "publish": "npm publish"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
