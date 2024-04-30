@@ -370,10 +370,10 @@ conduct, and the process for submitting pull requests to us.
 
 <div style="display: flex; flex: 1; flex-direction: row; align-items: center; gap: 12px">
   <img alt="React Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/6b2fa888-0943-4d42-95b0-aa496d8e6542" style="height: 50px; width: 50px" title="React" />
-  <img alt="TypeScript Logo" src="" style="height: 50px; width: 50px" title="TypeScript" />
-  <img alt="Chakra UI Logo" src="" style="height: 50px; width: 50px" title="Chakra UI" />
-  <img alt="Framer Motion Logo" src="" style="height: 50px; width: 50px" title="Framer Motion" />
-  <img alt="Zustand Logo" src="" style="height: 50px; width: 50px" title="Zustand" />
+  <img alt="TypeScript Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/9c969c23-09db-4a75-8022-27c321fd2c48" style="height: 50px; width: 50px" title="TypeScript" />
+  <img alt="Chakra UI Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/b02d051b-7391-4b7e-895f-cd6daa895827" style="height: 50px; width: 50px" title="Chakra UI" />
+  <img alt="Framer Motion Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/f0e88677-ea46-4def-838b-216ce38b0dbb" style="height: 50px; width: 50px" title="Framer Motion" />
+  <img alt="Zustand Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/6d443c52-ee3a-47c3-9ec3-93609b9afb1d" style="height: 50px; width: 50px" title="Zustand" />
 </div>
 
 ## Authors
