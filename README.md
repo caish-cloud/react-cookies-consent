@@ -1,6 +1,10 @@
-[![npm version](https://badge.fury.io/js/react-cookies-consent.svg)](https://badge.fury.io/js/react-cookies-consent)
+<div style="display: flex; flex: 1; justify-content: center">
+  <img alt="react-cookies-consent cover photo" src="./assets/cover.png" style="border-radius: 6px; height: 300px; margin-bottom: 24px; width: auto" />
+</div>
 
 # react-cookies-consent
+
+[![npm version](https://badge.fury.io/js/react-cookies-consent.svg)](https://badge.fury.io/js/react-cookies-consent)
 
 Introducing a comprehensive and customizable solution for managing cookie consent in your React applications! Our package includes a set of powerful components designed to make the implementation of cookie consent straightforward and compliant with user preferences.
 
