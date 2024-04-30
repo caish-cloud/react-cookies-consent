@@ -368,9 +368,8 @@ conduct, and the process for submitting pull requests to us.
 
 ## Built With
 
-<div style="display: flex; flex: 1; align-items: center; gap: 4px">
-  <img alt="React Logo" src="" />
-
+<div style="display: flex; flex: 1; flex-direction: row; align-items: center; gap: 4px">
+  <img alt="React Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/6b2fa888-0943-4d42-95b0-aa496d8e6542" style="height: 50px; width: 50px" />
   <h3>React</h3>
 </div>
 
