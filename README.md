@@ -58,7 +58,6 @@ Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
     - ???
   - [Contributing](#contributing)
   - [Built With](#built-with)
-  - [Versioning](#versioning)
   - [Authors](#authors)
   - [License](#license)
 
