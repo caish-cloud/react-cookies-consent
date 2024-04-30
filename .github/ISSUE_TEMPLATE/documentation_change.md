@@ -7,5 +7,5 @@ assignees: tcaish
 
 ---
 
-**Describe the change**
+### Describe the change
 A clear and concise description of what you're changing in the documentation and why.
