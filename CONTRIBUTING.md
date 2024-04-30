@@ -99,9 +99,7 @@ possible.
 We use GitHub Issues to track bugs and errors. If you run into an issue with
 the project:
 
-- Open an [Issue](https://github.com/caish-cloud/react-cookies-consent/issues/new)
-  (Since we can't be sure at this point whether it is a bug or not, we ask you not
-  to talk about a bug yet and not to label the issue)
+- Open a [Bug Report](https://github.com/caish-cloud/react-cookies-consent/issues/new)
 - Explain the behavior you would expect and the actual behavior
 - Please provide as much context as possible and describe the _reproduction steps_
   that someone else can follow to recreate the issue on their own. This usually
@@ -118,8 +116,6 @@ Once it's submitted:
   the `needs-repro` tag will not be addressed until they are reproduced.
 - If the team is able to reproduce the issue, it will be marked `needs-fix`, as
   well as possibly other tags (such as `critical`), and the issue will be left to be [implemented by someone](#your-first-code-contribution).
-
-<!-- You might want to create an issue template for bugs and errors that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
 ### Suggesting Enhancements
 
@@ -161,8 +157,6 @@ Enhancement suggestions are tracked as [GitHub Issues](https://github.com/caish-
 - **Explain why this enhancement would be useful** to most react-cookies-consent
   users. You may also want to point out the other projects that solved it better
   and which could serve as inspiration.
-
-<!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
 ### Your First Code Contribution
 
