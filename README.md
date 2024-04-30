@@ -1,5 +1,5 @@
 <div style="display: flex; flex: 1; justify-content: center">
-  <img alt="react-cookies-consent cover photo" src="./assets/cover.png" style="border-radius: 6px; height: 300px; margin-bottom: 24px; width: auto" />
+  <img alt="react-cookies-consent cover photo" src="./assets/cover.png" style="border-radius: 6px" />
 </div>
 
 # react-cookies-consent
