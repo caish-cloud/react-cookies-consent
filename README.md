@@ -76,7 +76,8 @@ yarn add @caish-cloud/react-cookies-consent
 ## Basic Usage
 
 The usage examples below will get you started with using the alert component
-in conjunction with the modal component.
+in conjunction with the modal component. You <i>do not</i> have to use both!
+You can use one or the other depending on your development needs.
 
 While testing, if you can't get the alert to display again, you will need to go
 into your browser's local storage settings, find the `react-cookies-consent/alert-dismissed` key, and change the value to `false`. This is how we keep track
@@ -91,6 +92,9 @@ to) to alert the user of their ability to choose their cookie preferences.
 The best place to put this is at the root of your project, such as your providers file, `App.js`, or `layout.js` (for Next.js developers). This is because we want this alert to display on any page the user navigates to if not the home page.
 
 #### Light Theme
+
+This is the default theme for the component and does not require any additional
+configuration.
 
 <div style="display: flex; flex: 1; justify-content: center">
   <img src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/7bfdbb7a-2e37-4e76-bf1a-b9e8e7f16bac" style="border-radius: 6px" />
@@ -134,6 +138,9 @@ The best place to put this is at the root of your project, such as your provider
 
 #### Dark Theme
 
+As shown in the code below, you'll need to add the `theme="dark"` parameter to
+the root component, and that's it!
+
 <div style="display: flex; flex: 1; justify-content: center">
   <img src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/b07d70db-10c3-4775-869b-fbc69d03dc4c" style="border-radius: 6px" />
 </div>
@@ -176,7 +183,18 @@ The best place to put this is at the root of your project, such as your provider
 
 ### Modal
 
+This component will animate in to the center or top-middle of the screen to give
+the user granular control over their cookie preferences.
+
+The best place to put this is at the root of your project, such as your
+providers file, `App.js`, or `layout.js` (for Next.js developers) next to the
+alert component (if you chose to use it). This is because we want this modal to
+display on any page the user navigates to if not the home page.
+
 #### Light Theme
+
+This is the default theme for the component and does not require any additional
+configuration.
 
 <div style="display: flex; flex: 1; justify-content: center">
   <img src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/0de6ed18-9298-4e7b-b280-be6060625147" style="border-radius: 6px" />
@@ -253,6 +271,9 @@ The best place to put this is at the root of your project, such as your provider
 ```
 
 #### Dark Theme
+
+As shown in the code below, you'll need to add the `theme="dark"` parameter to
+the root component, and that's it!
 
 <div style="display: flex; flex: 1; justify-content: center">
   <img src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/aac05d91-9da7-420e-9169-a1fd0cd59a0a" style="border-radius: 6px" />
