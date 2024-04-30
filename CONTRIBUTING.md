@@ -1,5 +1,3 @@
-<!-- omit in toc -->
-
 # Contributing to react-cookies-consent
 
 First off, thanks for taking the time to contribute! ❤️
