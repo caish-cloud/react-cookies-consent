@@ -374,7 +374,7 @@ conduct and the process for submitting pull requests to us.
 
 ## Authors
 
-<div style="display: flex; flex: 1; align-items: center; gap: 8px">
+<div style="display: flex; flex: 1; align-items: center; gap: 8px"><!-- .element: style="display: flex; flex: 1; align-items: center; gap: 8px" -->
   <img alt="Timothy Caish Avatar" src="./assets/avatar.png" style="height: 50px; width: 50px" title="Timothy Caish" />
   <p style="font-size: large; font-weight: 600; margin-bottom: 0; margin-top: 0">Timothy Caish</p>
 </div>
