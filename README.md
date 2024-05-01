@@ -4,7 +4,30 @@
 
 # react-cookies-consent
 
-[![npm version](https://badge.fury.io/js/react-cookies-consent.svg)](https://badge.fury.io/js/react-cookies-consent)
+[npm_url]: https://www.npmjs.org/package/react-cookies-consent
+
+[![npm version](https://badge.fury.io/js/react-cookies-consent.svg)][npm_url]
+[![downloads](https://img.shields.io/npm/dt/react-cookies-consent.svg)][npm_url]
+[![license](https://img.shields.io/npm/l/react-cookies-consent.svg)][npm_url]
+
+```
+To Do:
+- Make local storage value configurable and update any documentation referencing
+it
+
+Write about these things:
+
+- All the props, descriptions, default values for all components
+- The ref and actions you can perform on the alert root component
+- Alert button click animation is disabled on text variant
+- Modal body is required
+- Check which components can accept Chakra UI attributes and note that
+
+Bugs:
+
+- When changing the theme, styles do not update
+- Lots of rerenders? Test performance of components via profiler
+```
 
 Introducing a comprehensive and customizable solution for managing cookie consent in your React applications! Our package includes a set of powerful components designed to make the implementation of cookie consent straightforward and compliant with user preferences.
 
@@ -13,6 +36,7 @@ Key Features:
 - <b>`<CookiesConsentAlert />`</b>: Jumpstart user interaction with a simple alert at the bottom of the screen that asks users to confirm their cookie preferences, such as accepting all cookies or choosing which to accept and decline. This component is designed to be non-intrusive yet clear to ensure immediate understanding from the user.
 - <b>`<CookiesConsentModal />`</b>: Provide users with detailed control over their cookie preferences. This modal allows for granular settings adjustments, giving users the power to manage their privacy preferences effectively.
 - <b>Customization</b>: Tailor the appearance and behavior of your cookie consent components to match your application’s theme and branding. Supports both light and dark modes, ensuring a seamless integration regardless of your UI design.
+- <b>Responsive</b>: Looks great on desktop, tablet, and mobile.
 - <b>Developer-Friendly Ref API</b>: Access additional methods and functionalities through a well-documented Ref API for each component that enhances your ability to control and respond to user preferences programmatically.
 
 Whether you are looking to ensure compliance, improve user experience, or both, our react-cookies-consent components package offers the tools you need to integrate cookie consent functionality into your applications effortlessly!
@@ -47,7 +71,7 @@ Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
   - [Prerequisites](#prerequisites)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
-  - [Basic Usage](#basic-usage)
+  - [Usage](#usage)
     - [Alert](#alert)
       - [Light Theme](#light-theme-alert)
       - [Dark Theme](#dark-theme-alert)
@@ -55,7 +79,8 @@ Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
       - [Light Theme](#light-theme-modal)
       - [Dark Theme](#dark-theme-modal)
   - [Props](#props)
-    - ???
+  - [Refs](#refs)
+  - [Troubleshooting](#troubleshooting)
   - [Contributing](#contributing)
   - [Built With](#built-with)
   - [Authors](#authors)
@@ -63,7 +88,7 @@ Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
 
 ## Installation
 
-**BEFORE YOU INSTALL:** please read the [Prerequisites](#prerequisites) section.
+**BEFORE YOU INSTALL** - please read the [Prerequisites](#prerequisites) section.
 
 To install and set up the library, run:
 
@@ -77,16 +102,11 @@ Or if you prefer using Yarn:
 yarn add @caish-cloud/react-cookies-consent
 ```
 
-## Basic Usage
+## Usage
 
 The usage examples below will get you started with using the alert component
 in conjunction with the modal component. You <i>do not</i> have to use both!
 You can use one or the other depending on your development needs.
-
-While testing, if you can't get the alert to display again, you will need to go
-into your browser's local storage settings, find the `react-cookies-consent/alert-dismissed` key, and change the value to `false`. This is how we keep track
-of when the user saved their preferences and do not need to be shown the alert
-anymore.
 
 ### Alert
 
@@ -104,40 +124,46 @@ configuration.
   <img alt="Light Theme (Alert)" src="./assets/screenshots/alert_light.png" style="border-radius: 6px" />
 </p>
 
-```tsx
-<CookiesConsentAlert>
-  <CookiesConsentAlert.Content>
-    <CookiesConsentAlert.Title text="About cookies on this site" />
+```jsx
+import { CookiesConsentAlert } from '@caish-cloud/react-cookies-consent';
 
-    <CookiesConsentAlert.Description text="This website uses cookies to ensure you get the best experience on our website." />
+function ExampleComponent() {
+  return (
+    <CookiesConsentAlert>
+      <CookiesConsentAlert.Content>
+        <CookiesConsentAlert.Title text="About cookies on this site" />
 
-    <CookiesConsentAlert.Button
-      onClick={() => {
-        // Handle what happens when user clicks on "Learn more" button
-      }}
-      text="Learn more"
-      variant="text"
-    />
-  </CookiesConsentAlert.Content>
+        <CookiesConsentAlert.Description text="This website uses cookies to ensure you get the best experience on our website." />
 
-  <CookiesConsentAlert.Actions>
-    <CookiesConsentAlert.Button
-      onClick={() => {
-        // Handle what happens when user accepts all cookies
-      }}
-      text="Accept cookies"
-    />
+        <CookiesConsentAlert.Button
+          onClick={() => {
+            // Handle what happens when user clicks on "Learn more" button
+          }}
+          text="Learn more"
+          variant="text"
+        />
+      </CookiesConsentAlert.Content>
 
-    <CookiesConsentAlert.Button
-      onClick={() => {
-        // Handle what happens when user rejects all cookies
-      }}
-      regularButtonColor="#2D3748"
-      shouldShowModal={true}
-      text="Cookie settings"
-    />
-  </CookiesConsentAlert.Actions>
-</CookiesConsentAlert>
+      <CookiesConsentAlert.Actions>
+        <CookiesConsentAlert.Button
+          onClick={() => {
+            // Handle what happens when user accepts all cookies
+          }}
+          text="Accept cookies"
+        />
+
+        <CookiesConsentAlert.Button
+          onClick={() => {
+            // Handle what happens when user rejects all cookies
+          }}
+          regularButtonColor="#2D3748"
+          shouldShowModal={true}
+          text="Cookie settings"
+        />
+      </CookiesConsentAlert.Actions>
+    </CookiesConsentAlert>
+  );
+}
 ```
 
 #### Dark Theme (Alert)
@@ -149,40 +175,46 @@ the root component, and that's it!
   <img alt="Dark Theme (Alert)" src="./assets/screenshots/alert_dark.png" style="border-radius: 6px" />
 </p>
 
-```tsx
-<CookiesConsentAlert theme="dark">
-  <CookiesConsentAlert.Content>
-    <CookiesConsentAlert.Title text="About cookies on this site" />
+```jsx
+import { CookiesConsentAlert } from '@caish-cloud/react-cookies-consent';
 
-    <CookiesConsentAlert.Description text="This website uses cookies to ensure you get the best experience on our website." />
+function ExampleComponent() {
+  return (
+    <CookiesConsentAlert theme="dark">
+      <CookiesConsentAlert.Content>
+        <CookiesConsentAlert.Title text="About cookies on this site" />
 
-    <CookiesConsentAlert.Button
-      onClick={() => {
-        // Handle what happens when user clicks on "Learn more" button
-      }}
-      text="Learn more"
-      variant="text"
-    />
-  </CookiesConsentAlert.Content>
+        <CookiesConsentAlert.Description text="This website uses cookies to ensure you get the best experience on our website." />
 
-  <CookiesConsentAlert.Actions>
-    <CookiesConsentAlert.Button
-      onClick={() => {
-        // Handle what happens when user accepts all cookies
-      }}
-      text="Accept cookies"
-    />
+        <CookiesConsentAlert.Button
+          onClick={() => {
+            // Handle what happens when user clicks on "Learn more" button
+          }}
+          text="Learn more"
+          variant="text"
+        />
+      </CookiesConsentAlert.Content>
 
-    <CookiesConsentAlert.Button
-      onClick={() => {
-        // Handle what happens when user rejects all cookies
-      }}
-      regularButtonColor="grey"
-      shouldShowModal={true}
-      text="Cookie settings"
-    />
-  </CookiesConsentAlert.Actions>
-</CookiesConsentAlert>
+      <CookiesConsentAlert.Actions>
+        <CookiesConsentAlert.Button
+          onClick={() => {
+            // Handle what happens when user accepts all cookies
+          }}
+          text="Accept cookies"
+        />
+
+        <CookiesConsentAlert.Button
+          onClick={() => {
+            // Handle what happens when user rejects all cookies
+          }}
+          regularButtonColor="grey"
+          shouldShowModal={true}
+          text="Cookie settings"
+        />
+      </CookiesConsentAlert.Actions>
+    </CookiesConsentAlert>
+  );
+}
 ```
 
 ### Modal
@@ -204,74 +236,80 @@ configuration.
   <img alt="Light Theme (Modal)" src="./assets/screenshots/modal_light.png" style="border-radius: 6px" />
 </p>
 
-```tsx
-<CookiesConsentModal>
-  <CookiesConsentModal.Header text="Cookie Settings" />
+```jsx
+import { CookiesConsentModal } from '@caish-cloud/react-cookies-consent';
 
-  <CookiesConsentModal.Body>
-    <CookiesConsentModal.Text text="This website uses cookies to ensure you get the best experience on our website." />
+function ExampleComponent() {
+  return (
+    <CookiesConsentModal>
+      <CookiesConsentModal.Header text="Cookie Settings" />
 
-    <CookiesConsentModal.CtaActions>
-      <CookiesConsentModal.Button
-        onClick={() => {
-          // Handle what happens when user accepts all cookies
-        }}
-        regularButtonColor="#2D3748"
-        text="Accept all"
-      />
+      <CookiesConsentModal.Body>
+        <CookiesConsentModal.Text text="This website uses cookies to ensure you get the best experience on our website." />
 
-      <CookiesConsentModal.Button
-        onClick={() => {
-          // Handle what happens when user rejects all cookies
-        }}
-        regularButtonColor="#2D3748"
-        text="Reject all"
-      />
-    </CookiesConsentModal.CtaActions>
+        <CookiesConsentModal.CtaActions>
+          <CookiesConsentModal.Button
+            onClick={() => {
+              // Handle what happens when user accepts all cookies
+            }}
+            regularButtonColor="#2D3748"
+            text="Accept all"
+          />
 
-    <CookiesConsentModal.CookieActions>
-      <CookiesConsentModal.CookieAction
-        description="Some cookies are required to provide core functionality. The website won't function properly without these cookies and they are enabled by default."
-        switchDisabled={true}
-        switchToggledOn={true}
-        title="Necessary cookies"
-      />
+          <CookiesConsentModal.Button
+            onClick={() => {
+              // Handle what happens when user rejects all cookies
+            }}
+            regularButtonColor="#2D3748"
+            text="Reject all"
+          />
+        </CookiesConsentModal.CtaActions>
 
-      <CookiesConsentModal.CookieAction
-        description="Preference cookies enables the web site to remember information to customize how the web site looks or behaves for each user. This may include storing selected currency, region, language or color theme."
-        onSwitchToggle={(isSwitchOn) => {
-          // Handle what happens when user toggles preferences cookies
-        }}
-        title="Preferences"
-      />
+        <CookiesConsentModal.CookieActions>
+          <CookiesConsentModal.CookieAction
+            description="Some cookies are required to provide core functionality. The website won't function properly without these cookies and they are enabled by default."
+            switchDisabled={true}
+            switchToggledOn={true}
+            title="Necessary cookies"
+          />
 
-      <CookiesConsentModal.CookieAction
-        description="Analytical cookies help us improve our website by collecting and reporting information on its usage."
-        onSwitchToggle={(isSwitchOn) => {
-          // Handle what happens when user toggles analytics cookies
-        }}
-        title="Analytics"
-      />
+          <CookiesConsentModal.CookieAction
+            description="Preference cookies enables the web site to remember information to customize how the web site looks or behaves for each user. This may include storing selected currency, region, language or color theme."
+            onSwitchToggle={(isSwitchOn) => {
+              // Handle what happens when user toggles preferences cookies
+            }}
+            title="Preferences"
+          />
 
-      <CookiesConsentModal.CookieAction
-        description="Marketing cookies are used to track visitors across websites to allow publishers to display relevant and engaging advertisements. By enabling marketing cookies, you grant permission for personalized advertising across various platforms."
-        onSwitchToggle={(isSwitchOn) => {
-          // Handle what happens when user toggles marketing cookies
-        }}
-        title="Marketing"
-      />
-    </CookiesConsentModal.CookieActions>
-  </CookiesConsentModal.Body>
+          <CookiesConsentModal.CookieAction
+            description="Analytical cookies help us improve our website by collecting and reporting information on its usage."
+            onSwitchToggle={(isSwitchOn) => {
+              // Handle what happens when user toggles analytics cookies
+            }}
+            title="Analytics"
+          />
 
-  <CookiesConsentModal.Footer>
-    <CookiesConsentModal.Button
-      onClick={() => {
-        // Handle what happens when user saves their cookie settings
-      }}
-      text="Save settings"
-    />
-  </CookiesConsentModal.Footer>
-</CookiesConsentModal>
+          <CookiesConsentModal.CookieAction
+            description="Marketing cookies are used to track visitors across websites to allow publishers to display relevant and engaging advertisements. By enabling marketing cookies, you grant permission for personalized advertising across various platforms."
+            onSwitchToggle={(isSwitchOn) => {
+              // Handle what happens when user toggles marketing cookies
+            }}
+            title="Marketing"
+          />
+        </CookiesConsentModal.CookieActions>
+      </CookiesConsentModal.Body>
+
+      <CookiesConsentModal.Footer>
+        <CookiesConsentModal.Button
+          onClick={() => {
+            // Handle what happens when user saves their cookie settings
+          }}
+          text="Save settings"
+        />
+      </CookiesConsentModal.Footer>
+    </CookiesConsentModal>
+  );
+}
 ```
 
 #### Dark Theme (Modal)
@@ -283,79 +321,229 @@ the root component, and that's it!
   <img alt="Dark Theme (Modal)" src="./assets/screenshots/modal_dark.png" style="border-radius: 6px" />
 </p>
 
-```tsx
-<CookiesConsentModal theme="dark">
-  <CookiesConsentModal.Header text="Cookie Settings" />
+```jsx
+import { CookiesConsentModal } from '@caish-cloud/react-cookies-consent';
 
-  <CookiesConsentModal.Body>
-    <CookiesConsentModal.Text text="This website uses cookies to ensure you get the best experience on our website." />
+function ExampleComponent() {
+  return (
+    <CookiesConsentModal theme="dark">
+      <CookiesConsentModal.Header text="Cookie Settings" />
 
-    <CookiesConsentModal.CtaActions>
-      <CookiesConsentModal.Button
-        onClick={() => {
-          // Handle what happens when user accepts all cookies
-        }}
-        regularButtonColor="grey"
-        text="Accept all"
-      />
+      <CookiesConsentModal.Body>
+        <CookiesConsentModal.Text text="This website uses cookies to ensure you get the best experience on our website." />
 
-      <CookiesConsentModal.Button
-        onClick={() => {
-          // Handle what happens when user rejects all cookies
-        }}
-        regularButtonColor="grey"
-        text="Reject all"
-      />
-    </CookiesConsentModal.CtaActions>
+        <CookiesConsentModal.CtaActions>
+          <CookiesConsentModal.Button
+            onClick={() => {
+              // Handle what happens when user accepts all cookies
+            }}
+            regularButtonColor="grey"
+            text="Accept all"
+          />
 
-    <CookiesConsentModal.CookieActions>
-      <CookiesConsentModal.CookieAction
-        description="Some cookies are required to provide core functionality. The website won't function properly without these cookies and they are enabled by default."
-        switchDisabled={true}
-        switchToggledOn={true}
-        title="Necessary cookies"
-      />
+          <CookiesConsentModal.Button
+            onClick={() => {
+              // Handle what happens when user rejects all cookies
+            }}
+            regularButtonColor="grey"
+            text="Reject all"
+          />
+        </CookiesConsentModal.CtaActions>
 
-      <CookiesConsentModal.CookieAction
-        description="Preference cookies enables the web site to remember information to customize how the web site looks or behaves for each user. This may include storing selected currency, region, language or color theme."
-        onSwitchToggle={(isSwitchOn) => {
-          // Handle what happens when user toggles preferences cookies
-        }}
-        title="Preferences"
-      />
+        <CookiesConsentModal.CookieActions>
+          <CookiesConsentModal.CookieAction
+            description="Some cookies are required to provide core functionality. The website won't function properly without these cookies and they are enabled by default."
+            switchDisabled={true}
+            switchToggledOn={true}
+            title="Necessary cookies"
+          />
 
-      <CookiesConsentModal.CookieAction
-        description="Analytical cookies help us improve our website by collecting and reporting information on its usage."
-        onSwitchToggle={(isSwitchOn) => {
-          // Handle what happens when user toggles analytics cookies
-        }}
-        title="Analytics"
-      />
+          <CookiesConsentModal.CookieAction
+            description="Preference cookies enables the web site to remember information to customize how the web site looks or behaves for each user. This may include storing selected currency, region, language or color theme."
+            onSwitchToggle={(isSwitchOn) => {
+              // Handle what happens when user toggles preferences cookies
+            }}
+            title="Preferences"
+          />
 
-      <CookiesConsentModal.CookieAction
-        description="Marketing cookies are used to track visitors across websites to allow publishers to display relevant and engaging advertisements. By enabling marketing cookies, you grant permission for personalized advertising across various platforms."
-        onSwitchToggle={(isSwitchOn) => {
-          // Handle what happens when user toggles marketing cookies
-        }}
-        title="Marketing"
-      />
-    </CookiesConsentModal.CookieActions>
-  </CookiesConsentModal.Body>
+          <CookiesConsentModal.CookieAction
+            description="Analytical cookies help us improve our website by collecting and reporting information on its usage."
+            onSwitchToggle={(isSwitchOn) => {
+              // Handle what happens when user toggles analytics cookies
+            }}
+            title="Analytics"
+          />
 
-  <CookiesConsentModal.Footer>
-    <CookiesConsentModal.Button
-      onClick={() => {
-        // Handle what happens when user saves their cookie settings
-      }}
-      text="Save settings"
-    />
-  </CookiesConsentModal.Footer>
-</CookiesConsentModal>
+          <CookiesConsentModal.CookieAction
+            description="Marketing cookies are used to track visitors across websites to allow publishers to display relevant and engaging advertisements. By enabling marketing cookies, you grant permission for personalized advertising across various platforms."
+            onSwitchToggle={(isSwitchOn) => {
+              // Handle what happens when user toggles marketing cookies
+            }}
+            title="Marketing"
+          />
+        </CookiesConsentModal.CookieActions>
+      </CookiesConsentModal.Body>
+
+      <CookiesConsentModal.Footer>
+        <CookiesConsentModal.Button
+          onClick={() => {
+            // Handle what happens when user saves their cookie settings
+          }}
+          text="Save settings"
+        />
+      </CookiesConsentModal.Footer>
+    </CookiesConsentModal>
+  );
+}
 ```
 
 ## Props
 
 ### `<CookiesConsentAlert />`
+
+This is the root/parent component for the alert. This is required.
+
+#### `containerStyle`
+
+The styles for the container of the alert.
+
+| Required | Type                                                         | Default                                                                     |
+| -------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `dark: { backgroundColor: '#2D3748' }, light: { backgroundColor: 'white' }` |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert
+  containerStyle={{
+    dark: {
+      backgroundColor: '#2D3748'
+    },
+    light: {
+      backgroundColor: 'white'
+    }
+  }}
+/>
+```
+
+#### `enterExitAnimation`
+
+How the alert should enter the screen.
+
+| Required | Type                                           | Default         |
+| -------- | ---------------------------------------------- | --------------- |
+| False    | `"from-bottom" \| "from-left" \| "from-right"` | `"from-bottom"` |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert enterExitAnimation="from-left" />
+```
+
+#### `enterExitAnimationEnabled`
+
+Whether the enter/exit animations for the alert is enabled.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `true`  |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert enterExitAnimationEnabled={false} />
+```
+
+#### `placement`
+
+The placement of the alert on the screen.
+
+| Required | Type                                                 | Default           |
+| -------- | ---------------------------------------------------- | ----------------- |
+| False    | `"bottom-center" \| "bottom-left" \| "bottom-right"` | `"bottom-center"` |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert placement="bottom-left" />
+```
+
+#### `theme`
+
+The theme for the alert (i.e. light/dark mode).
+
+| Required | Type                | Default   |
+| -------- | ------------------- | --------- |
+| False    | `"dark" \| "light"` | `"light"` |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert theme="dark" />
+```
+
+## Refs
+
+### `<CookiesConsentAlert />`
+
+#### `hide()`
+
+Hides the alert.
+
+#### Example
+
+```tsx
+import React from 'react';
+import {
+  CookiesConsentAlert,
+  CookiesConsentAlertRef
+} from '@caish-cloud/react-cookies-consent';
+
+const alertRef = React.useRef<CookiesConsentAlertRef>(null);
+
+React.useEffect(() => {
+  alertRef.current?.hide();
+}, [alertRef.current]);
+
+function ExampleComponent() {
+  return <CookiesConsentAlert ref={alertRef} />;
+}
+```
+
+#### `show()`
+
+Shows the alert.
+
+#### Example
+
+```tsx
+import React from 'react';
+import {
+  CookiesConsentAlert,
+  CookiesConsentAlertRef
+} from '@caish-cloud/react-cookies-consent';
+
+const alertRef = React.useRef<CookiesConsentAlertRef>(null);
+
+React.useEffect(() => {
+  alertRef.current?.show();
+}, [alertRef.current]);
+
+function ExampleComponent() {
+  return <CookiesConsentAlert ref={alertRef} />;
+}
+```
+
+### `<CookiesConsentModal />`
+
+## Troubleshooting
+
+### The alert disappeared and doesn't show anymore.
+
+If you can't get the alert to display again, you will need to go into your
+browser's local storage settings, find the `react-cookies-consent/alert-dismissed`
+key, and change the value to `false`. This is how we keep track of when the user
+saved their preferences and do not need to be shown the alert anymore.
 
 ## Contributing
 
@@ -371,6 +559,11 @@ conduct and the process for submitting pull requests to us.
   <img alt="Framer Motion Logo" src="./assets/brand-logos/framer_motion_logo.png" style="height: 50px; width: 50px" title="Framer Motion" />
   <img alt="Zustand Logo" src="./assets/brand-logos/zustand_logo.png" style="height: 50px; width: 50px" title="Zustand" />
 </div>
+
+<br/>
+
+The design concepts came from the implementation of BugSnag's cookies consent
+alert and modal. See it in action [here](https://docs.bugsnag.com).
 
 ## Authors
 
