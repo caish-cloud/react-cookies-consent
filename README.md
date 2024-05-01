@@ -498,6 +498,8 @@ custom components:
 - `<CookiesConsentAlert.Description />`
 - `<CookiesConsentAlert.Button />`
 
+This is required.
+
 #### `containerStyle`
 
 The styles for the container of the content.
