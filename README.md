@@ -1,6 +1,6 @@
-<div style="display: flex; flex: 1; justify-content: center">
+<p align="center">
   <img alt="react-cookies-consent cover photo" src="./assets/cover.png" style="border-radius: 6px" />
-</div>
+</p>
 
 # react-cookies-consent
 
@@ -100,9 +100,9 @@ The best place to put this is at the root of your project, such as your provider
 This is the default theme for the component and does not require any additional
 configuration.
 
-<div style="display: flex; flex: 1; justify-content: center">
+<p align="center">
   <img alt="Light Theme (Alert)" src="./assets/screenshots/alert_light.png" style="border-radius: 6px" />
-</div>
+</p>
 
 ```tsx
 <CookiesConsentAlert>
@@ -145,9 +145,9 @@ configuration.
 As shown in the code below, you'll need to add the `theme="dark"` parameter to
 the root component, and that's it!
 
-<div style="display: flex; flex: 1; justify-content: center">
+<p align="center">
   <img alt="Dark Theme (Alert)" src="./assets/screenshots/alert_dark.png" style="border-radius: 6px" />
-</div>
+</p>
 
 ```tsx
 <CookiesConsentAlert theme="dark">
@@ -200,9 +200,9 @@ display on any page the user navigates to if not the home page.
 This is the default theme for the component and does not require any additional
 configuration.
 
-<div style="display: flex; flex: 1; justify-content: center">
+<p align="center">
   <img alt="Light Theme (Modal)" src="./assets/screenshots/modal_light.png" style="border-radius: 6px" />
-</div>
+</p>
 
 ```tsx
 <CookiesConsentModal>
@@ -279,9 +279,9 @@ configuration.
 As shown in the code below, you'll need to add the `theme="dark"` parameter to
 the root component, and that's it!
 
-<div style="display: flex; flex: 1; justify-content: center">
+<p align="center">
   <img alt="Dark Theme (Modal)" src="./assets/screenshots/modal_dark.png" style="border-radius: 6px" />
-</div>
+</p>
 
 ```tsx
 <CookiesConsentModal theme="dark">
@@ -375,7 +375,7 @@ conduct and the process for submitting pull requests to us.
 ## Authors
 
 <div style="display: flex; flex: 1; align-items: center; gap: 8px">
-  <img alt="Timothy Caish Avatar" src="./assets/avatar.png" style="height: 50px; width: 50px" title="Zustand" />
+  <img alt="Timothy Caish Avatar" src="./assets/avatar.png" style="height: 50px; width: 50px" title="Timothy Caish" />
   <h3 style="margin-bottom: 0; margin-top: 0">Timothy Caish</h3>
 </div>
 
