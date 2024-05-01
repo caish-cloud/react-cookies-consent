@@ -19,7 +19,7 @@ interface ContainerProps extends ChakraProps {
   onClick?: () => void;
 
   /**
-   * The theme of the container.
+   * The theme of the container (i.e. light/dark mode).
    */
   theme: Theme;
 

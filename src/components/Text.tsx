@@ -19,7 +19,7 @@ interface TextProps extends ChakraProps {
   onClick?: () => void;
 
   /**
-   * The theme of the text.
+   * The theme of the text (i.e. light/dark mode).
    */
   theme: Theme;
 

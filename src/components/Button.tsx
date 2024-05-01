@@ -50,7 +50,7 @@ export interface ButtonProps {
   textStyle?: ThemeStyles;
 
   /**
-   * The theme for the button.
+   * The theme for the button (i.e. light/dark mode).
    */
   theme: Theme;
 

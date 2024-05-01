@@ -80,7 +80,7 @@ export type ModalRootProps = {
   shouldShowOverlay?: boolean;
 
   /**
-   * The theme for the modal.
+   * The theme for the modal (i.e. light/dark mode).
    * @default 'light'
    */
   theme?: Theme;

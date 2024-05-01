@@ -49,7 +49,7 @@ export type AlertRootProps = {
   placement?: 'bottom-center' | 'bottom-left' | 'bottom-right';
 
   /**
-   * The theme for the alert.
+   * The theme for the alert (i.e. light/dark mode).
    * @default 'light'
    */
   theme?: Theme;
