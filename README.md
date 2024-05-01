@@ -376,7 +376,7 @@ conduct and the process for submitting pull requests to us.
 
 <div style="display: flex; flex: 1; align-items: center; gap: 8px">
   <img alt="Timothy Caish Avatar" src="./assets/avatar.png" style="height: 50px; width: 50px" title="Timothy Caish" />
-  <span style="margin-bottom: 0; margin-top: 0">Timothy Caish</span>
+  <p style="font-size: large; font-weight: 600; margin-bottom: 0; margin-top: 0">Timothy Caish</p>
 </div>
 
 - Github: [@tcaish](https://github.com/tcaish)
