@@ -3,7 +3,7 @@ import { Button, ButtonProps } from '../../components/Button';
 import { ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
 
-export interface ModalButtonProps extends ButtonProps {
+export interface ModalButtonProps extends Omit<ButtonProps, 'theme'> {
   /**
    * Whether the alert should be dismissed when the button is clicked.
    * @default true
