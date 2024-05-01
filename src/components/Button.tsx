@@ -17,7 +17,7 @@ export interface ButtonProps {
   containerStyle?: ThemeStyles;
 
   /**
-   * Whether the button should have hover animations.
+   * Whether the button should animate when hovered.
    * @default true
    */
   hoverAnimationEnabled?: boolean;
@@ -40,7 +40,7 @@ export interface ButtonProps {
 
   /**
    * The color of the text variant button.
-   * @default '#0082ba'
+   * @default '#00a2e8'
    */
   textButtonColor?: string;
 
