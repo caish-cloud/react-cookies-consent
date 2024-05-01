@@ -101,7 +101,7 @@ This is the default theme for the component and does not require any additional
 configuration.
 
 <div style="display: flex; flex: 1; justify-content: center">
-  <img alt="Light Theme (Alert)" src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/7bfdbb7a-2e37-4e76-bf1a-b9e8e7f16bac" style="border-radius: 6px" />
+  <img alt="Light Theme (Alert)" src="./assets/screenshots/alert_light.png" style="border-radius: 6px" />
 </div>
 
 ```tsx
@@ -146,7 +146,7 @@ As shown in the code below, you'll need to add the `theme="dark"` parameter to
 the root component, and that's it!
 
 <div style="display: flex; flex: 1; justify-content: center">
-  <img alt="Dark Theme (Alert)" src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/b07d70db-10c3-4775-869b-fbc69d03dc4c" style="border-radius: 6px" />
+  <img alt="Dark Theme (Alert)" src="./assets/screenshots/alert_dark.png" style="border-radius: 6px" />
 </div>
 
 ```tsx
@@ -201,7 +201,7 @@ This is the default theme for the component and does not require any additional
 configuration.
 
 <div style="display: flex; flex: 1; justify-content: center">
-  <img alt="Light Theme (Modal)" src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/0de6ed18-9298-4e7b-b280-be6060625147" style="border-radius: 6px" />
+  <img alt="Light Theme (Modal)" src="./assets/screenshots/modal_light.png" style="border-radius: 6px" />
 </div>
 
 ```tsx
@@ -280,7 +280,7 @@ As shown in the code below, you'll need to add the `theme="dark"` parameter to
 the root component, and that's it!
 
 <div style="display: flex; flex: 1; justify-content: center">
-  <img alt="Dark Theme (Modal)" src="https://github.com/caish-cloud/react-cookies-consent/assets/134313463/aac05d91-9da7-420e-9169-a1fd0cd59a0a" style="border-radius: 6px" />
+  <img alt="Dark Theme (Modal)" src="./assets/screenshots/modal_dark.png" style="border-radius: 6px" />
 </div>
 
 ```tsx
@@ -365,16 +365,22 @@ conduct and the process for submitting pull requests to us.
 ## Built With
 
 <div style="display: flex; flex: 1; align-items: center; gap: 16px">
-  <img alt="React Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/6b2fa888-0943-4d42-95b0-aa496d8e6542" style="height: 50px; width: 50px" title="React" />
-  <img alt="TypeScript Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/9c969c23-09db-4a75-8022-27c321fd2c48" style="height: 50px; width: 50px" title="TypeScript" />
-  <img alt="Chakra UI Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/b02d051b-7391-4b7e-895f-cd6daa895827" style="height: 50px; width: 50px" title="Chakra UI" />
-  <img alt="Framer Motion Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/f0e88677-ea46-4def-838b-216ce38b0dbb" style="height: 50px; width: 50px" title="Framer Motion" />
-  <img alt="Zustand Logo" src="https://github.com/caish-cloud/react-cookies-consent/assets/77754475/6d443c52-ee3a-47c3-9ec3-93609b9afb1d" style="height: 50px; width: 50px" title="Zustand" />
+  <img alt="React Logo" src="./assets/brand-logos/react_logo.png" style="height: 50px; width: 50px" title="React" />
+  <img alt="TypeScript Logo" src="./assets/brand-logos/typescript_logo.png" style="height: 50px; width: 50px" title="TypeScript" />
+  <img alt="Chakra UI Logo" src="./assets/brand-logos/chakra_logo.png" style="height: 50px; width: 50px" title="Chakra UI" />
+  <img alt="Framer Motion Logo" src="./assets/brand-logos/framer_motion_logo.png" style="height: 50px; width: 50px" title="Framer Motion" />
+  <img alt="Zustand Logo" src="./assets/brand-logos/zustand_logo.png" style="height: 50px; width: 50px" title="Zustand" />
 </div>
 
 ## Authors
 
-**Timothy Caish** - [@tcaish](https://github.com/tcaish)
+<div style="display: flex; flex: 1; align-items: center; gap: 8px">
+  <img alt="Timothy Caish Avatar" src="./assets/avatar.png" style="height: 50px; width: 50px" title="Zustand" />
+  <h3 style="margin-bottom: 0; margin-top: 0">Timothy Caish</h3>
+</div>
+
+- Github: [@tcaish](https://github.com/tcaish)
+- Website: [https://timothy-caish.vercel.app](https://timothy-caish.vercel.app)
 
 See the list of [contributors](https://github.com/caish-cloud/react-cookies-consent/contributors) who also participated in this project.
 
