@@ -31,7 +31,7 @@ export type AlertRootProps = {
   containerStyle?: ThemeStyles;
 
   /**
-   * How the alert should enter the screen.
+   * How the alert should enter and exit the screen.
    * @default 'from-bottom'
    */
   enterExitAnimation?: 'from-bottom' | 'from-left' | 'from-right';
