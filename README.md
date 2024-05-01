@@ -426,6 +426,8 @@ The styles for the container of the alert.
 />
 ```
 
+---
+
 #### `enterExitAnimation`
 
 How the alert should enter and exit the screen.
