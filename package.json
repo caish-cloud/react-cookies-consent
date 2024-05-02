@@ -1,6 +1,6 @@
 {
   "name": "@caish-cloud/react-cookies-consent",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Caish Cloud, LLC",
   "license": "MIT",
   "description": "This is a React UI component that provides an easy-to-implement solution for handling cookies consent in your web application 🍪",
