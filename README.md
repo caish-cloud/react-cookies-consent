@@ -4,7 +4,7 @@
 
 # react-cookies-consent
 
-[npm_url]: https://www.npmjs.org/package/react-cookies-consent
+[npm_url]: https://www.npmjs.org/package/@caish-cloud/react-cookies-consent
 
 [![npm version](https://badge.fury.io/js/@caish-cloud%2Freact-cookies-consent.svg)][npm_url]
 [![downloads](https://img.shields.io/npm/dt/@caish-cloud/react-cookies-consent.svg)][npm_url]
