@@ -72,11 +72,11 @@ Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
       - [Dark Theme](#dark-theme-1)
   - [Props](#props)
     - [`<CookiesConsentAlert />`](#cookiesconsentalert)
-      - [`<CookiesConsentAlert.Content />`](#cookiesconsentalertcontent)
-      - [`<CookiesConsentAlert.Title />`](#cookiesconsentalerttitle)
-      - [`<CookiesConsentAlert.Description />`](#cookiesconsentalertdescription)
       - [`<CookiesConsentAlert.Actions />`](#cookiesconsentalertactions)
       - [`<CookiesConsentAlert.Button />`](#cookiesconsentalertbutton)
+      - [`<CookiesConsentAlert.Content />`](#cookiesconsentalertcontent)
+      - [`<CookiesConsentAlert.Description />`](#cookiesconsentalertdescription)
+      - [`<CookiesConsentAlert.Title />`](#cookiesconsentalerttitle)
     - [`<CookiesConsentModal />`](#cookiesconsentmodal)
       - [`<CookiesConsentModal.Header />`](#cookiesconsentmodalheader)
       - [`<CookiesConsentModal.Body />`](#cookiesconsentmodalbody)
@@ -500,208 +500,6 @@ The theme for the alert (i.e. light/dark mode).
 
 ---
 
-### `<CookiesConsentAlert.Content />`
-
-This is the container for the content of the alert, which can accept these
-custom components:
-
-- `<CookiesConsentAlert.Button />`
-- `<CookiesConsentAlert.Description />`
-- `<CookiesConsentAlert.Title />`
-
-This is required.
-
-#### `containerStyle`
-
-The styles for the container of the content.
-
-| Required | Type                                                         | Default |
-| -------- | ------------------------------------------------------------ | ------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentAlert>
-  <CookiesConsentAlert.Content
-    containerStyle={{
-      dark: {
-        backgroundColor: '#2D3748'
-      },
-      light: {
-        backgroundColor: 'white'
-      }
-    }}
-  ></CookiesConsentAlert.Content>
-</CookiesConsentAlert>
-```
-
----
-
-### `<CookiesConsentAlert.Title />`
-
-This is the title of the alert.
-
-#### `containerStyle`
-
-The styles for the container of the title.
-
-| Required | Type                                                         | Default |
-| -------- | ------------------------------------------------------------ | ------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentAlert>
-  <CookiesConsentAlert.Content>
-    <CookiesConsentAlert.Title
-      containerStyle={{
-        dark: {
-          backgroundColor: '#2D3748'
-        },
-        light: {
-          backgroundColor: 'white'
-        }
-      }}
-    />
-  </CookiesConsentAlert.Content>
-</CookiesConsentAlert>
-```
-
----
-
-#### `text`
-
-The text to display as the title.
-
-| Required | Type     | Default |
-| -------- | -------- | ------- |
-| True     | `string` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentAlert>
-  <CookiesConsentAlert.Content>
-    <CookiesConsentAlert.Title text="Cookie Settings" />
-  </CookiesConsentAlert.Content>
-</CookiesConsentAlert>
-```
-
----
-
-#### `textStyle`
-
-The styles for the title text.
-
-| Required | Type                                                         | Default                                                     |
-| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
-
-#### Example
-
-```jsx
-<CookiesConsentAlert>
-  <CookiesConsentAlert.Content>
-    <CookiesConsentAlert.Title
-      textStyle={{
-        dark: {
-          color: 'white'
-        },
-        light: {
-          color: '#2D3748'
-        }
-      }}
-    />
-  </CookiesConsentAlert.Content>
-</CookiesConsentAlert>
-```
-
----
-
-### `<CookiesConsentAlert.Description />`
-
-This is the description of the alert.
-
-#### `containerStyle`
-
-The styles for the container of the description.
-
-| Required | Type                                                         | Default |
-| -------- | ------------------------------------------------------------ | ------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentAlert>
-  <CookiesConsentAlert.Content>
-    <CookiesConsentAlert.Description
-      containerStyle={{
-        dark: {
-          backgroundColor: '#2D3748'
-        },
-        light: {
-          backgroundColor: 'white'
-        }
-      }}
-    />
-  </CookiesConsentAlert.Content>
-</CookiesConsentAlert>
-```
-
----
-
-#### `text`
-
-The text to display as the description.
-
-| Required | Type     | Default |
-| -------- | -------- | ------- |
-| True     | `string` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentAlert>
-  <CookiesConsentAlert.Content>
-    <CookiesConsentAlert.Description text="This is a description of our cookie consent alert." />
-  </CookiesConsentAlert.Content>
-</CookiesConsentAlert>
-```
-
----
-
-#### `textStyle`
-
-The styles for the description text.
-
-| Required | Type                                                         | Default                                                     |
-| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
-
-#### Example
-
-```jsx
-<CookiesConsentAlert>
-  <CookiesConsentAlert.Content>
-    <CookiesConsentAlert.Description
-      textStyle={{
-        dark: {
-          color: 'white'
-        },
-        light: {
-          color: '#2D3748'
-        }
-      }}
-    />
-  </CookiesConsentAlert.Content>
-</CookiesConsentAlert>
-```
-
----
-
 ### `<CookiesConsentAlert.Actions />`
 
 This is the container for the Call-to-Action (CTA) buttons in the alert, which
@@ -985,6 +783,208 @@ The type of button to render.
   <CookiesConsentAlert.Actions>
     <CookiesConsentAlert.Button variant="text" />
   </CookiesConsentAlert.Actions>
+</CookiesConsentAlert>
+```
+
+---
+
+### `<CookiesConsentAlert.Content />`
+
+This is the container for the content of the alert, which can accept these
+custom components:
+
+- `<CookiesConsentAlert.Button />`
+- `<CookiesConsentAlert.Description />`
+- `<CookiesConsentAlert.Title />`
+
+This is required.
+
+#### `containerStyle`
+
+The styles for the container of the content.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert>
+  <CookiesConsentAlert.Content
+    containerStyle={{
+      dark: {
+        backgroundColor: '#2D3748'
+      },
+      light: {
+        backgroundColor: 'white'
+      }
+    }}
+  ></CookiesConsentAlert.Content>
+</CookiesConsentAlert>
+```
+
+---
+
+### `<CookiesConsentAlert.Description />`
+
+This is the description of the alert.
+
+#### `containerStyle`
+
+The styles for the container of the description.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert>
+  <CookiesConsentAlert.Content>
+    <CookiesConsentAlert.Description
+      containerStyle={{
+        dark: {
+          backgroundColor: '#2D3748'
+        },
+        light: {
+          backgroundColor: 'white'
+        }
+      }}
+    />
+  </CookiesConsentAlert.Content>
+</CookiesConsentAlert>
+```
+
+---
+
+#### `text`
+
+The text to display as the description.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| True     | `string` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert>
+  <CookiesConsentAlert.Content>
+    <CookiesConsentAlert.Description text="This is a description of our cookie consent alert." />
+  </CookiesConsentAlert.Content>
+</CookiesConsentAlert>
+```
+
+---
+
+#### `textStyle`
+
+The styles for the description text.
+
+| Required | Type                                                         | Default                                                     |
+| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert>
+  <CookiesConsentAlert.Content>
+    <CookiesConsentAlert.Description
+      textStyle={{
+        dark: {
+          color: 'white'
+        },
+        light: {
+          color: '#2D3748'
+        }
+      }}
+    />
+  </CookiesConsentAlert.Content>
+</CookiesConsentAlert>
+```
+
+---
+
+### `<CookiesConsentAlert.Title />`
+
+This is the title of the alert.
+
+#### `containerStyle`
+
+The styles for the container of the title.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert>
+  <CookiesConsentAlert.Content>
+    <CookiesConsentAlert.Title
+      containerStyle={{
+        dark: {
+          backgroundColor: '#2D3748'
+        },
+        light: {
+          backgroundColor: 'white'
+        }
+      }}
+    />
+  </CookiesConsentAlert.Content>
+</CookiesConsentAlert>
+```
+
+---
+
+#### `text`
+
+The text to display as the title.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| True     | `string` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert>
+  <CookiesConsentAlert.Content>
+    <CookiesConsentAlert.Title text="Cookie Settings" />
+  </CookiesConsentAlert.Content>
+</CookiesConsentAlert>
+```
+
+---
+
+#### `textStyle`
+
+The styles for the title text.
+
+| Required | Type                                                         | Default                                                     |
+| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert>
+  <CookiesConsentAlert.Content>
+    <CookiesConsentAlert.Title
+      textStyle={{
+        dark: {
+          color: 'white'
+        },
+        light: {
+          color: '#2D3748'
+        }
+      }}
+    />
+  </CookiesConsentAlert.Content>
 </CookiesConsentAlert>
 ```
 
