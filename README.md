@@ -32,20 +32,6 @@ to manage the actual preferences of the user by storing in your database,
 local storage, etc. So please be sure you already have this in place or will
 plan to!
 
-### Styling
-
-This prerequisite is only for the `<CookiesConsentAlert />` component
-due to it being absolutely positioned in the DOM.
-
-Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
-
-```css
-... {
-  height: 100%;
-  width: 100%;
-}
-```
-
 ## Table of contents
 
 - [react-cookies-consent](#react-cookies-consent)
