@@ -77,17 +77,17 @@ Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
       - [`<CookiesConsentAlert.Content />`](#cookiesconsentalertcontent-)
       - [`<CookiesConsentAlert.Description />`](#cookiesconsentalertdescription-)
       - [`<CookiesConsentAlert.Title />`](#cookiesconsentalerttitle-)
-    - [`<CookiesConsentModal />`](#cookiesconsentmodal)
-      - [`<CookiesConsentModal.Header />`](#cookiesconsentmodalheader)
-      - [`<CookiesConsentModal.Body />`](#cookiesconsentmodalbody)
-      - [`<CookiesConsentModal.Text />`](#cookiesconsentmodaltext)
-      - [`<CookiesConsentModal.Button />`](#cookiesconsentmodalbutton)
-      - [`<CookiesConsentModal.CookieActions />`](#cookiesconsentmodalcookieactions)
-        - [`<CookiesConsentModal.CookieAction />`](#cookiesconsentmodalcookieaction)
-      - [`<CookiesConsentModal.Footer />`](#cookiesconsentmodalfooter)
+    - [`<CookiesConsentModal />`](#cookiesconsentmodal-)
+      - [`<CookiesConsentModal.Body />`](#cookiesconsentmodalbody-)
+      - [`<CookiesConsentModal.Button />`](#cookiesconsentmodalbutton-)
+      - [`<CookiesConsentModal.CookieActions />`](#cookiesconsentmodalcookieactions-)
+        - [`<CookiesConsentModal.CookieAction />`](#cookiesconsentmodalcookieaction-)
+      - [`<CookiesConsentModal.Footer />`](#cookiesconsentmodalfooter-)
+      - [`<CookiesConsentModal.Header />`](#cookiesconsentmodalheader-)
+      - [`<CookiesConsentModal.Text />`](#cookiesconsentmodaltext-)
   - [Refs](#refs)
-    - [`<CookiesConsentAlert />`](#cookiesconsentalert-1)
-    - [`<CookiesConsentModal />`](#cookiesconsentmodal-1)
+    - [`<CookiesConsentAlert />`](#cookiesconsentalert--1)
+    - [`<CookiesConsentModal />`](#cookiesconsentmodal--1)
   - [Troubleshooting](#troubleshooting)
   - [Contributing](#contributing)
   - [Built With](#built-with)
@@ -1174,82 +1174,6 @@ The theme for the modal (i.e. light/dark mode).
 
 ---
 
-### `<CookiesConsentModal.Header />`
-
-This is the header text of the modal.
-
-#### `containerStyle`
-
-The styles for the container of the header.
-
-| Required | Type                                                         | Default |
-| -------- | ------------------------------------------------------------ | ------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentModal>
-  <CookiesConsentModal.Header
-    containerStyle={{
-      dark: {
-        backgroundColor: '#2D3748'
-      },
-      light: {
-        backgroundColor: 'white'
-      }
-    }}
-  />
-</CookiesConsentModal>
-```
-
----
-
-#### `text`
-
-The text to display as the header.
-
-| Required | Type     | Default |
-| -------- | -------- | ------- |
-| True     | `string` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentModal>
-  <CookiesConsentModal.Header text="Cookie Settings" />
-</CookiesConsentModal>
-```
-
----
-
-#### `textStyle`
-
-The styles for the header text.
-
-| Required | Type                                                         | Default                                                     |
-| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
-
-#### Example
-
-```jsx
-<CookiesConsentModal>
-  <CookiesConsentModal.Header
-    textStyle={{
-      dark: {
-        color: 'white'
-      },
-      light: {
-        color: '#2D3748'
-      }
-    }}
-  />
-</CookiesConsentModal>
-```
-
----
-
 ### `<CookiesConsentModal.Body />`
 
 The modal body container that will contain all of the user's content, which can
@@ -1285,125 +1209,6 @@ The styles for the modal body container.
       }
     }}
   />
-</CookiesConsentModal>
-```
-
----
-
-### `<CookiesConsentModal.Text />`
-
-The text used within the modal component.
-
-#### `containerStyle`
-
-The styles for the container of the text.
-
-| Required | Type                                                         | Default |
-| -------- | ------------------------------------------------------------ | ------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentModal>
-  <CookiesConsentModal.Body>
-    <CookiesConsentModal.Text
-      containerStyle={{
-        dark: {
-          backgroundColor: '#2D3748'
-        },
-        light: {
-          backgroundColor: 'white'
-        }
-      }}
-    />
-  </CookiesConsentModal.Body>
-</CookiesConsentModal>
-```
-
----
-
-#### `text`
-
-The text to display.
-
-| Required | Type     | Default |
-| -------- | -------- | ------- |
-| True     | `string` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentModal>
-  <CookiesConsentModal.Body>
-    <CookiesConsentModal.Text text="This is some placeholder content." />
-  </CookiesConsentModal.Body>
-</CookiesConsentModal>
-```
-
----
-
-#### `textStyle`
-
-The styles for the text.
-
-| Required | Type                                                         | Default                                                     |
-| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
-
-#### Example
-
-```jsx
-<CookiesConsentModal>
-  <CookiesConsentModal.Body>
-    <CookiesConsentModal.Text
-      textStyle={{
-        dark: {
-          color: 'white'
-        },
-        light: {
-          color: '#2D3748'
-        }
-      }}
-    />
-  </CookiesConsentModal.Body>
-</CookiesConsentModal>
-```
-
----
-
-### `<CookiesConsentModal.CtaActions />`
-
-The modal actions container that contains the Call-to-Action buttons, such as
-for accepting or rejecting all cookies, which can accept these custom
-components:
-
-- `<CookiesConsentModal.Button />`
-
-#### `containerStyle`
-
-The styles for the container of the modal CTA actions.
-
-| Required | Type                                                         | Default |
-| -------- | ------------------------------------------------------------ | ------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentModal>
-  <CookiesConsentModal.Body>
-    <CookiesConsentModal.CtaActions
-      containerStyle={{
-        dark: {
-          backgroundColor: '#2D3748'
-        },
-        light: {
-          backgroundColor: 'white'
-        }
-      }}
-    />
-  </CookiesConsentModal.Body>
 </CookiesConsentModal>
 ```
 
@@ -2000,6 +1805,201 @@ The styles for the container of the modal footer.
       }
     }}
   />
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.Header />`
+
+This is the header text of the modal.
+
+#### `containerStyle`
+
+The styles for the container of the header.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Header
+    containerStyle={{
+      dark: {
+        backgroundColor: '#2D3748'
+      },
+      light: {
+        backgroundColor: 'white'
+      }
+    }}
+  />
+</CookiesConsentModal>
+```
+
+---
+
+#### `text`
+
+The text to display as the header.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| True     | `string` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Header text="Cookie Settings" />
+</CookiesConsentModal>
+```
+
+---
+
+#### `textStyle`
+
+The styles for the header text.
+
+| Required | Type                                                         | Default                                                     |
+| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Header
+    textStyle={{
+      dark: {
+        color: 'white'
+      },
+      light: {
+        color: '#2D3748'
+      }
+    }}
+  />
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.Text />`
+
+The text used within the modal component.
+
+#### `containerStyle`
+
+The styles for the container of the text.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.Text
+      containerStyle={{
+        dark: {
+          backgroundColor: '#2D3748'
+        },
+        light: {
+          backgroundColor: 'white'
+        }
+      }}
+    />
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `text`
+
+The text to display.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| True     | `string` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.Text text="This is some placeholder content." />
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `textStyle`
+
+The styles for the text.
+
+| Required | Type                                                         | Default                                                     |
+| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.Text
+      textStyle={{
+        dark: {
+          color: 'white'
+        },
+        light: {
+          color: '#2D3748'
+        }
+      }}
+    />
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.CtaActions />`
+
+The modal actions container that contains the Call-to-Action buttons, such as
+for accepting or rejecting all cookies, which can accept these custom
+components:
+
+- `<CookiesConsentModal.Button />`
+
+#### `containerStyle`
+
+The styles for the container of the modal CTA actions.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions
+      containerStyle={{
+        dark: {
+          backgroundColor: '#2D3748'
+        },
+        light: {
+          backgroundColor: 'white'
+        }
+      }}
+    />
+  </CookiesConsentModal.Body>
 </CookiesConsentModal>
 ```
 
