@@ -82,6 +82,7 @@ Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
       - [`<CookiesConsentModal.Button />`](#cookiesconsentmodalbutton-)
       - [`<CookiesConsentModal.CookieActions />`](#cookiesconsentmodalcookieactions-)
         - [`<CookiesConsentModal.CookieAction />`](#cookiesconsentmodalcookieaction-)
+      - [`<CookiesConsentModal.CtaActions />`](#cookiesconsentmodalctaactions-)
       - [`<CookiesConsentModal.Footer />`](#cookiesconsentmodalfooter-)
       - [`<CookiesConsentModal.Header />`](#cookiesconsentmodalheader-)
       - [`<CookiesConsentModal.Text />`](#cookiesconsentmodaltext-)
@@ -1105,7 +1106,10 @@ The color of the overlay.
 #### Example
 
 ```jsx
-<CookiesConsentModal overlayColor="rgba(255,255,255,0.5)" />
+<CookiesConsentModal
+  overlayBlurEnabled={false}
+  overlayColor="rgba(255,255,255,0.5)"
+/>
 ```
 
 ---
@@ -1208,7 +1212,7 @@ The styles for the modal body container.
         backgroundColor: 'white'
       }
     }}
-  />
+  ></CookiesConsentModal.Body>
 </CookiesConsentModal>
 ```
 
@@ -1335,7 +1339,10 @@ The color of the regular variant button.
 <CookiesConsentModal>
   <CookiesConsentModal.Body>
     <CookiesConsentModal.CtaActions>
-      <CookiesConsentModal.Button regularButtonColor="#0082ba" />
+      <CookiesConsentModal.Button
+        regularButtonColor="#0082ba"
+        variant="regular"
+      />
     </CookiesConsentModal.CtaActions>
   </CookiesConsentModal.Body>
 </CookiesConsentModal>
@@ -1423,7 +1430,7 @@ The color of the text variant button.
 <CookiesConsentModal>
   <CookiesConsentModal.Body>
     <CookiesConsentModal.CtaActions>
-      <CookiesConsentModal.Button textButtonColor="#00a2e8" />
+      <CookiesConsentModal.Button textButtonColor="#00a2e8" variant="text" />
     </CookiesConsentModal.CtaActions>
   </CookiesConsentModal.Body>
 </CookiesConsentModal>
@@ -1516,7 +1523,7 @@ The styles for the container of the modal cookie actions.
           backgroundColor: 'white'
         }
       }}
-    />
+    ></CookiesConsentModal.CookieActions>
   </CookiesConsentModal.Body>
 </CookiesConsentModal>
 ```
@@ -1662,9 +1669,9 @@ Whether the switch is disabled.
 
 The color of the switch when it is off.
 
-| Required | Type     | Default    |
-| -------- | -------- | ---------- |
-| False    | `string` | `"#cbd5e0` |
+| Required | Type     | Default     |
+| -------- | -------- | ----------- |
+| False    | `string` | `"#cbd5e0"` |
 
 #### Example
 
@@ -1706,9 +1713,9 @@ Whether the switch is toggled on by default.
 
 The color of the switch when it is on.
 
-| Required | Type     | Default    |
-| -------- | -------- | ---------- |
-| False    | `string` | `"#0082ba` |
+| Required | Type     | Default     |
+| -------- | -------- | ----------- |
+| False    | `string` | `"#0082ba"` |
 
 #### Example
 
@@ -1777,6 +1784,43 @@ The styles for the title text.
 
 ---
 
+### `<CookiesConsentModal.CtaActions />`
+
+The modal actions container that contains the Call-to-Action (CTA) buttons, such
+as for accepting or rejecting all cookies, which can accept these custom
+components:
+
+- `<CookiesConsentModal.Button />`
+
+#### `containerStyle`
+
+The styles for the container of the modal CTA actions.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions
+      containerStyle={{
+        dark: {
+          backgroundColor: '#2D3748'
+        },
+        light: {
+          backgroundColor: 'white'
+        }
+      }}
+    />
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
 ### `<CookiesConsentModal.Footer />`
 
 The footer of the modal, which can accept these custom components:
@@ -1804,7 +1848,7 @@ The styles for the container of the modal footer.
         backgroundColor: 'white'
       }
     }}
-  />
+  ></CookiesConsentModal.Footer>
 </CookiesConsentModal>
 ```
 
@@ -1959,43 +2003,6 @@ The styles for the text.
         },
         light: {
           color: '#2D3748'
-        }
-      }}
-    />
-  </CookiesConsentModal.Body>
-</CookiesConsentModal>
-```
-
----
-
-### `<CookiesConsentModal.CtaActions />`
-
-The modal actions container that contains the Call-to-Action buttons, such as
-for accepting or rejecting all cookies, which can accept these custom
-components:
-
-- `<CookiesConsentModal.Button />`
-
-#### `containerStyle`
-
-The styles for the container of the modal CTA actions.
-
-| Required | Type                                                         | Default |
-| -------- | ------------------------------------------------------------ | ------- |
-| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
-
-#### Example
-
-```jsx
-<CookiesConsentModal>
-  <CookiesConsentModal.Body>
-    <CookiesConsentModal.CtaActions
-      containerStyle={{
-        dark: {
-          backgroundColor: '#2D3748'
-        },
-        light: {
-          backgroundColor: 'white'
         }
       }}
     />
