@@ -6,9 +6,9 @@
 
 [npm_url]: https://www.npmjs.org/package/react-cookies-consent
 
-[![npm version](https://badge.fury.io/js/react-cookies-consent.svg)][npm_url]
-[![downloads](https://img.shields.io/npm/dt/react-cookies-consent.svg)][npm_url]
-[![license](https://img.shields.io/npm/l/react-cookies-consent.svg)][npm_url]
+[![npm version](https://badge.fury.io/js/@caish-cloud/react-cookies-consent.svg)][npm_url]
+[![downloads](https://img.shields.io/npm/dt/@caish-cloud/react-cookies-consent.svg)][npm_url]
+[![license](https://img.shields.io/npm/l/@caish-cloud/react-cookies-consent.svg)][npm_url]
 
 ```
 To Do:

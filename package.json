@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "author": "Caish Cloud, LLC",
   "license": "MIT",
-  "description": "This is a React UI component that provides an easy-to-implement solution for handling cookies consent in your web application 🍪",
+  "description": "This is a set of React components that provide an easy-to-implement solution for handling users' cookie preferences in your web application 🍪",
   "keywords": [
     "react",
     "cookies",
