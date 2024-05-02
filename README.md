@@ -6,20 +6,9 @@
 
 [npm_url]: https://www.npmjs.org/package/react-cookies-consent
 
-[![npm version](https://badge.fury.io/js/@caish-cloud/react-cookies-consent.svg)][npm_url]
+[![npm version](https://badge.fury.io/js/@caish-cloud%2Freact-cookies-consent.svg)][npm_url]
 [![downloads](https://img.shields.io/npm/dt/@caish-cloud/react-cookies-consent.svg)][npm_url]
 [![license](https://img.shields.io/npm/l/@caish-cloud/react-cookies-consent.svg)][npm_url]
-
-```
-To Do:
-- Make local storage value configurable and update any documentation referencing
-it
-
-Bugs:
-
-- When changing the theme, styles do not update
-- Lots of rerenders? Test performance of components via profiler
-```
 
 Introducing a comprehensive and customizable solution for managing cookie consent in your React applications! Our package includes a set of powerful components designed to make the implementation of cookie consent straightforward and compliant with user preferences.
 
