@@ -111,7 +111,11 @@ You can use one or the other depending on your development needs.
 This component lives at the bottom of the screen, and will animate in (if chosen
 to) to alert the user of their ability to choose their cookie preferences.
 
-The best place to put this is at the root of your project, such as your providers file, `App.js`, or `layout.js` (for Next.js developers). This is because we want this alert to display on any page the user navigates to if not the home page.
+The best place to put this is at the root of your project, such as your
+providers file, `App.js`, or just somewhere that the user will hit no matter
+what page they go to. This is because we want this alert to display on any page
+the user navigates to if not the home page for compliance reasons. If this is
+not what you need, feel free to put it anywhere!
 
 #### Light Theme
 
@@ -220,10 +224,9 @@ function ExampleComponent() {
 This component will animate in to the center or top-middle of the screen to give
 the user granular control over their cookie preferences.
 
-The best place to put this is at the root of your project, such as your
-providers file, `App.js`, or `layout.js` (for Next.js developers) next to the
-alert component (if you chose to use it). This is because we want this modal to
-display on any page the user navigates to if not the home page.
+The best place to put this is right next to the alert component from this
+library. If you're not using the alert component, then you can put this where
+you'll need it!
 
 #### Light Theme
 
