@@ -180,10 +180,12 @@ html {
 #### Make Your Changes
 
 1. Fork this repo
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Make your changes
-4. `npm run build`
-5. Import this project into your previously created React project's `App.js`:
+2. `cd` into the project directory
+3. `yarn`
+4. Create your feature branch: `git checkout -b my-new-feature`
+5. Make your changes
+6. `yarn build`
+7. Import this project into your previously created React project's `App.js`:
    > This assumes that both of these projects live in the same folder. You may
    > need to update the path below if the assumption is incorrect.
 
@@ -194,9 +196,9 @@ import {
 } from '../../react-cookies-consent/dist';
 ```
 
-6. Add the component(s) based on how it is shown in the
-   [documentation](README.md) examples
-7. Repeat step 4 every time you make a change to react-cookies-consent to see
+8. Add the component(s) based on how it is shown in the
+   [documentation](README.md) usage examples
+9. Repeat step 6 every time you make a change to react-cookies-consent to see
    it update in your browser
 
 #### Submit Your Changes
