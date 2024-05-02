@@ -15,13 +15,6 @@ To Do:
 - Make local storage value configurable and update any documentation referencing
 it
 
-Write about these things:
-
-- All the props, descriptions, default values for all components
-- The ref and actions you can perform on the modal root component
-- Modal body is required
-- Check which components can accept Chakra UI attributes and note that
-
 Bugs:
 
 - When changing the theme, styles do not update
