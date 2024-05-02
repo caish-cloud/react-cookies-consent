@@ -8,10 +8,17 @@
     "react",
     "cookies",
     "consent",
+    "preferences",
     "modal",
     "alert",
     "component",
-    "typescript"
+    "typescript",
+    "chakra",
+    "ui",
+    "chakraui",
+    "framer",
+    "motion",
+    "zustand"
   ],
   "homepage": "https://github.com/caish-cloud/react-cookies-consent",
   "repository": {
@@ -33,7 +40,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rimraf dist && npx tsc",
+    "build": "npx rimraf dist && npx tsc",
     "publish": "npm publish"
   },
   "dependencies": {
@@ -47,6 +54,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.79",
+    "rimraf": "^5.0.5",
     "typescript": "^5.4.5"
   }
 }
