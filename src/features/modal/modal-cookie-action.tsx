@@ -6,7 +6,7 @@ import { useStore } from '../../services/zustand/store';
 
 export type ModalCookieActionProps = {
   /**
-   * The styles for the container of the header.
+   * The styles for the container of the action.
    */
   containerStyle?: ThemeStyles;
 
@@ -34,12 +34,12 @@ export type ModalCookieActionProps = {
 
   /**
    * The color of the switch when it is off.
-   * @default '#CBD5E0'
+   * @default '#cbd5e0'
    */
   switchToggledOffColor?: string;
 
   /**
-   * Whether the switch is toggled on.
+   * Whether the switch is toggled on by default.
    * @default true
    */
   switchToggledOn?: boolean;
@@ -68,7 +68,7 @@ export type ModalCookieActionProps = {
  */
 export function ModalCookieAction({
   switchDisabled = false,
-  switchToggledOffColor = '#CBD5E0',
+  switchToggledOffColor = '#cbd5e0',
   switchToggledOn = true,
   switchToggledOnColor = '#0082ba',
   ...props

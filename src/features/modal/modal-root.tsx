@@ -50,7 +50,7 @@ export type ModalRootProps = {
   overlayBlurAmount?: number;
 
   /**
-   * Whether the overlay should be blurred.
+   * Whether the overlay should have a blurred effect.
    * @default true
    */
   overlayBlurEnabled?: boolean;

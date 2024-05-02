@@ -1,18 +1,13 @@
-import {
-  ModalHeader as ChakraUiModalHeader,
-  ModalHeaderProps as ChakraUiModalHeaderProps
-} from '@chakra-ui/react';
+import { ModalHeader as ChakraUiModalHeader } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
 
-export interface ModalHeaderProps extends ChakraUiModalHeaderProps {
+export type ModalHeaderProps = {
   /**
    * The styles for the container of the header.
-   * The naming of this key differs from convention due to a conflict with the
-   * Chakra UI props.
    */
-  containerStyles?: ThemeStyles;
+  containerStyle?: ThemeStyles;
 
   /**
    * The text to display as the header.
@@ -21,19 +16,15 @@ export interface ModalHeaderProps extends ChakraUiModalHeaderProps {
 
   /**
    * The styles for the header text.
-   * The naming of this key differs from convention due to a conflict with the
-   * Chakra UI props.
    */
-  textStyles?: ThemeStyles;
-}
+  textStyle?: ThemeStyles;
+};
 
 /**
  * The header text of the modal.
  * @param props - The properties to pass to the component.
  */
 export function ModalHeader(props: ModalHeaderProps) {
-  const { containerStyles, textStyles, ...rest } = props;
-
   const store = useStore();
 
   /**
@@ -46,17 +37,17 @@ export function ModalHeader(props: ModalHeaderProps) {
       ...defaultTextStyle[store.modalTheme]
     };
 
-    if (containerStyles) {
+    if (props.containerStyle) {
       tempStyle = {
         ...tempStyle,
-        ...(containerStyles[store.modalTheme] ?? {})
+        ...(props.containerStyle[store.modalTheme] ?? {})
       };
     }
 
-    if (textStyles) {
+    if (props.textStyle) {
       tempStyle = {
         ...tempStyle,
-        ...(textStyles[store.modalTheme] ?? {})
+        ...(props.textStyle[store.modalTheme] ?? {})
       };
     }
 
@@ -64,7 +55,7 @@ export function ModalHeader(props: ModalHeaderProps) {
   }
 
   return (
-    <ChakraUiModalHeader {...rest} style={getContainerAndTextStyle()}>
+    <ChakraUiModalHeader style={getContainerAndTextStyle()}>
       {props.text}
     </ChakraUiModalHeader>
   );

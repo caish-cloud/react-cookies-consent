@@ -72,13 +72,29 @@ Your `<html />` and/or `<body />` tag(s) need to have at least this styling:
   - [Installation](#installation)
   - [Usage](#usage)
     - [Alert](#alert)
-      - [Light Theme](#light-theme-alert)
-      - [Dark Theme](#dark-theme-alert)
+      - [Light Theme](#light-theme)
+      - [Dark Theme](#dark-theme)
     - [Modal](#modal)
-      - [Light Theme](#light-theme-modal)
-      - [Dark Theme](#dark-theme-modal)
+      - [Light Theme](#light-theme-1)
+      - [Dark Theme](#dark-theme-1)
   - [Props](#props)
+    - [`<CookiesConsentAlert />`](#cookiesconsentalert)
+      - [`<CookiesConsentAlert.Content />`](#cookiesconsentalertcontent)
+      - [`<CookiesConsentAlert.Title />`](#cookiesconsentalerttitle)
+      - [`<CookiesConsentAlert.Description />`](#cookiesconsentalertdescription)
+      - [`<CookiesConsentAlert.Actions />`](#cookiesconsentalertactions)
+      - [`<CookiesConsentAlert.Button />`](#cookiesconsentalertbutton)
+    - [`<CookiesConsentModal />`](#cookiesconsentmodal)
+      - [`<CookiesConsentModal.Header />`](#cookiesconsentmodalheader)
+      - [`<CookiesConsentModal.Body />`](#cookiesconsentmodalbody)
+      - [`<CookiesConsentModal.Text />`](#cookiesconsentmodaltext)
+      - [`<CookiesConsentModal.Button />`](#cookiesconsentmodalbutton)
+      - [`<CookiesConsentModal.CookieActions />`](#cookiesconsentmodalcookieactions)
+        - [`<CookiesConsentModal.CookieAction />`](#cookiesconsentmodalcookieaction)
+      - [`<CookiesConsentModal.Footer />`](#cookiesconsentmodalfooter)
   - [Refs](#refs)
+    - [`<CookiesConsentAlert />`](#cookiesconsentalert-1)
+    - [`<CookiesConsentModal />`](#cookiesconsentmodal-1)
   - [Troubleshooting](#troubleshooting)
   - [Contributing](#contributing)
   - [Built With](#built-with)
@@ -114,7 +130,7 @@ to) to alert the user of their ability to choose their cookie preferences.
 
 The best place to put this is at the root of your project, such as your providers file, `App.js`, or `layout.js` (for Next.js developers). This is because we want this alert to display on any page the user navigates to if not the home page.
 
-#### Light Theme (Alert)
+#### Light Theme
 
 This is the default theme for the component and does not require any additional
 configuration.
@@ -165,7 +181,7 @@ function ExampleComponent() {
 }
 ```
 
-#### Dark Theme (Alert)
+#### Dark Theme
 
 As shown in the code below, you'll need to add the `theme="dark"` parameter to
 the root component, and that's it!
@@ -226,7 +242,7 @@ providers file, `App.js`, or `layout.js` (for Next.js developers) next to the
 alert component (if you chose to use it). This is because we want this modal to
 display on any page the user navigates to if not the home page.
 
-#### Light Theme (Modal)
+#### Light Theme
 
 This is the default theme for the component and does not require any additional
 configuration.
@@ -311,7 +327,7 @@ function ExampleComponent() {
 }
 ```
 
-#### Dark Theme (Modal)
+#### Dark Theme
 
 As shown in the code below, you'll need to add the `theme="dark"` parameter to
 the root component, and that's it!
@@ -489,14 +505,16 @@ The theme for the alert (i.e. light/dark mode).
 <CookiesConsentAlert theme="dark" />
 ```
 
+---
+
 ### `<CookiesConsentAlert.Content />`
 
 This is the container for the content of the alert, which can accept these
 custom components:
 
-- `<CookiesConsentAlert.Title />`
-- `<CookiesConsentAlert.Description />`
 - `<CookiesConsentAlert.Button />`
+- `<CookiesConsentAlert.Description />`
+- `<CookiesConsentAlert.Title />`
 
 This is required.
 
@@ -524,6 +542,8 @@ The styles for the container of the content.
   ></CookiesConsentAlert.Content>
 </CookiesConsentAlert>
 ```
+
+---
 
 ### `<CookiesConsentAlert.Title />`
 
@@ -605,6 +625,8 @@ The styles for the title text.
 </CookiesConsentAlert>
 ```
 
+---
+
 ### `<CookiesConsentAlert.Description />`
 
 This is the description of the alert.
@@ -685,6 +707,8 @@ The styles for the description text.
 </CookiesConsentAlert>
 ```
 
+---
+
 ### `<CookiesConsentAlert.Actions />`
 
 This is the container for the Call-to-Action (CTA) buttons in the alert, which
@@ -716,6 +740,8 @@ The styles for the container of the actions.
   ></CookiesConsentAlert.Actions>
 </CookiesConsentAlert>
 ```
+
+---
 
 ### `<CookiesConsentAlert.Button />`
 
@@ -971,6 +997,1021 @@ The type of button to render.
 
 ---
 
+### `<CookiesConsentModal />`
+
+This is the root/parent component for the modal. This is required.
+
+#### `closeButtonStyle`
+
+The styles for the close button.
+
+| Required | Type                                                         | Default                                                     |
+| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal
+  closeButtonStyle={{
+    dark: {
+      color: 'white'
+    },
+    light: {
+      color: '#2D3748'
+    }
+  }}
+/>
+```
+
+---
+
+#### `containerStyle`
+
+The styles for the content container of the modal.
+
+| Required | Type                                                         | Default                                                                         |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { backgroundColor: "#2D3748" }, light: { backgroundColor: "white" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal
+  containerStyle={{
+    dark: {
+      backgroundColor: '#2D3748'
+    },
+    light: {
+      backgroundColor: 'white'
+    }
+  }}
+/>
+```
+
+---
+
+#### `onModalClose`
+
+Handles what happens when the modal is closed.
+
+| Required | Type         | Default |
+| -------- | ------------ | ------- |
+| False    | `() => void` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal onModalClose={() => console.log('closed')} />
+```
+
+---
+
+#### `overlayBlurAmount`
+
+The amount of blur for the overlay.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| False    | `number` | `4`     |
+
+#### Example
+
+```jsx
+<CookiesConsentModal overlayBlurAmount={6} />
+```
+
+---
+
+#### `overlayBlurEnabled`
+
+Whether the overlay should have a blurred effect.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `true`  |
+
+#### Example
+
+```jsx
+<CookiesConsentModal overlayBlurEnabled={false} />
+```
+
+---
+
+#### `overlayColor`
+
+The color of the overlay.
+
+| Required | Type     | Default              |
+| -------- | -------- | -------------------- |
+| False    | `string` | `rgba(0, 0, 0, 0.5)` |
+
+> Note: this is only used when `overlayBlurEnabled` is `false`.
+
+#### Example
+
+```jsx
+<CookiesConsentModal overlayColor="rgba(255,255,255,0.5)" />
+```
+
+---
+
+#### `placement`
+
+The placement of the modal on the screen.
+
+| Required | Type                       | Default  |
+| -------- | -------------------------- | -------- |
+| False    | `"center" \| "middle-top"` | "center" |
+
+#### Example
+
+```jsx
+<CookiesConsentModal placement="center" />
+```
+
+---
+
+#### `shouldShowCloseButton`
+
+Whether the close button should be shown in the modal.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `true`  |
+
+#### Example
+
+```jsx
+<CookiesConsentModal shouldShowCloseButton={false} />
+```
+
+---
+
+#### `shouldShowOverlay`
+
+Whether the overlay should be shown when the modal is open.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `true`  |
+
+#### Example
+
+```jsx
+<CookiesConsentModal shouldShowOverlay={false} />
+```
+
+---
+
+#### `theme`
+
+The theme for the modal (i.e. light/dark mode).
+
+| Required | Type                | Default   |
+| -------- | ------------------- | --------- |
+| False    | `"dark" \| "light"` | `"light"` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal theme="dark" />
+```
+
+---
+
+### `<CookiesConsentModal.Header />`
+
+This is the header text of the modal.
+
+#### `containerStyle`
+
+The styles for the container of the header.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Header
+    containerStyle={{
+      dark: {
+        backgroundColor: '#2D3748'
+      },
+      light: {
+        backgroundColor: 'white'
+      }
+    }}
+  />
+</CookiesConsentModal>
+```
+
+---
+
+#### `text`
+
+The text to display as the header.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| True     | `string` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Header text="Cookie Settings" />
+</CookiesConsentModal>
+```
+
+---
+
+#### `textStyle`
+
+The styles for the header text.
+
+| Required | Type                                                         | Default                                                     |
+| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Header
+    textStyle={{
+      dark: {
+        color: 'white'
+      },
+      light: {
+        color: '#2D3748'
+      }
+    }}
+  />
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.Body />`
+
+The modal body container that will contain all of the user's content, which can
+accept these custom components:
+
+- `<CookiesConsentModal.Button />`
+- `<CookiesConsentModal.CookieAction />`
+- `<CookiesConsentModal.CookieActions />`
+- `<CookiesConsentModal.CtaActions />`
+- `<CookiesConsentModal.Text />`
+
+This is required.
+
+#### `containerStyle`
+
+The styles for the modal body container.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body
+    containerStyle={{
+      dark: {
+        backgroundColor: '#2D3748'
+      },
+      light: {
+        backgroundColor: 'white'
+      }
+    }}
+  />
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.Text />`
+
+The text used within the modal component.
+
+#### `containerStyle`
+
+The styles for the container of the text.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.Text
+      containerStyle={{
+        dark: {
+          backgroundColor: '#2D3748'
+        },
+        light: {
+          backgroundColor: 'white'
+        }
+      }}
+    />
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `text`
+
+The text to display.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| True     | `string` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.Text text="This is some placeholder content." />
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `textStyle`
+
+The styles for the text.
+
+| Required | Type                                                         | Default                                                     |
+| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.Text
+      textStyle={{
+        dark: {
+          color: 'white'
+        },
+        light: {
+          color: '#2D3748'
+        }
+      }}
+    />
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.CtaActions />`
+
+The modal actions container that contains the Call-to-Action buttons, such as
+for accepting or rejecting all cookies, which can accept these custom
+components:
+
+- `<CookiesConsentModal.Button />`
+
+#### `containerStyle`
+
+The styles for the container of the modal CTA actions.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions
+      containerStyle={{
+        dark: {
+          backgroundColor: '#2D3748'
+        },
+        light: {
+          backgroundColor: 'white'
+        }
+      }}
+    />
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.Button />`
+
+This is a button used within the modal. This component can be used within
+these components:
+
+- `<CookiesConsentModal.CtaActions />`
+- `<CookiesConsentModal.Footer />`
+
+#### `clickAnimationEnabled`
+
+Whether the button should have click animations.
+
+> Note: this is disabled by default when using the `"text"` variant.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `true`  |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button clickAnimationEnabled={false} />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `containerStyle`
+
+The styles for the container of the button.
+
+| Required | Type                                                         | Default                                                                           |
+| -------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { backgroundColor: "#0082ba" }, light: { backgroundColor: "#0082ba" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button
+        containerStyle={{
+          dark: {
+            backgroundColor: '#2D3748'
+          },
+          light: {
+            backgroundColor: 'white'
+          }
+        }}
+      />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `hoverAnimationEnabled`
+
+Whether the button should animate when hovered.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `true`  |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button hoverAnimationEnabled={false} />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `onClick`
+
+Handles what happens when the button is clicked.
+
+| Required | Type         | Default |
+| -------- | ------------ | ------- |
+| True     | `() => void` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button onClick={() => console.log('clicked')} />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `regularButtonColor`
+
+The color of the regular variant button.
+
+| Required | Type     | Default     |
+| -------- | -------- | ----------- |
+| False    | `string` | `"#0082ba"` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button regularButtonColor="#0082ba" />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `shouldDismissAlert`
+
+Whether the alert should be dismissed when the button is clicked.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `true`  |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button shouldDismissAlert={false} />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `shouldHideModal`
+
+Whether the modal should be hidden when the button is clicked.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `true`  |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button shouldHideModal={false} />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `text`
+
+The text to display in the button.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| True     | `string` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button text="Accept All" />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `textButtonColor`
+
+The color of the text variant button.
+
+| Required | Type     | Default     |
+| -------- | -------- | ----------- |
+| False    | `string` | `"#00a2e8"` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button textButtonColor="#00a2e8" />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `textStyle`
+
+The styles for the button text.
+
+| Required | Type                                                         | Default                                                   |
+| -------- | ------------------------------------------------------------ | --------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "white" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button
+        textStyle={{
+          dark: {
+            color: 'white'
+          },
+          light: {
+            color: '#2D3748'
+          }
+        }}
+      />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `variant`
+
+The type of button to render.
+
+- `"regular"` - A regular looking button.
+- `"text"` - A button that looks like a text link.
+
+| Required | Type                  | Default     |
+| -------- | --------------------- | ----------- |
+| False    | `"regular" \| "text"` | `"regular"` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CtaActions>
+      <CookiesConsentModal.Button variant="text" />
+    </CookiesConsentModal.CtaActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.CookieActions />`
+
+The modal cookie actions container that gives the user control over their
+preferences, which can accept these custom components:
+
+- `<CookiesConsentModal.CookieAction />`
+
+#### `containerStyle`
+
+The styles for the container of the modal cookie actions.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions
+      containerStyle={{
+        dark: {
+          backgroundColor: '#2D3748'
+        },
+        light: {
+          backgroundColor: 'white'
+        }
+      }}
+    />
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.CookieAction />`
+
+The action to take in the modal that will perform a given action for a specific
+type of cookie category (e.g. turn off cookies for analytics).
+
+#### `containerStyle`
+
+The styles for the container of the action.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction
+        containerStyle={{
+          dark: {
+            backgroundColor: '#2D3748'
+          },
+          light: {
+            backgroundColor: 'white'
+          }
+        }}
+      />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `description`
+
+The description text to display.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| False    | `string` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction description="This is a description of the cookie preference." />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `descriptionStyle`
+
+The styles for the description text.
+
+| Required | Type                                                         | Default                                                     |
+| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction
+        descriptionStyle={{
+          dark: {
+            color: 'white'
+          },
+          light: {
+            color: '#2D3748'
+          }
+        }}
+      />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `onSwitchToggle`
+
+Handles what happens when the switch is toggled.
+
+| Required | Type                            | Default |
+| -------- | ------------------------------- | ------- |
+| False    | `(isSwitchOn: boolean) => void` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction
+        onSwitchToggle={(isSwitchOn) => console.log('is on:', isSwitchOn)}
+      />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `switchDisabled`
+
+Whether the switch is disabled.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `false` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction switchDisabled={true} />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `switchToggledOffColor`
+
+The color of the switch when it is off.
+
+| Required | Type     | Default    |
+| -------- | -------- | ---------- |
+| False    | `string` | `"#cbd5e0` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction switchToggledOffColor="#cbd5e0" />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `switchToggledOn`
+
+Whether the switch is toggled on by default.
+
+| Required | Type      | Default |
+| -------- | --------- | ------- |
+| False    | `boolean` | `true`  |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction switchToggledOn={false} />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `switchToggledOnColor`
+
+The color of the switch when it is on.
+
+| Required | Type     | Default    |
+| -------- | -------- | ---------- |
+| False    | `string` | `"#0082ba` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction switchToggledOnColor="#0082ba" />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `title`
+
+The title text to display.
+
+| Required | Type     | Default |
+| -------- | -------- | ------- |
+| True     | `string` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction title="Analytical Cookies" />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+#### `titleStyle`
+
+The styles for the title text.
+
+| Required | Type                                                         | Default                                                     |
+| -------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | `{ dark: { color: "white" }, light: { color: "#2D3748" } }` |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Body>
+    <CookiesConsentModal.CookieActions>
+      <CookiesConsentModal.CookieAction
+        titleStyle={{
+          dark: {
+            color: 'white'
+          },
+          light: {
+            color: '#2D3748'
+          }
+        }}
+      />
+    </CookiesConsentModal.CookieActions>
+  </CookiesConsentModal.Body>
+</CookiesConsentModal>
+```
+
+---
+
+### `<CookiesConsentModal.Footer />`
+
+The footer of the modal, which can accept these custom components:
+
+- `<CookiesConsentModal.Button />`
+
+#### `containerStyle`
+
+The styles for the container of the modal footer.
+
+| Required | Type                                                         | Default |
+| -------- | ------------------------------------------------------------ | ------- |
+| False    | `{ dark?: React.CSSProperties, light: React.CSSProperties }` | -       |
+
+#### Example
+
+```jsx
+<CookiesConsentModal>
+  <CookiesConsentModal.Footer
+    containerStyle={{
+      dark: {
+        backgroundColor: '#2D3748'
+      },
+      light: {
+        backgroundColor: 'white'
+      }
+    }}
+  />
+</CookiesConsentModal>
+```
+
+---
+
 ## Refs
 
 ### `<CookiesConsentAlert />`
@@ -992,7 +2033,7 @@ const alertRef = React.useRef<CookiesConsentAlertRef>(null);
 
 React.useEffect(() => {
   alertRef.current?.hide();
-}, [alertRef.current]);
+}, [alertRef]);
 
 function ExampleComponent() {
   return <CookiesConsentAlert ref={alertRef} />;
@@ -1018,14 +2059,66 @@ const alertRef = React.useRef<CookiesConsentAlertRef>(null);
 
 React.useEffect(() => {
   alertRef.current?.show();
-}, [alertRef.current]);
+}, [alertRef]);
 
 function ExampleComponent() {
   return <CookiesConsentAlert ref={alertRef} />;
 }
 ```
 
+---
+
 ### `<CookiesConsentModal />`
+
+#### `hide()`
+
+Hides the modal.
+
+#### Example
+
+```tsx
+import React from 'react';
+import {
+  CookiesConsentModal,
+  CookiesConsentModalRef
+} from '@caish-cloud/react-cookies-consent';
+
+const modalRef = React.useRef<CookiesConsentModalRef>(null);
+
+React.useEffect(() => {
+  modalRef.current?.hide();
+}, [modalRef]);
+
+function ExampleComponent() {
+  return <CookiesConsentModal ref={modalRef} />;
+}
+```
+
+---
+
+#### `show()`
+
+Shows the modal.
+
+#### Example
+
+```tsx
+import React from 'react';
+import {
+  CookiesConsentModal,
+  CookiesConsentModalRef
+} from '@caish-cloud/react-cookies-consent';
+
+const modalRef = React.useRef<CookiesConsentModalRef>(null);
+
+React.useEffect(() => {
+  modalRef.current?.show();
+}, [modalRef]);
+
+function ExampleComponent() {
+  return <CookiesConsentModal ref={modalRef} />;
+}
+```
 
 ## Troubleshooting
 

@@ -1,12 +1,9 @@
-import {
-  ModalFooter as ChakraUiModalFooter,
-  ModalFooterProps as ChakraUiModalFooterProps
-} from '@chakra-ui/react';
+import { ModalFooter as ChakraUiModalFooter } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
 
-export interface ModalFooterProps extends ChakraUiModalFooterProps {
+export type ModalFooterProps = {
   /**
    * The children of the modal footer.
    */
@@ -16,15 +13,13 @@ export interface ModalFooterProps extends ChakraUiModalFooterProps {
    * The styles for the container of the modal footer.
    */
   containerStyle?: ThemeStyles;
-}
+};
 
 /**
  * The footer of the modal.
  * @param props - The properties to pass to the component.
  */
 export function ModalFooter(props: ModalFooterProps) {
-  const { children, containerStyle, ...rest } = props;
-
   const store = useStore();
 
   /**
@@ -36,10 +31,10 @@ export function ModalFooter(props: ModalFooterProps) {
       ...defaultContainerStyle[store.modalTheme]
     };
 
-    if (containerStyle) {
+    if (props.containerStyle) {
       tempStyle = {
         ...tempStyle,
-        ...(containerStyle[store.modalTheme] ?? {})
+        ...(props.containerStyle[store.modalTheme] ?? {})
       };
     }
 
@@ -47,8 +42,8 @@ export function ModalFooter(props: ModalFooterProps) {
   }
 
   return (
-    <ChakraUiModalFooter {...rest} style={getContainerStyle()}>
-      {children}
+    <ChakraUiModalFooter style={getContainerStyle()}>
+      {props.children}
     </ChakraUiModalFooter>
   );
 }
