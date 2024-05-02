@@ -175,7 +175,7 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
               flex={1}
               initial={enterExitAnimationEnabled ? 'hidden' : 'disabled'}
               justifyContent={placement.split('-')[1]}
-              position="absolute"
+              position="fixed"
               transition={{
                 damping: 20,
                 duration: 0.5,
