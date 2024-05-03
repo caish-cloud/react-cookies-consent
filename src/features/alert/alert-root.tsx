@@ -193,6 +193,7 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
                 defaultStyle={defaultContainerStyle}
                 flexDirection={{ base: 'column', lg: 'row' }}
                 gap={4}
+                maxW="750px"
                 mx={{ base: 4, lg: placement !== 'bottom-center' ? 4 : 0 }}
                 padding={3}
                 theme={theme}
