@@ -80,19 +80,23 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
   ) => {
     const store = useStore();
 
-    // Update the store when the component mounts.
+    // Update the stored theme when the theme prop changes
+    React.useEffect(() => {
+      store.setAlertTheme(theme);
+    }, [theme]);
+
+    // Update the stored alert state when the appropriate props change
     React.useEffect(() => {
       store.setAlertDismissedLocalStorageKeyName(localStorageKeyName);
-      store.setAlertTheme(theme);
 
       // This needs to happen last since this is what will show/hide the alert
       store.setAlertDismissed(
         localStorage.getItem(localStorageKeyName) === 'true'
       );
-    }, []);
+    }, [localStorageKeyName]);
 
     // Create an imperative handle to handle actions the user can perform
-    // on the alert.
+    // on the alert
     React.useImperativeHandle(
       ref,
       () => ({
