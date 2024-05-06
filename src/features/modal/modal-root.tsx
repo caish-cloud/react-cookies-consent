@@ -106,10 +106,10 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
   ) => {
     const store = useStore();
 
-    // Set the theme in the store when the component mounts.
+    // Update the stored theme when the theme prop changes
     React.useEffect(() => {
       store.setModalTheme(theme);
-    }, []);
+    }, [theme]);
 
     // Create an imperative handle to handle actions the user can perform
     // on the modal.
