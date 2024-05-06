@@ -446,6 +446,22 @@ Whether the enter/exit animations for the alert is enabled.
 
 ---
 
+#### `localStorageKeyName`
+
+The key name for the local storage item that stores the alert dismissed state.
+
+| Required | Type     | Default                                   |
+| -------- | -------- | ----------------------------------------- |
+| False    | `string` | `"react-cookies-consent/alert-dismissed"` |
+
+#### Example
+
+```jsx
+<CookiesConsentAlert localStorageKeyName="my-test-key-name" />
+```
+
+---
+
 #### `placement`
 
 The placement of the alert on the screen.
