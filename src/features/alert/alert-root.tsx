@@ -3,6 +3,7 @@ import { AnimatePresence, Variants } from 'framer-motion';
 import React from 'react';
 import { Container } from '../../components/Container';
 import { MotionBox } from '../../components/MotionBox';
+import { LocalStorageKeys } from '../../constants/settings';
 import { Theme, ThemeStyles } from '../../constants/types';
 import { useStore } from '../../services/zustand/store';
 
@@ -43,6 +44,13 @@ export type AlertRootProps = {
   enterExitAnimationEnabled?: boolean;
 
   /**
+   * The key name for the local storage item that stores the alert dismissed
+   * state.
+   * @default 'react-cookies-consent/alert-dismissed'
+   */
+  localStorageKeyName?: string;
+
+  /**
    * The placement of the alert on the screen.
    * @default 'bottom-center'
    */
@@ -63,6 +71,7 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
     {
       enterExitAnimation = 'from-bottom',
       enterExitAnimationEnabled = true,
+      localStorageKeyName = LocalStorageKeys.AlertDismissed,
       placement = 'bottom-center',
       theme = 'light',
       ...props
@@ -71,9 +80,15 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
   ) => {
     const store = useStore();
 
-    // Set the theme in the store when the component mounts.
+    // Update the store when the component mounts.
     React.useEffect(() => {
+      store.setAlertDismissedLocalStorageKeyName(localStorageKeyName);
       store.setAlertTheme(theme);
+
+      // This needs to happen last since this is what will show/hide the alert
+      store.setAlertDismissed(
+        localStorage.getItem(localStorageKeyName) === 'true'
+      );
     }, []);
 
     // Create an imperative handle to handle actions the user can perform
