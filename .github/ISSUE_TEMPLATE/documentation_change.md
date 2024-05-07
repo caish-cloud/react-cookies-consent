@@ -3,7 +3,7 @@ name: Documentation change
 about: Make a change to the documentation.
 title: ''
 labels: documentation
-assignees: tcaish
+assignees: 'tcaish'
 
 ---
 
