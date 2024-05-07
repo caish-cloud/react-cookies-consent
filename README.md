@@ -143,7 +143,7 @@ function ExampleComponent() {
           onClick={() => {
             // Handle what happens when user rejects all cookies
           }}
-          regularButtonColor="#2D3748"
+          regularButtonColor={{ dark: '#718096', light: '#2D3748' }}
           shouldShowModal={true}
           text="Cookie settings"
         />
@@ -194,7 +194,7 @@ function ExampleComponent() {
           onClick={() => {
             // Handle what happens when user rejects all cookies
           }}
-          regularButtonColor="grey"
+          regularButtonColor={{ dark: '#718096', light: '#2D3748' }}
           shouldShowModal={true}
           text="Cookie settings"
         />
@@ -238,7 +238,7 @@ function ExampleComponent() {
             onClick={() => {
               // Handle what happens when user accepts all cookies
             }}
-            regularButtonColor="#2D3748"
+            regularButtonColor={{ dark: '#718096', light: '#2D3748' }}
             text="Accept all"
           />
 
@@ -246,7 +246,7 @@ function ExampleComponent() {
             onClick={() => {
               // Handle what happens when user rejects all cookies
             }}
-            regularButtonColor="#2D3748"
+            regularButtonColor={{ dark: '#718096', light: '#2D3748' }}
             text="Reject all"
           />
         </CookiesConsentModal.CtaActions>
@@ -323,7 +323,7 @@ function ExampleComponent() {
             onClick={() => {
               // Handle what happens when user accepts all cookies
             }}
-            regularButtonColor="grey"
+            regularButtonColor={{ dark: '#718096', light: '#2D3748' }}
             text="Accept all"
           />
 
@@ -331,7 +331,7 @@ function ExampleComponent() {
             onClick={() => {
               // Handle what happens when user rejects all cookies
             }}
-            regularButtonColor="grey"
+            regularButtonColor={{ dark: '#718096', light: '#2D3748' }}
             text="Reject all"
           />
         </CookiesConsentModal.CtaActions>
@@ -631,9 +631,9 @@ Handles what happens when the button is clicked.
 
 The color of the regular variant button.
 
-| Required | Type     | Default     |
-| -------- | -------- | ----------- |
-| False    | `string` | `"#0082ba"` |
+| Required | Type                               | Default                                 |
+| -------- | ---------------------------------- | --------------------------------------- |
+| False    | `{ dark?: string, light: string }` | `{ dark: "#0082ba", light: "#0082ba" }` |
 
 #### Example
 
@@ -641,7 +641,7 @@ The color of the regular variant button.
 <CookiesConsentAlert>
   <CookiesConsentAlert.Actions>
     <CookiesConsentAlert.Button
-      regularButtonColor="#0082ba"
+      regularButtonColor={{ dark: '#0082ba', light: '#0082ba' }}
       variant="regular"
     />
   </CookiesConsentAlert.Actions>
@@ -714,16 +714,19 @@ The text to display in the button.
 
 The color of the text variant button.
 
-| Required | Type     | Default     |
-| -------- | -------- | ----------- |
-| False    | `string` | `"#00a2e8"` |
+| Required | Type                               | Default                                 |
+| -------- | ---------------------------------- | --------------------------------------- |
+| False    | `{ dark?: string, light: string }` | `{ dark: "#00a2e8", light: "#00a2e8" }` |
 
 #### Example
 
 ```jsx
 <CookiesConsentAlert>
   <CookiesConsentAlert.Actions>
-    <CookiesConsentAlert.Button textButtonColor="#00a2e8" variant="text" />
+    <CookiesConsentAlert.Button
+      textButtonColor={{ dark: '#00a2e8', light: '#00a2e8' }}
+      variant="text"
+    />
   </CookiesConsentAlert.Actions>
 </CookiesConsentAlert>
 ```
@@ -1322,9 +1325,9 @@ Handles what happens when the button is clicked.
 
 The color of the regular variant button.
 
-| Required | Type     | Default     |
-| -------- | -------- | ----------- |
-| False    | `string` | `"#0082ba"` |
+| Required | Type                               | Default                                 |
+| -------- | ---------------------------------- | --------------------------------------- |
+| False    | `{ dark?: string, light: string }` | `{ dark: "#0082ba", light: "#0082ba" }` |
 
 #### Example
 
@@ -1333,7 +1336,7 @@ The color of the regular variant button.
   <CookiesConsentModal.Body>
     <CookiesConsentModal.CtaActions>
       <CookiesConsentModal.Button
-        regularButtonColor="#0082ba"
+        regularButtonColor={{ dark: '#0082ba', light: '#0082ba' }}
         variant="regular"
       />
     </CookiesConsentModal.CtaActions>
@@ -1413,9 +1416,9 @@ The text to display in the button.
 
 The color of the text variant button.
 
-| Required | Type     | Default     |
-| -------- | -------- | ----------- |
-| False    | `string` | `"#00a2e8"` |
+| Required | Type                               | Default                                 |
+| -------- | ---------------------------------- | --------------------------------------- |
+| False    | `{ dark?: string, light: string }` | `{ dark: "#00a2e8", light: "#00a2e8" }` |
 
 #### Example
 
@@ -1423,7 +1426,10 @@ The color of the text variant button.
 <CookiesConsentModal>
   <CookiesConsentModal.Body>
     <CookiesConsentModal.CtaActions>
-      <CookiesConsentModal.Button textButtonColor="#00a2e8" variant="text" />
+      <CookiesConsentModal.Button
+        textButtonColor={{ dark: '#00a2e8', light: '#00a2e8' }}
+        variant="text"
+      />
     </CookiesConsentModal.CtaActions>
   </CookiesConsentModal.Body>
 </CookiesConsentModal>
