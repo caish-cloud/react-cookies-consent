@@ -1,3 +1,15 @@
+export type ButtonThemeStyles = {
+  /**
+   * The dark theme color for the button.
+   */
+  dark?: string;
+
+  /**
+   * The light theme color for the button.
+   */
+  light: string;
+};
+
 export type Theme = 'dark' | 'light';
 
 export type ThemeStyles = {

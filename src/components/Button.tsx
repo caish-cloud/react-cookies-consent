@@ -1,5 +1,5 @@
 import React from 'react';
-import { Theme, ThemeStyles } from '../constants/types';
+import { ButtonThemeStyles, Theme, ThemeStyles } from '../constants/types';
 import { Container } from './Container';
 import { MotionBox } from './MotionBox';
 import { Text } from './Text';
@@ -29,9 +29,9 @@ export interface ButtonProps {
 
   /**
    * The color of the regular variant button.
-   * @default '#0082ba'
+   * @default { dark: '#0082ba', light: '#0082ba' }
    */
-  regularButtonColor?: string;
+  regularButtonColor?: ButtonThemeStyles;
 
   /**
    * The text to display in the button.
@@ -40,9 +40,9 @@ export interface ButtonProps {
 
   /**
    * The color of the text variant button.
-   * @default '#00a2e8'
+   * @default { dark: '#00a2e8', light: '#00a2e8' }
    */
-  textButtonColor?: string;
+  textButtonColor?: ButtonThemeStyles;
 
   /**
    * The styles for the button text.
@@ -69,14 +69,17 @@ export interface ButtonProps {
 export function Button({
   clickAnimationEnabled = true,
   hoverAnimationEnabled = true,
-  regularButtonColor = '#0082ba',
-  textButtonColor = '#00a2e8',
+  regularButtonColor = { dark: '#0082ba', light: '#0082ba' },
+  textButtonColor = { dark: '#00a2e8', light: '#00a2e8' },
   variant = 'regular',
   ...props
 }: ButtonProps) {
   // Common default styles for the button
   const commonContainerStyle__Regular: React.CSSProperties = {
-    backgroundColor: regularButtonColor
+    backgroundColor:
+      props.theme === 'dark'
+        ? regularButtonColor.dark
+        : regularButtonColor.light
   };
   const commonContainerStyle__Text: React.CSSProperties = {};
 
@@ -109,7 +112,8 @@ export function Button({
       };
     } else {
       const commonTextStyle: React.CSSProperties = {
-        color: textButtonColor
+        color:
+          props.theme === 'dark' ? textButtonColor.dark : textButtonColor.light
       };
 
       defaultTextStyle = {
