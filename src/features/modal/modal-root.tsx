@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Theme, ThemeStyles } from '../../constants/types';
+import { useModalShown, useModalTheme } from '../../services/zustand/hooks';
 import { useStore } from '../../services/zustand/store';
 
 export type ModalRootRef = {
@@ -104,6 +105,8 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
     },
     ref
   ) => {
+    const modalShown = useModalShown();
+    const modalTheme = useModalTheme();
     const store = useStore();
 
     // Update the stored theme when the theme prop changes
@@ -133,13 +136,13 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
      */
     function getCloseButtonStyle(): React.CSSProperties | undefined {
       let tempStyle: React.CSSProperties = {
-        ...defaultCloseButtonStyle[store.modalTheme]
+        ...defaultCloseButtonStyle[modalTheme]
       };
 
       if (props.closeButtonStyle) {
         tempStyle = {
           ...tempStyle,
-          ...(props.closeButtonStyle[store.modalTheme] ?? {})
+          ...(props.closeButtonStyle[modalTheme] ?? {})
         };
       }
 
@@ -152,13 +155,13 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
      */
     function getContainerStyle(): React.CSSProperties | undefined {
       let tempStyle: React.CSSProperties = {
-        ...defaultContainerStyle[store.modalTheme]
+        ...defaultContainerStyle[modalTheme]
       };
 
       if (props.containerStyle) {
         tempStyle = {
           ...tempStyle,
-          ...(props.containerStyle[store.modalTheme] ?? {})
+          ...(props.containerStyle[modalTheme] ?? {})
         };
       }
 
@@ -179,7 +182,7 @@ export const ModalRoot = React.forwardRef<ModalRootRef, ModalRootProps>(
       <ChakraProvider>
         <Modal
           isCentered={placement === 'center'}
-          isOpen={store.modalShown}
+          isOpen={modalShown}
           onClose={handleOnModalClose}
           size="xl"
         >

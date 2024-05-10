@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../../components/Container';
 import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { useAlertTheme } from '../../services/zustand/hooks';
 
 export type AlertContentProps = {
   /**
@@ -20,13 +20,13 @@ export type AlertContentProps = {
  * @param props - The properties to pass to the component.
  */
 export function AlertContent(props: AlertContentProps) {
-  const store = useStore();
+  const alertTheme = useAlertTheme();
 
   return (
     <Container
       flexDirection="column"
       flexGrow={1}
-      theme={store.alertTheme}
+      theme={alertTheme}
       userDefinedStyle={props.containerStyle}
     >
       {props.children}

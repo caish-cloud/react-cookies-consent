@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, ButtonProps } from '../../components/Button';
 import { ThemeStyles } from '../../constants/types';
+import { useAlertTheme } from '../../services/zustand/hooks';
 import { useStore } from '../../services/zustand/store';
 
 export interface AlertButtonProps extends Omit<ButtonProps, 'theme'> {
@@ -30,6 +31,7 @@ export function AlertButton(props: AlertButtonProps) {
     ...rest
   } = props;
 
+  const alertTheme = useAlertTheme();
   const store = useStore();
 
   /**
@@ -68,7 +70,7 @@ export function AlertButton(props: AlertButtonProps) {
       {...rest}
       containerStyle={getContainerStyle()}
       onClick={handleOnClick}
-      theme={store.alertTheme}
+      theme={alertTheme}
       variant={variant}
     />
   );

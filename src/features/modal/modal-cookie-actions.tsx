@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../../components/Container';
 import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { useModalTheme } from '../../services/zustand/hooks';
 
 export type ModalCookieActionsProps = {
   /**
@@ -21,7 +21,7 @@ export type ModalCookieActionsProps = {
  * @param props - The properties to pass to the component.
  */
 export function ModalCookieActions(props: ModalCookieActionsProps) {
-  const store = useStore();
+  const modalTheme = useModalTheme();
 
   return (
     <Container
@@ -29,7 +29,7 @@ export function ModalCookieActions(props: ModalCookieActionsProps) {
       gap={4}
       mb={4}
       mt={8}
-      theme={store.modalTheme}
+      theme={modalTheme}
       userDefinedStyle={props.containerStyle}
     >
       {props.children}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from '../../components/Container';
 import { Text } from '../../components/Text';
 import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { useModalTheme } from '../../services/zustand/hooks';
 
 export type ModalTextProps = {
   /**
@@ -26,13 +26,13 @@ export type ModalTextProps = {
  * @param props - The properties to pass to the component.
  */
 export function ModalText(props: ModalTextProps) {
-  const store = useStore();
+  const modalTheme = useModalTheme();
 
   return (
-    <Container theme={store.modalTheme} userDefinedStyle={props.containerStyle}>
+    <Container theme={modalTheme} userDefinedStyle={props.containerStyle}>
       <Text
         fontSize={{ base: 'sm', lg: 'md' }}
-        theme={store.modalTheme}
+        theme={modalTheme}
         userDefinedStyle={props.textStyle}
       >
         {props.text}
