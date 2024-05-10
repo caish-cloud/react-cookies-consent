@@ -5,6 +5,7 @@ import { Container } from '../../components/Container';
 import { MotionBox } from '../../components/MotionBox';
 import { LocalStorageKeys } from '../../constants/settings';
 import { Theme, ThemeStyles } from '../../constants/types';
+import { useAlertDismissed } from '../../services/zustand/hooks';
 import { useStore } from '../../services/zustand/store';
 
 export type AlertRootRef = {
@@ -78,6 +79,7 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
     },
     ref
   ) => {
+    const alertDismissed = useAlertDismissed();
     const store = useStore();
 
     // Update the stored theme when the theme prop changes
@@ -185,7 +187,7 @@ export const AlertRoot = React.forwardRef<AlertRootRef, AlertRootProps>(
     return (
       <ChakraProvider>
         <AnimatePresence>
-          {!store.alertDismissed && (
+          {!alertDismissed && (
             <MotionBox
               animate={enterExitAnimationEnabled ? 'visible' : 'disabled'}
               bottom={6}

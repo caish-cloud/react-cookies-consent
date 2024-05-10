@@ -1,7 +1,7 @@
 import { ModalBody as ChakraUiModalBody } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { useModalTheme } from '../../services/zustand/hooks';
 
 export type ModalBodyProps = {
   /**
@@ -20,7 +20,7 @@ export type ModalBodyProps = {
  * @param props - The properties to pass to the component.
  */
 export function ModalBody(props: ModalBodyProps) {
-  const store = useStore();
+  const modalTheme = useModalTheme();
 
   /**
    * Gets the styles for the modal body container based on the theme.
@@ -28,13 +28,13 @@ export function ModalBody(props: ModalBodyProps) {
    */
   function getContainerStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultContainerStyle[store.modalTheme]
+      ...defaultContainerStyle[modalTheme]
     };
 
     if (props.containerStyle) {
       tempStyle = {
         ...tempStyle,
-        ...(props.containerStyle[store.modalTheme] ?? {})
+        ...(props.containerStyle[modalTheme] ?? {})
       };
     }
 

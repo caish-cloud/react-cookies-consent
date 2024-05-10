@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, ButtonProps } from '../../components/Button';
 import { ThemeStyles } from '../../constants/types';
+import { useModalTheme } from '../../services/zustand/hooks';
 import { useStore } from '../../services/zustand/store';
 
 export interface ModalButtonProps extends Omit<ButtonProps, 'theme'> {
@@ -29,7 +30,7 @@ export function ModalButton(props: ModalButtonProps) {
     variant = 'regular',
     ...rest
   } = props;
-
+  const modalTheme = useModalTheme();
   const store = useStore();
 
   /**
@@ -67,7 +68,7 @@ export function ModalButton(props: ModalButtonProps) {
       {...rest}
       containerStyle={getContainerStyle()}
       onClick={handleOnClick}
-      theme={store.modalTheme}
+      theme={modalTheme}
       variant={variant}
     />
   );

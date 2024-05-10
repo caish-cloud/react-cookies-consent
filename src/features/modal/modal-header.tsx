@@ -1,7 +1,7 @@
 import { ModalHeader as ChakraUiModalHeader } from '@chakra-ui/react';
 import React from 'react';
 import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { useModalTheme } from '../../services/zustand/hooks';
 
 export type ModalHeaderProps = {
   /**
@@ -25,7 +25,7 @@ export type ModalHeaderProps = {
  * @param props - The properties to pass to the component.
  */
 export function ModalHeader(props: ModalHeaderProps) {
-  const store = useStore();
+  const modalTheme = useModalTheme();
 
   /**
    * Gets the styles for the modal header container and text based on the theme.
@@ -33,21 +33,21 @@ export function ModalHeader(props: ModalHeaderProps) {
    */
   function getContainerAndTextStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultContainerStyle[store.modalTheme],
-      ...defaultTextStyle[store.modalTheme]
+      ...defaultContainerStyle[modalTheme],
+      ...defaultTextStyle[modalTheme]
     };
 
     if (props.containerStyle) {
       tempStyle = {
         ...tempStyle,
-        ...(props.containerStyle[store.modalTheme] ?? {})
+        ...(props.containerStyle[modalTheme] ?? {})
       };
     }
 
     if (props.textStyle) {
       tempStyle = {
         ...tempStyle,
-        ...(props.textStyle[store.modalTheme] ?? {})
+        ...(props.textStyle[modalTheme] ?? {})
       };
     }
 

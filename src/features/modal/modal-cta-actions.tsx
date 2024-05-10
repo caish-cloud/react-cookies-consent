@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../../components/Container';
 import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { useModalTheme } from '../../services/zustand/hooks';
 
 export type ModalCtaActionsProps = {
   /**
@@ -21,13 +21,13 @@ export type ModalCtaActionsProps = {
  * @param props - The properties to pass to the component.
  */
 export function ModalCtaActions(props: ModalCtaActionsProps) {
-  const store = useStore();
+  const modalTheme = useModalTheme();
 
   return (
     <Container
       gap={2}
       my={2}
-      theme={store.modalTheme}
+      theme={modalTheme}
       userDefinedStyle={props.containerStyle}
     >
       {props.children}

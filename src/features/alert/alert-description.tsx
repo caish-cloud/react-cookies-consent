@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from '../../components/Container';
 import { Text } from '../../components/Text';
 import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { useAlertTheme } from '../../services/zustand/hooks';
 
 export type AlertDescriptionProps = {
   /**
@@ -26,13 +26,13 @@ export type AlertDescriptionProps = {
  * @param props - The properties to pass to the component.
  */
 export function AlertDescription(props: AlertDescriptionProps) {
-  const store = useStore();
+  const alertTheme = useAlertTheme();
 
   return (
-    <Container theme={store.alertTheme} userDefinedStyle={props.containerStyle}>
+    <Container theme={alertTheme} userDefinedStyle={props.containerStyle}>
       <Text
         fontSize={{ base: 'sm', lg: 'md' }}
-        theme={store.alertTheme}
+        theme={alertTheme}
         userDefinedStyle={props.textStyle}
       >
         {props.text}

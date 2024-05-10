@@ -2,7 +2,7 @@ import { Flex, Switch } from '@chakra-ui/react';
 import React from 'react';
 import { Text } from '../../components/Text';
 import { ThemeStyles } from '../../constants/types';
-import { useStore } from '../../services/zustand/store';
+import { useModalTheme } from '../../services/zustand/hooks';
 
 export type ModalCookieActionProps = {
   /**
@@ -73,7 +73,7 @@ export function ModalCookieAction({
   switchToggledOnColor = '#0082ba',
   ...props
 }: ModalCookieActionProps) {
-  const store = useStore();
+  const modalTheme = useModalTheme();
 
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
 
@@ -83,13 +83,13 @@ export function ModalCookieAction({
    */
   function getContainerStyle(): React.CSSProperties | undefined {
     let tempStyle: React.CSSProperties = {
-      ...defaultContainerStyle[store.modalTheme]
+      ...defaultContainerStyle[modalTheme]
     };
 
     if (props.containerStyle) {
       tempStyle = {
         ...tempStyle,
-        ...(props.containerStyle[store.modalTheme] ?? {})
+        ...(props.containerStyle[modalTheme] ?? {})
       };
     }
 
@@ -128,7 +128,7 @@ export function ModalCookieAction({
         <Text
           fontSize={{ base: 'sm', lg: 'md' }}
           fontWeight="semibold"
-          theme={store.modalTheme}
+          theme={modalTheme}
           userDefinedStyle={props.titleStyle}
         >
           {props.title}
@@ -138,7 +138,7 @@ export function ModalCookieAction({
           <Text
             fontSize={{ base: 'xs', lg: 'sm' }}
             userDefinedStyle={props.descriptionStyle}
-            theme={store.modalTheme}
+            theme={modalTheme}
           >
             {props.description}
           </Text>
