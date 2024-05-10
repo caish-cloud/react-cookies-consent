@@ -66,6 +66,7 @@ plan to!
   - [Troubleshooting](#troubleshooting)
   - [Contributing](#contributing)
   - [Built With](#built-with)
+  - [Versioning](#versioning)
   - [Authors](#authors)
   - [License](#license)
 
@@ -2147,6 +2148,10 @@ conduct and the process for submitting pull requests to us.
 
 The design concepts came from the implementation of BugSnag's cookies consent
 alert and modal. See it in action [here](https://docs.bugsnag.com).
+
+## Versioning
+
+We use [Semantic Versioning 2.0.0](https://semver.org).
 
 ## Authors
 
