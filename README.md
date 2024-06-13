@@ -65,6 +65,7 @@ plan to!
     - [`<CookiesConsentModal />`](#cookiesconsentmodal--1)
   - [Troubleshooting](#troubleshooting)
   - [Contributing](#contributing)
+  - [Learn More](#learn-more)
   - [Built With](#built-with)
   - [Versioning](#versioning)
   - [Authors](#authors)
@@ -2133,6 +2134,12 @@ saved their preferences and do not need to be shown the alert anymore.
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of
 conduct and the process for submitting pull requests to us.
+
+## Learn More
+
+If you want to learn more about cookie consent alerts and whether or not you need one,
+check out [this podcast episode](https://open.spotify.com/episode/5QXKqiADxBcBg11kDZvQ5b?si=JYgLbnYGRX2Mhm5loVJscQ)
+by Syntax and fast forward to 32:30.
 
 ## Built With
 
