@@ -4,6 +4,8 @@
 
 # react-cookies-consent
 
+> This package is deprecated. Please use at your own discretion!
+
 [npm_url]: https://www.npmjs.org/package/@caish-cloud/react-cookies-consent
 
 [![npm version](https://badge.fury.io/js/@caish-cloud%2Freact-cookies-consent.svg)][npm_url]
